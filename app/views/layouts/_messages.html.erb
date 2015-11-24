@@ -1,5 +1,5 @@
 <% flash.each do |name, msg| %>
-  <div class="<%= flash_class name %>">
+  <div class="<%= flash_class name %> mg-tp-10">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <%= content_tag :div, msg, :id => "flash_#{name}" %>
   </div>

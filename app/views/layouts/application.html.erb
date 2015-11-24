@@ -14,19 +14,17 @@
 		<%= image_tag("background.png", alt: "Rails logo") %>
 	</div>
 	
-
 	<%= render "layouts/header" %>
-
 	
 	<div class="container">
 		<div class="backg-cont">
-		<%= render 'layouts/messages' %>	
+			<%= render 'layouts/messages' %>	
 
-		<%= yield %>
+			<%= yield %>
 
-		<%= render 'layouts/footer' %>
-	
-		<%= debug(params) if Rails.env.development? %>
+			<%= render 'layouts/footer' %>
+		
+			<%= debug(params) if Rails.env.development? %>
 		</div>
 	</div>
 </div>
