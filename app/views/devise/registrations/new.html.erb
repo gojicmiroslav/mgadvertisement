@@ -7,31 +7,31 @@
       
       <%= devise_error_messages! %>
 
-      <div class="form-group">
-        <%= f.label :firstname %> <span class="text-danger">*</span><br />
+      <div class="form-group form-group-fixed">
+        <%= f.label :firstname, "Firstname: *" %> <br />
         <%= f.text_field :firstname, autofocus: true, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :lastname %> <span class="text-danger">*</span><br />
+        <%= f.label :lastname, "Lastname: *" %><br />
         <%= f.text_field :lastname, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :email %> <span class="text-danger">*</span><br />
+        <%= f.label :email, "Email: *" %><br />
         <%= f.email_field :email, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password %>
+        <%= f.label :password, "Password: *" %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %> <span class="text-danger">*</span><br />
+        <% end %><br />
         <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %> <span class="text-danger">*</span><br />
+        <%= f.label :password_confirmation, "Password confirmation: *" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
       </div>
 

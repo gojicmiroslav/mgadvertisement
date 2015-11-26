@@ -1,0 +1,10 @@
+<% provide(:title, @user.firstname) %>
+
+<h1>User: <%= @user.firstname + ' ' + @user.lastname %></h1>
+
+<div class="list-group">
+	<%= link_to "Add advertisement", '#', class: "list-group-item" %>
+	<%= link_to "Active advertisements", '#', class: "list-group-item" %>
+	<%= link_to "Inactive advertisements", '#', class: "list-group-item" %>
+	<%= link_to "Settings", edit_user_registration_path, class: "list-group-item" %>
+</div>
