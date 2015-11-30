@@ -13,7 +13,7 @@ RSpec.feature "User Register", :feature do
 	let(:valid_user) do
 		User.create(firstname: "Test",
 								lastname: "User",
-								email: "test@gmail.com",
+								email: Faker::Internet.email,
 								password: "password",
 								password_confirmation: "password")
 	end
@@ -178,19 +178,11 @@ RSpec.feature "User Register", :feature do
 	    txts = [I18n.t( 'devise.registrations.signed_up'), 
 	    				I18n.t( 'devise.registrations.signed_up_but_unconfirmed')]
 	    expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
+
+	    
 	  end
 
 	end
-
-	private
-
-	def sign_up(firstname, lastname, email, password, password_confirmation, link_button)
-		fill_in 'Firstname',  with: firstname
-		fill_in 'Lastname',  with: lastname
-		find('#new_user').find("input[id$='user_email']").set email
-		find('#new_user').find("input[id$='user_password']").set password
-		find('#new_user').find("input[id$='user_password_confirmation']").set password_confirmation
-		click_button link_button
-	end
+	
 
 end

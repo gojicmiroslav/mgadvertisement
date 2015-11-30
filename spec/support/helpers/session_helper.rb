@@ -1,12 +1,19 @@
 module Features
 	module SessionHelpers
 
-    def signin(email, password, remember_me = false)
+		def signin_login_page(email, password, remember_me = false)
 	    visit new_user_session_path
-	    fill_in 'Email', with: email
-	    fill_in 'Password', with: password
+	    find(".form-signin").find('#new_user').find("input[id$='user_email']").set email
+	    find(".form-signin").find('#new_user').find("input[id$='user_password']").set password
 	    check("Remember me") if remember_me
-	    click_button 'Log In'
+	    find(".form-signin").find('#new_user').find("input[type=submit]").click
+	  end
+
+	  def signin_front_page(email, password)
+	    visit new_user_session_path
+	    find(".navbar").find("input[id$='user_email']").set email
+	    find(".navbar").find("input[id$='user_password']").set password
+	    find(".navbar").find("input[type=submit]").click
 	  end
 
 	  def logged_as(user)

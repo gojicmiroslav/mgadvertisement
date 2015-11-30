@@ -23,8 +23,6 @@ gem 'bootstrap-will_paginate'
 group :development, :test do
   gem 'byebug'
   gem 'mocha'
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
   gem "show_me_the_cookies"
   gem 'rack_session_access'
 end
@@ -44,6 +42,8 @@ group :test do
   gem 'capybara-screenshot'
 	gem 'faker'
 	gem 'email_spec'
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
