@@ -107,7 +107,7 @@ RSpec.feature "User Register", :feature do
 			end
 		end
 
-		#---Invalid Email------------------------------------------------------------------
+		#---Invalid Password------------------------------------------------------------------
 		context "Invalid Password" do
 			scenario "empty Password" do
 				valid_user.password = ""

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Users Login", :device do
+RSpec.feature "Users Login", :feature do
 
 	#======INVALID LOGIN=========================================
 	context "INVALID DATA" do
