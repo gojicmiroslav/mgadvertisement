@@ -179,7 +179,27 @@ RSpec.feature "User Register", :feature do
 	    				I18n.t( 'devise.registrations.signed_up_but_unconfirmed')]
 	    expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
 
-	    
+	    # Try to login before activation
+	    signin_front_page(email, password)
+    	expect(page).to have_content(I18n.t("devise.failure.unconfirmed"))
+
+    	expect(unread_emails_for(email).count).to eq(1)
+
+    	open_email(email)
+    	expect(current_email).to have_body_text("You can confirm your account email through the link below")
+
+    	click_first_link_in_email
+
+    	expect(page).to have_content(I18n.t( 'devise.confirmations.confirmed'))
+    	expect(page).to have_content('Log In')
+
+    	signin_front_page(email, password)
+    	expect(page).to have_text("Logout")
+
+    	#Already confirmed email
+    	open_email(email)
+    	click_first_link_in_email
+    	expect(page).to have_content(I18n.t( 'errors.messages.already_confirmed'))
 	  end
 
 	end
