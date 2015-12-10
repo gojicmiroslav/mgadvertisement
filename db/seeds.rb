@@ -79,3 +79,4 @@ Category.create!(name: "Economy",
 								 							very popular during the Renaissance. The first line of Lorem Ipsum, 
 								 							Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.")
 
+Admin.create!(email: 'miroslavy2k@gmail.com', password: 'deronje777', password_confirmation: 'deronje777')

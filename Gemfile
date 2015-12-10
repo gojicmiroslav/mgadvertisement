@@ -20,6 +20,9 @@ gem 'mini_magick'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
+gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'cancancan', '~> 1.10'
+
 group :development, :test do
   gem 'byebug'
   gem 'mocha'
