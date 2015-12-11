@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209205701) do
+ActiveRecord::Schema.define(version: 20151210231709) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 20151209205701) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "categories_vehicle_brands", id: false, force: :cascade do |t|
+    t.integer "category_id",      limit: 4, null: false
+    t.integer "vehicle_brand_id", limit: 4, null: false
+  end
+
+  add_index "categories_vehicle_brands", ["category_id"], name: "index_categories_vehicle_brands_on_category_id", using: :btree
+  add_index "categories_vehicle_brands", ["vehicle_brand_id"], name: "index_categories_vehicle_brands_on_vehicle_brand_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "firstname",              limit: 255
     t.string   "lastname",               limit: 255
@@ -78,4 +86,12 @@ ActiveRecord::Schema.define(version: 20151209205701) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "vehicle_brands", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_foreign_key "categories_vehicle_brands", "categories"
+  add_foreign_key "categories_vehicle_brands", "vehicle_brands"
 end

@@ -5,4 +5,6 @@ RSpec.configure do |config|
 	    with.library :rails
 	  end
 	end
+
+	config.include(Shoulda::Matchers::ActiveModel, type: :model)
 end
