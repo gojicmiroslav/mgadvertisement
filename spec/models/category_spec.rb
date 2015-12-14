@@ -17,11 +17,13 @@ RSpec.describe Category, type: :model do
 
 		it "should be invalid with name equal empty string" do
 			@invalid_category.valid?
+			expect(@invalid_category.errors).not_to be_empty
 			expect(@invalid_category.errors.size).not_to eq(0)
 		end
 
 		it "should be invalid with no name" do
 			@another_invalid_category.valid?
+			expect(@another_invalid_category.errors).not_to be_empty
 			expect(@another_invalid_category.errors.size).not_to eq(0)
 		end
 

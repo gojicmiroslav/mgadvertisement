@@ -18,17 +18,19 @@ RSpec.describe VehicleBrand, type: :model do
 
 		it "should be invalid with name equal empty string" do
 			@invalid_vehicle_brand.valid?
+			expect(@invalid_vehicle_brand.errors).not_to be_empty
 			expect(@invalid_vehicle_brand.errors.size).not_to eq(0)
 		end
 
 		it "should be invalid with no name" do
 			@another_invalid_vehicle_brand.valid?
+			expect(@another_invalid_vehicle_brand.errors).not_to be_empty
 			expect(@another_invalid_vehicle_brand.errors.size).not_to eq(0)
 		end
 
-		it{ should validate_presence_of :name }
+		it { should validate_presence_of :name }
 	end
 
-	it{ should have_and_belong_to_many :categories }
+	it { should have_and_belong_to_many :categories }
 	it { have_many :vehicle_models }
 end
