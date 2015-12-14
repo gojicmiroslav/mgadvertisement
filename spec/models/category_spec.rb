@@ -28,5 +28,5 @@ RSpec.describe Category, type: :model do
 	end
 
 	it{ should have_and_belong_to_many :vehicle_brands }
-
+	it{ should have_many :vehicle_models }
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210231709) do
+ActiveRecord::Schema.define(version: 20151214105036) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -92,6 +92,19 @@ ActiveRecord::Schema.define(version: 20151210231709) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "vehicle_models", force: :cascade do |t|
+    t.string   "name",             limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "category_id",      limit: 4
+    t.integer  "vehicle_brand_id", limit: 4
+  end
+
+  add_index "vehicle_models", ["category_id"], name: "index_vehicle_models_on_category_id", using: :btree
+  add_index "vehicle_models", ["vehicle_brand_id"], name: "index_vehicle_models_on_vehicle_brand_id", using: :btree
+
   add_foreign_key "categories_vehicle_brands", "categories"
   add_foreign_key "categories_vehicle_brands", "vehicle_brands"
+  add_foreign_key "vehicle_models", "categories"
+  add_foreign_key "vehicle_models", "vehicle_brands"
 end
