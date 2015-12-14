@@ -12,6 +12,7 @@ RSpec.describe VehicleModel, type: :model do
 
 		it "should be valid" do
 			@vehicle_model.valid?
+			expect(@vehicle_model.errors).to be_empty
 			expect(@vehicle_model.errors.size).to eq(0)
 		end
 

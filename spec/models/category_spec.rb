@@ -11,6 +11,7 @@ RSpec.describe Category, type: :model do
 
 		it "should be valid" do
 			@category.valid?
+			expect(@category.errors).to be_empty
 			expect(@category.errors.size).to eq(0)
 		end
 

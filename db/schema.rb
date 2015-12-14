@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214105036) do
+ActiveRecord::Schema.define(version: 20151214123059) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 20151214105036) do
 
   add_index "categories_vehicle_brands", ["category_id"], name: "index_categories_vehicle_brands_on_category_id", using: :btree
   add_index "categories_vehicle_brands", ["vehicle_brand_id"], name: "index_categories_vehicle_brands_on_vehicle_brand_id", using: :btree
+
+  create_table "options", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "value",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "firstname",              limit: 255
