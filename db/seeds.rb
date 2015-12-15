@@ -626,3 +626,19 @@ vm.save
 AdvertisementType.create!(name: "New")
 AdvertisementType.create!(name: "Used")
 
+# OPTIONS
+
+# STYLES
+Style.create!(new: "AWD/4WD")
+Style.create!(new: "Commercial")
+Style.create!(new: "Convertible")
+Style.create!(new: "Coupe")
+Style.create!(new: "Hatchback")
+Style.create!(new: "Hybrid/Electric")
+Style.create!(new: "Luxury")
+Style.create!(new: "Sedan")
+Style.create!(new: "SUV/Crossover")
+Style.create!(new: "Truck")
+Style.create!(new: "Van/Minivan")
+Style.create!(new: "Wagon")
+

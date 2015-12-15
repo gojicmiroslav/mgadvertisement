@@ -5,10 +5,9 @@ RSpec.describe Option, type: :model do
 	context "validation" do
 
 		before do
-			@option = Option.new(name: "Valid Name", value: "Valid Value")
-			@invalid_option_1 = Option.new(name: "Valid Name", value: "")
-			@invalid_option_2 = Option.new(name: "", value: "Value")
-			@invalid_option_3 = Option.new()
+			@option = Option.new(name: "Valid Name")
+			@invalid_option_1 = Option.new(name: "")
+			@invalid_option_2 = Option.new()
 		end
 
 		it "should be valid" do
@@ -23,20 +22,13 @@ RSpec.describe Option, type: :model do
 			expect(@invalid_option_1.errors.size).not_to eq(0)
 		end
 
-		it "should be invalid with value equal empty string" do
+		it "should be invalid with no name" do
 			@invalid_option_2.valid?
 			expect(@invalid_option_2.errors).not_to be_empty
 			expect(@invalid_option_2.errors.size).not_to eq(0)
 		end
 
-		it "should be invalid with no name and value" do
-			@invalid_option_3.valid?
-			expect(@invalid_option_3.errors).not_to be_empty
-			expect(@invalid_option_3.errors.size).not_to eq(0)
-		end
-
 		it{ should validate_presence_of :name }
-		it{ should validate_presence_of :value }
 	end
 
 	
