@@ -1,22 +1,17 @@
 ActiveAdmin.register Category do
 
-	permit_params :name, :description, vehicle_brands: []
+	permit_params :name, :description, vehicle_brand_ids: []
 
-	index do
-		selectable_column
-		id_column
-		column :name
-		column("Vehicle Brands") do |category|
-			category.vehicle_brands
-		end
-	end
+	#eager loading
+	includes :vehicle_brands
 
 	form do |f|
     f.inputs do
       f.input :name, label: "Category Name"
-      f.input :vehicle_brands, as: :check_boxes, collection: VehicleBrand.all
+      f.input :vehicle_brand_ids, as: :check_boxes, collection: VehicleBrand.all
     end
     f.actions
+    
   end
 
 end
