@@ -693,3 +693,7 @@ Color.create!(name: "Tan")
 Color.create!(name: "Turquoise")
 Color.create!(name: "White")
 Color.create!(name: "Yellow")
+
+AirCondition.create!(name: "Automatic")
+AirCondition.create!(name: "Manual")
+AirCondition.create!(name: "None")
