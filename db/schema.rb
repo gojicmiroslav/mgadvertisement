@@ -54,17 +54,22 @@ ActiveRecord::Schema.define(version: 20151223001505) do
   end
 
   create_table "advertisements", force: :cascade do |t|
-    t.string   "title",                 limit: 255,   default: "", null: false
+    t.string   "title",                 limit: 255,                           default: "", null: false
     t.text     "description",           limit: 65535
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.decimal  "price",                               precision: 7, scale: 3,              null: false
+    t.date     "year",                                                                     null: false
+    t.integer  "capacity",              limit: 4,                                          null: false
+    t.integer  "power",                 limit: 4,                                          null: false
+    t.decimal  "mileage",                             precision: 9, scale: 3
+    t.datetime "created_at",                                                               null: false
+    t.datetime "updated_at",                                                               null: false
     t.integer  "fuel_id",               limit: 4
     t.integer  "style_id",              limit: 4
     t.integer  "air_condition_id",      limit: 4
     t.integer  "exterior_color_id",     limit: 4
     t.integer  "interior_color_id",     limit: 4
-    t.integer  "drive_id",              limit: 4
     t.integer  "engine_id",             limit: 4
+    t.integer  "drive_id",              limit: 4
     t.integer  "transmission_id",       limit: 4
     t.integer  "category_id",           limit: 4
     t.integer  "vehicle_model_id",      limit: 4

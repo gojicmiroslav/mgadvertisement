@@ -31,5 +31,5 @@ RSpec.describe AdvertisementType, type: :model do
 		it { should validate_presence_of :name }
 	end
 
-
+	it { should have_many :advertisements }
 end

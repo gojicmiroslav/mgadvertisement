@@ -5,6 +5,24 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Advertisement.destroy_all
+Style.destroy_all
+Transmission.destroy_all
+Fuel.destroy_all
+Drive.destroy_all
+Style.destroy_all
+Color.destroy_all
+Engine.destroy_all
+AirCondition.destroy_all
+VehicleModel.destroy_all
+Category.destroy_all
+VehicleBrand.destroy_all
+Admin.destroy_all
+User.destroy_all
+AdvertisementType.destroy_all
+
+
 # Users
 User.create!(	firstname: "Miroslav",
 							lastname: "Gojic",
@@ -698,11 +716,11 @@ AirCondition.create!(name: "Automatic")
 AirCondition.create!(name: "Manual")
 AirCondition.create!(name: "None")
 
-Option.create!(name: "Price")
-Option.create!(name: "Year")
-Option.create!(name: "Mileage")
-Option.create!(name: "Capacity(cm3)")
-Option.create!(name: "Power(kW)")
+#Option.create!(name: "Price")
+#Option.create!(name: "Year")
+#Option.create!(name: "Mileage")
+#Option.create!(name: "Capacity(cm3)")
+#Option.create!(name: "Power(kW)")
 Option.create!(name: "3rd Row Seats")
 Option.create!(name: "Backup Camera")
 Option.create!(name: "Cruise Control")
@@ -724,3 +742,52 @@ Option.create!(name: "Sunroof")
 Option.create!(name: "Disability Equipped")
 Option.create!(name: "Lift Kit")
 Option.create!(name: "Trailer Hitch")
+
+ad1 = Advertisement.create!(title: "2010 BMW 530 D GT", description: "", price: 25.999, year: DateTime.strptime("09/14/2009", "%m/%d/%Y"),
+											capacity: 2000, power: 2500, mileage: 192.333, created_at: Time.zone.now, updated_at: Time.zone.now,
+											fuel: Fuel.first, style: Style.first, air_condition: AirCondition.first, exterior_color: Color.first,
+											interior_color: Color.first, engine: Engine.first, drive: Drive.first, transmission: Transmission.first,
+											category: Category.first, vehicle_model: VehicleModel.first, user: User.first, advertisement_type: AdvertisementType.first)
+
+# Options
+ad1.options << Option.find_by(name: "3rd Row Seats")
+ad1.options << Option.find_by(name: "Backup Camera")
+ad1.options << Option.find_by(name: "Power Locks")
+ad1.options << Option.find_by(name: "Bluetooth(Hands-Free)")
+ad1.options << Option.find_by(name: "CD Player")
+ad1.options << Option.find_by(name: "DVD Player")
+ad1.options << Option.find_by(name: "Navigation")
+ad1.options << Option.find_by(name: "Premium Audio")
+ad1.options << Option.find_by(name: "Security System")
+ad1.options << Option.find_by(name: "Trailer Hitch")
+ad1.save
+
+
+
+ad2 = Advertisement.create!(title: "2010 BMW X1 2.0 Navi/xDrive", description: "Some description", price: 14.000, year: DateTime.strptime("01/01/2000", "%m/%d/%Y"),
+											capacity: 1800, power: 2000, mileage: 200.000, created_at: Time.zone.now, updated_at: Time.zone.now,
+											fuel: Fuel.first, style: Style.first, air_condition: AirCondition.first, exterior_color: Color.first,
+											interior_color: Color.first, engine: Engine.first, drive: Drive.first, transmission: Transmission.first,
+											category: Category.first, vehicle_model: VehicleModel.first, user: User.first, advertisement_type: AdvertisementType.first)
+
+# Options
+ad2.options << Option.find_by(name: "3rd Row Seats")
+ad2.options << Option.find_by(name: "Backup Camera")
+ad2.options << Option.find_by(name: "Power Locks")
+ad2.options << Option.find_by(name: "Bluetooth(Hands-Free)")
+ad2.options << Option.find_by(name: "CD Player")
+ad2.options << Option.find_by(name: "DVD Player")
+ad2.options << Option.find_by(name: "Navigation")
+ad2.options << Option.find_by(name: "Premium Audio")
+ad2.options << Option.find_by(name: "Security System")
+ad2.options << Option.find_by(name: "Trailer Hitch")
+ad2.options << Option.find_by(name: "Power Windows")
+ad2.options << Option.find_by(name: "Lift Kit")
+ad2.options << Option.find_by(name: "Sunroof")
+ad2.options << Option.find_by(name: "Leather Seats")
+ad2.options << Option.find_by(name: "Heated Seats")
+ad2.options << Option.find_by(name: "Portable Audio Connection")
+ad2.options << Option.find_by(name: "Steering Wheel Controls")
+ad2.save
+
+

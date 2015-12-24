@@ -31,5 +31,5 @@ RSpec.describe Option, type: :model do
 		it{ should validate_presence_of :name }
 	end
 
-	
+	it { should have_and_belong_to_many :advertisements }
 end
