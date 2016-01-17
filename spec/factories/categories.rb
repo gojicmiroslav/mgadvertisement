@@ -20,4 +20,14 @@ FactoryGirl.define do
 		description "Test category Description"
 	end
 
+	factory :cars, parent: :category do
+		name "Cars"
+		description "Cars category Description"
+	end
+
+	factory :trucks, parent: :category do
+		name "Trucks"
+		description "Trucks category Description"
+	end
+
 end

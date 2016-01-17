@@ -22,6 +22,7 @@ gem 'bootstrap-will_paginate'
 
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'cancancan', '~> 1.10'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'byebug'
@@ -47,6 +48,7 @@ group :test do
 	gem 'email_spec'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

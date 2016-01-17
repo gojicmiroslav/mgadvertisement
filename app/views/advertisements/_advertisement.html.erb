@@ -1,0 +1,15 @@
+<tr>
+	<td><%= advertisement.title %></td>
+	<td><i><%= advertisement.category.name %></i></td>
+	<td><%= advertisement.created_at %></td>
+	<td>
+		<%= link_to "View",   advertisement_path(advertisement), class: "btn btn-primary" %> </td>
+	<td>	
+		<%= link_to "Edit",   edit_advertisement_path(advertisement), class: "btn btn-primary" %> </td>
+	<td>
+		<%= link_to "Delete", advertisement, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %> 
+	</td>
+</tr>
+
+
+

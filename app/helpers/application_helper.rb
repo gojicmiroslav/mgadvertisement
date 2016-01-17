@@ -16,6 +16,8 @@ module ApplicationHelper
   			'alert alert-success'
   		when 'alert'
   			'alert alert-danger'
+      when 'success'
+        'alert alert-success'
   		else	
   			type
   		end

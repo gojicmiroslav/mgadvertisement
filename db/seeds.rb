@@ -742,6 +742,117 @@ Option.create!(name: "Sunroof")
 Option.create!(name: "Disability Equipped")
 Option.create!(name: "Lift Kit")
 Option.create!(name: "Trailer Hitch")
+Option.create!(name: "Back Break")
+Option.create!(name: "Hands Break") 
+Option.create!(name: "Lights") 
+
+# CategoryOption
+c = Category.find_by(name: "Cars")
+o = Option.find_by(name: "3rd Row Seats")
+c.options <<  o
+o = Option.find_by(name: "Backup Camera")
+c.options <<  o
+o = Option.find_by(name: "Cruise Control")
+c.options <<  o
+o = Option.find_by(name: "Keyless Entry")
+c.options <<  o
+o = Option.find_by(name: "Power Locks")
+c.options <<  o
+o = Option.find_by(name: "Power Windows")
+c.options <<  o
+o = Option.find_by(name: "Steering Wheel Controls")
+c.options <<  o
+o = Option.find_by(name: "Bluetooth(Hands-Free)")
+c.options <<  o
+o = Option.find_by(name: "CD Player")
+c.options <<  o
+o = Option.find_by(name: "DVD Player")
+c.options <<  o
+o = Option.find_by(name: "Navigation")
+c.options <<  o
+o = Option.find_by(name: "Portable Audio Connection")
+c.options <<  o
+o = Option.find_by(name: "Premium Audio")
+c.options <<  o
+o = Option.find_by(name: "Security System")
+c.options <<  o
+o = Option.find_by(name: "Heated Seats")
+c.options <<  o
+o = Option.find_by(name: "Leather Seats")
+c.options <<  o
+o = Option.find_by(name: "Sunroof")
+c.options <<  o
+o = Option.find_by(name: "Premium Wheels")
+c.options <<  o
+o = Option.find_by(name: "Disability Equipped")
+c.options <<  o
+o = Option.find_by(name: "Lift Kit")
+c.options <<  o
+o = Option.find_by(name: "Trailer Hitch")
+c.options <<  o
+c.save
+
+c = Category.find_by(name: "Trucks")
+o = Option.find_by(name: "Backup Camera")
+c.options <<  o
+o = Option.find_by(name: "Cruise Control")
+c.options <<  o
+o = Option.find_by(name: "Keyless Entry")
+c.options <<  o
+o = Option.find_by(name: "Power Locks")
+c.options <<  o
+o = Option.find_by(name: "Power Windows")
+c.options <<  o
+o = Option.find_by(name: "Steering Wheel Controls")
+c.options <<  o
+o = Option.find_by(name: "Bluetooth(Hands-Free)")
+c.options <<  o
+o = Option.find_by(name: "CD Player")
+c.options <<  o
+o = Option.find_by(name: "DVD Player")
+c.options <<  o
+o = Option.find_by(name: "Navigation")
+c.options <<  o
+o = Option.find_by(name: "Portable Audio Connection")
+c.options <<  o
+o = Option.find_by(name: "Premium Audio")
+c.options <<  o
+o = Option.find_by(name: "Security System")
+c.options <<  o
+o = Option.find_by(name: "Heated Seats")
+c.options <<  o
+o = Option.find_by(name: "Leather Seats")
+c.options <<  o
+o = Option.find_by(name: "Sunroof")
+c.options <<  o
+o = Option.find_by(name: "Premium Wheels")
+c.options <<  o
+o = Option.find_by(name: "Disability Equipped")
+c.options <<  o
+o = Option.find_by(name: "Lift Kit")
+c.options <<  o
+o = Option.find_by(name: "Trailer Hitch")
+c.options <<  o
+c.save
+
+c = Category.find_by(name: "Bicycles")
+o = Option.find_by(name: "Navigation")
+c.options <<  o
+o = Option.find_by(name: "Security System")
+c.options <<  o
+o = Option.find_by(name: "Heated Seats")
+c.options <<  o
+o = Option.find_by(name: "Leather Seats")
+c.options <<  o
+o = Option.find_by(name: "Premium Wheels")
+c.options <<  o
+o = Option.find_by(name: "Lights")
+c.options <<  o
+o = Option.find_by(name: "Back Break")
+c.options <<  o
+o = Option.find_by(name: "Hands Break")
+c.options <<  o
+c.save
 
 ad1 = Advertisement.create!(title: "2010 BMW 530 D GT", description: "", price: 25.999, year: DateTime.strptime("09/14/2009", "%m/%d/%Y"),
 											capacity: 2000, power: 2500, mileage: 192.333, created_at: Time.zone.now, updated_at: Time.zone.now,

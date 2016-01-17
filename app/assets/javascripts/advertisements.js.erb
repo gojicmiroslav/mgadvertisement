@@ -1,0 +1,204 @@
+
+jQuery( "#datepicker" ).datepicker({
+  showOn: "button",
+  buttonImage: "/images/calendar.gif",
+  buttonImageOnly: true,
+  buttonText: "Select date",
+  dateFormat: "yy-mm-dd"
+});
+
+//ovo u poseban fajl
+(function($){
+
+	$.fn.visible = function(){
+		return $(this).css('visibility', 'hidden');
+	};
+
+	$.fn.invisible = function(){
+		return $(this).css('visibility', 'visible');
+	};
+
+	$.fn.visibilityToggle = function(){
+		return $(this).css('visibility', function(){
+			return (visiblity === 'visible') ? 'hidden' : 'visible';
+		});
+	};
+
+}(jQuery));
+
+var category_id = jQuery("#categories option:selected").val();
+var error_explanation = jQuery('#error_explanation');
+console.log(error_explanation === true);
+
+if(category_id === "") {
+	//jQuery("#show-form").hide();
+	//jQuery("#form-message").show();
+
+	jQuery("#show-form").invisible().hide();
+	jQuery("#form-message").show();
+} else {
+	//jQuery("#form-message").hide();
+	//jQuery("#show-form").show();
+
+	jQuery("#show-form").visible().show();
+	jQuery("#form-message").invisible().hide();
+}
+
+//=======START on categories change callback===================//
+jQuery("#categories").on('change', function(){
+	var category_id = jQuery("#categories option:selected").val();
+	var vb_select = jQuery("#vehicle_brands");
+	var vm_select = jQuery("#vm_select");
+	var vehicle_brand_id = jQuery("#vehicle_brands option:selected").val();
+
+	jQuery('#options').empty();
+
+	if(category_id === ""){
+		jQuery(".start-message").show();	
+		jQuery("#show-form").hide();	
+		jQuery('option', vb_select).remove();
+		jQuery('option', vm_select).remove();
+		
+	} else {
+		jQuery(".start-message").hide();	
+		jQuery('option', vm_select).remove();
+
+		//get all brands for this category
+		jQuery.ajax({
+  		type: 'GET',
+  		url: '/vehicle_brands',
+  		data: { id: category_id },
+  		dataType: 'json',
+		  statusCode: {
+					404: function() {
+  				console.log( "404: page not found" );
+				}
+			}
+
+  	}).done(function(data){
+  		jQuery('option', vb_select).remove();
+
+  		if(data.length > 0){
+  			vb_select.append("<option>Select...</option>");
+  			data.forEach(function(obj, index, array){
+  				var option = '<option value="'+obj.id+'">'+obj.name+'</option>';
+        	vb_select.append(option);
+  			});
+  		}
+
+  	}).fail(function(jqXHR, textStatus){
+  		console.log("Request failed: " + textStatus);
+  	});
+
+		//get all option for this category
+		jQuery.ajax({
+			type: 'GET',
+			url: '/options',
+			data: { id: category_id },
+			dataType: 'json',
+		  statusCode: {
+					404: function() {
+					console.log( "404: page not found" );
+				}
+			}
+
+		}).done(function(data){
+ 
+			var html = "";		
+			var $divOptions = jQuery("#options");
+
+			if(data.length > 0){
+				//TODO: ubaciti ucitavanje - log slicicu
+				data.forEach(function(obj, index, array){								
+					if(index % 4 === 0) {
+							html += "<div class='form-group' ><div class='row' >";
+							html += "<div class='col-sm-3'>";
+							html += "<div class='checkbox'>" +
+											"<label>" +
+											"<input type='checkbox' name='" + obj.name + "' id='" + obj.id + "' value='" + obj.name +"'/>" +
+												obj.name +
+											"</label>" +
+											"</div>";
+							html += "</div>";
+
+					} else if(index % 4 === 3) {
+							html += "<div class='col-sm-3'>";
+							html += "<div class='checkbox'>" +
+											"<label>" +
+											"<input type='checkbox' name='" + obj.name + "' id='" + obj.id + "' value='" + obj.name +"'/>" +
+												obj.name +
+											"</label>" +
+											"</div>";
+							html += "</div>";						
+							html += "</div></div>";					
+
+				  } else {
+							html += "<div class='col-sm-3'>";
+							html += "<div class='checkbox'>" +
+											"<label>" +
+											"<input type='checkbox' name='" + obj.name + "' id='" + obj.id + "' value='" + obj.name +"'/>" +
+												obj.name +
+											"</label>" +
+											"</div>";
+							html += "</div>";
+					}
+				});
+		  }
+
+		  $divOptions.append(html);
+
+		}).fail(function(jqXHR, textStatus){
+			console.log("Request failed: " + textStatus);
+		});	
+
+		jQuery("#show-form").show();	
+	}
+});
+//=======END on categories change callback===================//
+
+
+//=======START on vb_select change callback===================//
+jQuery("#vehicle_brands").on('change', function(){ 
+	var vehicle_brand_id = jQuery("#vehicle_brands option:selected").val();
+	var category_id = jQuery("#categories option:selected").val();
+	var vm_select = jQuery("#vm_select");
+
+	if(vehicle_brand_id !== ""){	    	
+  	jQuery.ajax({
+  		type: 'GET',
+  		url: '/vehicle_models',
+  		data: { id: vehicle_brand_id, category_id: category_id },
+  		dataType: 'json',
+		  statusCode: {
+					404: function() {
+  				console.log( "404: page not found" );
+				}
+			}
+
+  	}).done(function(data){
+  		//enable select
+  		if(vm_select.attr("disabled")){
+  			vm_select.removeAttr("disabled");
+  		}
+
+  		jQuery('option', vm_select).remove();
+
+  		if(data.length > 0){
+  			vm_select.append("<option>Select...</option>");
+  			data.forEach(function(obj, index, array){
+  				var option = '<option value="'+obj.id+'">'+obj.name+'</option>';
+        	vm_select.append(option);
+  			});
+  	  }
+
+  	}).fail(function(jqXHR, textStatus){
+  		console.log("Request failed: " + textStatus);
+  	});
+  
+  } else {
+  	jQuery('option', vm_select).remove();
+  	//jQuery('#option').remove();
+  	vm_select.attr("disabled", "disabled");
+  }
+})
+//=======END on vb_select change callback===================//

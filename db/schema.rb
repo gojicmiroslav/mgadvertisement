@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223001505) do
+ActiveRecord::Schema.define(version: 20151228220308) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -110,6 +110,14 @@ ActiveRecord::Schema.define(version: 20151223001505) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "categories_options", id: false, force: :cascade do |t|
+    t.integer "category_id", limit: 4, null: false
+    t.integer "option_id",   limit: 4, null: false
+  end
+
+  add_index "categories_options", ["category_id"], name: "index_categories_options_on_category_id", using: :btree
+  add_index "categories_options", ["option_id"], name: "index_categories_options_on_option_id", using: :btree
 
   create_table "categories_vehicle_brands", id: false, force: :cascade do |t|
     t.integer "category_id",      limit: 4, null: false
@@ -219,6 +227,8 @@ ActiveRecord::Schema.define(version: 20151223001505) do
   add_foreign_key "advertisements", "vehicle_models", on_update: :cascade, on_delete: :cascade
   add_foreign_key "advertisements_options", "advertisements"
   add_foreign_key "advertisements_options", "options"
+  add_foreign_key "categories_options", "categories"
+  add_foreign_key "categories_options", "options"
   add_foreign_key "categories_vehicle_brands", "categories"
   add_foreign_key "categories_vehicle_brands", "vehicle_brands"
   add_foreign_key "vehicle_models", "categories"

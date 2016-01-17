@@ -1,0 +1,29 @@
+<% provide(:title, "All Advertisements") %>
+
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class="list-group">
+  		<h3>Yours Advertisements</h3>
+  		<br />
+      <%= link_to "New Advertisement", new_advertisement_path, class: "btn btn-primary" %> </td>
+      <hr />
+			<div class="table-responsive">
+  			<table class="table table-striped table-hover">
+  				<thead>
+  					<tr>
+  						<th>Title</th>
+  						<th>Category</th>
+  						<th>Date</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+    				<%= render @advertisements %>
+    			</tbody>
+  			</table>
+			</div>
+		</div>
+</div>
+</div>
+
+
+

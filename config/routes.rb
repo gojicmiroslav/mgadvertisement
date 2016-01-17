@@ -8,5 +8,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => :registrations }
   resources :users, only: :show
-
+  resources :advertisements
+  resources :vehicle_models
+  resources :vehicle_brands
+  resources :options
 end

@@ -32,4 +32,5 @@ RSpec.describe Option, type: :model do
 	end
 
 	it { should have_and_belong_to_many :advertisements }
+	it { should have_and_belong_to_many :categories }
 end

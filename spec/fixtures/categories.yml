@@ -1,0 +1,11 @@
+cars:
+ name: Cars
+ description: Cars category description
+
+trucks:
+ name: Trucks
+ description: Trucks category description
+
+bicycles:
+ name: Bicycles
+ description: Bicycles category description
