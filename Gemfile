@@ -49,6 +49,8 @@ group :test do
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'selenium-webdriver'
+  gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

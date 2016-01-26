@@ -1,0 +1,15 @@
+opel:
+ name: Opel
+ categories: cars
+
+volkswagen:
+ name: Volkswagen
+ categories: cars, trucks
+
+mercedes:
+ name: Mercedes
+ categories: cars, trucks
+
+renault:
+ name: Renault
+ categories: cars, bicycles
