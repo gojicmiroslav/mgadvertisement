@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+
   devise_for :admins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'static_pages#home'
@@ -12,4 +14,10 @@ Rails.application.routes.draw do
   resources :vehicle_models
   resources :vehicle_brands
   resources :options
+
+  resources :categories, only: :index do
+    member do
+      get "options", to: "categories#options"
+    end
+  end
 end

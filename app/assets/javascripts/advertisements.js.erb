@@ -1,5 +1,5 @@
 
-jQuery( "#datepicker" ).datepicker({
+jQuery( "#advertisement_year" ).datepicker({
   showOn: "button",
   buttonImage: "/images/calendar.gif",
   buttonImageOnly: true,
@@ -25,6 +25,16 @@ jQuery( "#datepicker" ).datepicker({
 	};
 
 }(jQuery));
+
+jQuery.ajaxSetup({
+  beforeSend: function(xhr) {
+    $('#spinner').show();
+  },
+  // runs after AJAX requests complete, successfully or not
+  complete: function(xhr, status){
+    $('#spinner').hide();
+  }
+});
 
 var category_id = jQuery("#categories option:selected").val();
 var error_explanation = jQuery('#error_explanation');
@@ -55,15 +65,16 @@ jQuery("#categories").on('change', function(){
 
 	if(category_id === ""){
 		jQuery(".start-message").show();	
-		jQuery("#show-form").hide();	
+		jQuery("#show-form").invisible().hide();	
 		jQuery('option', vb_select).remove();
 		jQuery('option', vm_select).remove();
 		
 	} else {
-		jQuery(".start-message").hide();	
+		jQuery(".start-message").invisible().hide();	
 		jQuery('option', vm_select).remove();
 
 		//get all brands for this category
+		console.log("category ID: " + category_id);
 		jQuery.ajax({
   		type: 'GET',
   		url: '/vehicle_brands',
@@ -91,9 +102,10 @@ jQuery("#categories").on('change', function(){
   	});
 
 		//get all option for this category
+		console.log("/categories/" + category_id + "/options");
 		jQuery.ajax({
 			type: 'GET',
-			url: '/options',
+			url: "/categories/" + category_id + "/options",
 			data: { id: category_id },
 			dataType: 'json',
 		  statusCode: {

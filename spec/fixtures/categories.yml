@@ -1,11 +1,17 @@
 cars:
  name: Cars
  description: Cars category description
+ vehicle_brands: opel, volkswagen, mercedes, renault
+ options: navigation, cd_player, dvd_player, sunroof, power_locks
 
 trucks:
  name: Trucks
  description: Trucks category description
+ vehicle_brands: volkswagen, mercedes
+ options: navigation, cd_player, dvd_player, power_locks, heated_seats
 
 bicycles:
  name: Bicycles
  description: Bicycles category description
+ vehicle_brands: renault
+ options: back_break, lights

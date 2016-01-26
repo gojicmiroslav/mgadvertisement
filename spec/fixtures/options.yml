@@ -1,0 +1,31 @@
+navigation:
+ name: Navigation
+ categories: cars, trucks
+
+cd_player:
+ name: CD Player
+ categories: cars, trucks
+
+dvd_player:
+ name: DVD Player  
+ categories: cars, trucks
+
+sunroof:
+ name: Sunroof
+ categories: cars
+
+power_locks:
+ name: Power Locks
+ categories: cars, trucks
+
+heated_seats:
+ name: Heated Seats
+ categories: trucks
+
+back_break:
+ name: Back Break
+ categories: bicycles
+
+lights:
+ name: Lights   
+ categories: bicycles
