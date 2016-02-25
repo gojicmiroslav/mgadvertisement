@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'informations/index'
+
   get 'categories/index'
 
   devise_for :admins, ActiveAdmin::Devise.config
@@ -17,7 +19,15 @@ Rails.application.routes.draw do
 
   resources :categories, only: :index do
     member do
+      get "basic", to: "categories#basic"
+      get "additional", to: "categories#additional"
       get "options", to: "categories#options"
     end
+  end
+
+  resources :information, only: :index do
+    member do
+      get 'items', to: 'informations#items'  
+    end  
   end
 end

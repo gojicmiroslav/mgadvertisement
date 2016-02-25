@@ -1,4 +1,4 @@
-<%= form_for(@advertisement) do |f| %>
+<%= form_for(@advertisement, html: { class: "advertisement", id: "advertisement_form"}) do |f| %>
 
 <%= render 'shared/error_messages', object: f.object %>
 
@@ -16,13 +16,11 @@
 
 	<div id="show-form">
 		<hr />
-			<h4 class="text-info">Basic information</h4>
-
 			<div class="form-group">
 		  	<div class="row">
 		  		<div class="col-sm-4">
 		    		<%= label :vehicle_brands, "Brand: *" %><br />    
-		    		<%= select_tag :vehicle_brands, prompt: "" %>
+		    		<%= select_tag :vehicle_brands, {}, class: "required" %>
 		    	</div>
 
 		    	<div class="col-sm-4">
@@ -45,98 +43,40 @@
 		  <div class="form-group">
 		  	<div class="row">
 		  		<div class="col-sm-4">
-		    		<%= f.label :price, "Price: *" %>    
-		    		<%= f.text_field :price,  size: 20, placeholder: "000.000" %> €
+		    		<%= f.label :price, "Price(€): *" %>    
+		    		<%= f.text_field :price,  size: 20, placeholder: "000.000" %> 
 		    	</div>
 
 		    	<div class="col-sm-4">
 		    		<%= f.label :year, "Year: *" %>    
 		    		<%= f.text_field :year, placeholder: "Click here", id: "advertisement_year" %> 
 		    	</div>
-
-		    	<div class="col-sm-4">
-		    		<%= f.label :capacity, "Capacity(cm3): *" %> <br />   
-		    		<%= f.text_field :capacity,  size: 5, placeholder: "0000" %> 
-		    	</div>
 		    </div>
 		  </div>
 
-		  <div class="form-group">
-		  	<div class="row">
-		  		<div class="col-sm-4">
-						<%= f.label :power, "Power(kW): *" %><br />   
-						<%= f.text_field :power,  size: 6, placeholder: "00000" %> 
-					</div>
+			<hr />
 
-					<div class="col-sm-4">
-						<%= f.label :mileage, "Mileage: *" %><br />   
-						<%= f.text_field :mileage,  size: 10, placeholder: "000000.000" %> 
-					</div>
-				</div>
-		  </div>
-
-		  <hr />
-
-		  <h4 class="text-info">Additional information</h4>
-
-		  <div class="form-group">
-		  	<div class="row">
-		  		<div class="col-sm-4">
-		    		<%= f.label :fuel, "Fuel: *" %><br />    
-		    		<%= f.collection_select :fuel_id, Fuel.all, :id, :name, prompt: "" %>
-		    	</div>
-
-		    	<div class="col-sm-4">
-		    		<%= f.label :style, "Style: *" %><br />    
-		    		<%= f.collection_select :style_id, Style.all, :id, :name, prompt: "" %>
-		    	</div>
-
-		    	<div class="col-sm-4">
-		    		<%= f.label :air_condition, "Air condition: *" %><br />    
-		    		<%= f.collection_select :air_condition_id, AirCondition.all, :id, :name, prompt: "" %>
-		    	</div>
-		    </div>
-		  </div>
-
-		  <div class="form-group">
-		  	<div class="row">
-		  		<div class="col-sm-4">
-		    		<%= f.label :exterior_color, "Exteriror color: *" %><br />    
-		    		<%= f.collection_select :exterior_color_id, Color.all, :id, :name, prompt: "" %>
-		    	</div>
-
-		    	<div class="col-sm-4">
-		    		<%= f.label :interior_color, "Interior color: *" %><br />    
-		    		<%= f.collection_select :interior_color_id, Color.all, :id, :name, prompt: "" %>
-		    	</div>
-
-		    	<div class="col-sm-4">
-		    		<%= f.label :engine, "Engine: *" %><br />    
-		    		<%= f.collection_select :engine_id, Engine.all, :id, :name, prompt: "" %>
-		    	</div>
-		    </div>
-		  </div>
-
-		  <div class="form-group">
-		  	<div class="row">
-		  		<div class="col-sm-4">
-		    		<%= f.label :drive, "Drive: *" %><br />    
-		    		<%= f.collection_select :drive_id, Drive.all, :id, :name, prompt: "" %>
-		    	</div>
-
-		    	<div class="col-sm-4">
-		    		<%= f.label :transmission, "Transmission: *" %><br />    
-		    		<%= f.collection_select :transmission_id, Transmission.all, :id, :name, prompt: "" %>
-		    	</div>
-		  </div>
+			<%= fields_for :advertisement_informations do |info| %>
+				<h4 class="text-info">Basic information</h4>
+  			<%#= f.label :capacity, "Capacity(cm3): *" %> <br />   
+  			<%#= f.text_field :capacity,  size: 5, placeholder: "0000" %>
+			
+	  		<div id="basic_informations"></div> 
+			  <hr />
+			  
+			  <h4 class="text-info">Additional information</h4>
+			  <%#= f.label :exterior_color, "Exteriror color: *" %><br />    
+	  		<%#= f.collection_select :exterior_color_id, Color.all, :id, :name, prompt: "" %>
+				
+				<div id="additional_informations"></div> 
+	  	<% end %>	
 				
 			<hr />
 
-		  <h4 class="text-info">Options</h4>	
-
-			<div id="options">
-			  
-			</div>
+			<%= fields_for :options do |option| %>	
+		  	<h4 class="text-info">Options</h4>	
+				<div id="options"></div>
+			<% end %>
 			
 			<br /><br />
 			<%= f.submit "Add advertisement", class: "btn btn-primary" %>
@@ -145,4 +85,6 @@
 		<% end %>
 	</div><!-- show_form -->
 	
-</div><!-- form-holder -->		
+</div><!-- form-holder -->	
+
+<%= javascript_include_tag "advertisements" %>

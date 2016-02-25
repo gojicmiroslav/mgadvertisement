@@ -1,0 +1,67 @@
+capacity:
+ name: Capacity(cm3)
+ information_type: basic
+
+power: 
+ name: Power
+ information_type: basic
+
+mileage:
+ name: Mileage
+ information_type: basic
+
+type:
+ name: Type
+ information_type: basic
+
+fuel:
+ name: Fuel
+ information_type: additional
+
+drive:
+ name: Drive
+ information_type: additional
+
+air_condition:
+ name: Air Condition
+ information_type: additional
+
+style:
+ name: Style
+ information_type: additional
+
+transmission:
+ name: Transmission
+ information_type: additional
+
+engine:
+ name: Engine
+ information_type: additional
+
+color:
+ name: Color
+ information_type: additional
+
+breaks:
+ name: Breaks
+ information_type: additional
+
+material:
+ name: Material
+ information_type: additional
+
+size:
+ name: Size
+ information_type: additional
+
+exterior_color:
+ name: Exterior Color
+ information_type: additional
+
+interior_color:
+ name: Interior Color
+ information_type: additional
+
+carrying_capacity:
+ name: Carrying Capacity
+ information_type: additional   

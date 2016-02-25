@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228220308) do
+ActiveRecord::Schema.define(version: 20160130175551) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20151228220308) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
+  create_table "advertisement_informations", force: :cascade do |t|
+    t.string   "value",            limit: 255
+    t.integer  "advertisement_id", limit: 4
+    t.integer  "information_id",   limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "advertisement_informations", ["advertisement_id"], name: "index_advertisement_informations_on_advertisement_id", using: :btree
+  add_index "advertisement_informations", ["information_id"], name: "index_advertisement_informations_on_information_id", using: :btree
+
   create_table "advertisement_types", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
@@ -54,23 +65,13 @@ ActiveRecord::Schema.define(version: 20151228220308) do
   end
 
   create_table "advertisements", force: :cascade do |t|
-    t.string   "title",                 limit: 255,                           default: "", null: false
+    t.string   "title",                 limit: 255,                           default: "",   null: false
     t.text     "description",           limit: 65535
-    t.decimal  "price",                               precision: 7, scale: 3,              null: false
-    t.date     "year",                                                                     null: false
-    t.integer  "capacity",              limit: 4,                                          null: false
-    t.integer  "power",                 limit: 4,                                          null: false
-    t.decimal  "mileage",                             precision: 9, scale: 3
-    t.datetime "created_at",                                                               null: false
-    t.datetime "updated_at",                                                               null: false
-    t.integer  "fuel_id",               limit: 4
-    t.integer  "style_id",              limit: 4
-    t.integer  "air_condition_id",      limit: 4
-    t.integer  "exterior_color_id",     limit: 4
-    t.integer  "interior_color_id",     limit: 4
-    t.integer  "engine_id",             limit: 4
-    t.integer  "drive_id",              limit: 4
-    t.integer  "transmission_id",       limit: 4
+    t.decimal  "price",                               precision: 7, scale: 3,                null: false
+    t.date     "year",                                                                       null: false
+    t.boolean  "active",                                                      default: true
+    t.datetime "created_at",                                                                 null: false
+    t.datetime "updated_at",                                                                 null: false
     t.integer  "category_id",           limit: 4
     t.integer  "vehicle_model_id",      limit: 4
     t.integer  "user_id",               limit: 4
@@ -78,15 +79,7 @@ ActiveRecord::Schema.define(version: 20151228220308) do
   end
 
   add_index "advertisements", ["advertisement_type_id"], name: "index_advertisements_on_advertisement_type_id", using: :btree
-  add_index "advertisements", ["air_condition_id"], name: "index_advertisements_on_air_condition_id", using: :btree
   add_index "advertisements", ["category_id"], name: "index_advertisements_on_category_id", using: :btree
-  add_index "advertisements", ["drive_id"], name: "index_advertisements_on_drive_id", using: :btree
-  add_index "advertisements", ["engine_id"], name: "index_advertisements_on_engine_id", using: :btree
-  add_index "advertisements", ["exterior_color_id"], name: "index_advertisements_on_exterior_color_id", using: :btree
-  add_index "advertisements", ["fuel_id"], name: "index_advertisements_on_fuel_id", using: :btree
-  add_index "advertisements", ["interior_color_id"], name: "index_advertisements_on_interior_color_id", using: :btree
-  add_index "advertisements", ["style_id"], name: "index_advertisements_on_style_id", using: :btree
-  add_index "advertisements", ["transmission_id"], name: "index_advertisements_on_transmission_id", using: :btree
   add_index "advertisements", ["user_id"], name: "index_advertisements_on_user_id", using: :btree
   add_index "advertisements", ["vehicle_model_id"], name: "index_advertisements_on_vehicle_model_id", using: :btree
 
@@ -98,18 +91,28 @@ ActiveRecord::Schema.define(version: 20151228220308) do
   add_index "advertisements_options", ["advertisement_id"], name: "index_advertisements_options_on_advertisement_id", using: :btree
   add_index "advertisements_options", ["option_id"], name: "index_advertisements_options_on_option_id", using: :btree
 
-  create_table "air_conditions", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "categories_information", id: false, force: :cascade do |t|
+    t.integer "category_id",    limit: 4, null: false
+    t.integer "information_id", limit: 4, null: false
+  end
+
+  add_index "categories_information", ["category_id"], name: "index_categories_information_on_category_id", using: :btree
+  add_index "categories_information", ["information_id"], name: "index_categories_information_on_information_id", using: :btree
+
+  create_table "categories_items", id: false, force: :cascade do |t|
+    t.integer "category_id", limit: 4, null: false
+    t.integer "item_id",     limit: 4, null: false
+  end
+
+  add_index "categories_items", ["category_id"], name: "index_categories_items_on_category_id", using: :btree
+  add_index "categories_items", ["item_id"], name: "index_categories_items_on_item_id", using: :btree
 
   create_table "categories_options", id: false, force: :cascade do |t|
     t.integer "category_id", limit: 4, null: false
@@ -127,43 +130,36 @@ ActiveRecord::Schema.define(version: 20151228220308) do
   add_index "categories_vehicle_brands", ["category_id"], name: "index_categories_vehicle_brands_on_category_id", using: :btree
   add_index "categories_vehicle_brands", ["vehicle_brand_id"], name: "index_categories_vehicle_brands_on_vehicle_brand_id", using: :btree
 
-  create_table "colors", force: :cascade do |t|
-    t.string   "name",       limit: 255
+  create_table "information", force: :cascade do |t|
+    t.string   "name",                limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "information_type_id", limit: 4
+  end
+
+  add_index "information", ["information_type_id"], name: "index_information_on_information_type_id", using: :btree
+
+  create_table "information_items", id: false, force: :cascade do |t|
+    t.integer "information_id", limit: 4, null: false
+    t.integer "item_id",        limit: 4, null: false
+  end
+
+  add_index "information_items", ["information_id"], name: "index_information_items_on_information_id", using: :btree
+  add_index "information_items", ["item_id"], name: "index_information_items_on_item_id", using: :btree
+
+  create_table "information_types", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "drives", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "engines", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "fuels", force: :cascade do |t|
-    t.string   "name",       limit: 255
+  create_table "items", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "options", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "styles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "transmissions", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -213,24 +209,25 @@ ActiveRecord::Schema.define(version: 20151228220308) do
   add_index "vehicle_models", ["category_id"], name: "index_vehicle_models_on_category_id", using: :btree
   add_index "vehicle_models", ["vehicle_brand_id"], name: "index_vehicle_models_on_vehicle_brand_id", using: :btree
 
+  add_foreign_key "advertisement_informations", "advertisements"
+  add_foreign_key "advertisement_informations", "information"
   add_foreign_key "advertisements", "advertisement_types", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "advertisements", "air_conditions", on_update: :cascade, on_delete: :cascade
   add_foreign_key "advertisements", "categories", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "advertisements", "colors", column: "exterior_color_id", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "advertisements", "colors", column: "interior_color_id", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "advertisements", "drives", column: "drive_id", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "advertisements", "engines", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "advertisements", "fuels", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "advertisements", "styles", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "advertisements", "transmissions", on_update: :cascade, on_delete: :cascade
   add_foreign_key "advertisements", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "advertisements", "vehicle_models", on_update: :cascade, on_delete: :cascade
   add_foreign_key "advertisements_options", "advertisements"
   add_foreign_key "advertisements_options", "options"
+  add_foreign_key "categories_information", "categories"
+  add_foreign_key "categories_information", "information"
+  add_foreign_key "categories_items", "categories"
+  add_foreign_key "categories_items", "items"
   add_foreign_key "categories_options", "categories"
   add_foreign_key "categories_options", "options"
   add_foreign_key "categories_vehicle_brands", "categories"
   add_foreign_key "categories_vehicle_brands", "vehicle_brands"
+  add_foreign_key "information", "information_types", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "information_items", "information"
+  add_foreign_key "information_items", "items"
   add_foreign_key "vehicle_models", "categories"
   add_foreign_key "vehicle_models", "vehicle_brands"
 end

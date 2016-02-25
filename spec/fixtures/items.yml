@@ -1,0 +1,43 @@
+bmx:
+ name: BMX
+ information: type
+
+cruiser:
+ name: Cruiser
+ information: type
+
+kids:
+ name: Kids
+ information: type
+
+classic:
+ name: Classic
+ information: type
+
+mountain:
+ name: Mountain
+ information: type
+
+road:
+ name: Road 
+ information: type
+
+gasoline:
+ name: Gasoline
+ information: fuel
+
+diesel:
+ name: Diesel
+ information: fuel
+
+gasoline_and_gas:
+ name: Gasoline + Gas(TNG)
+ information: fuel
+
+electric:
+ name: Electric
+ information: fuel
+
+alternate:
+ name: Alternate
+ information: fuel      

@@ -15,4 +15,14 @@
 //= require jquery-ui
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
+//= require jquery.validate
+//= require additional-methods
+//= require sweetalert
+//= require sweet-alert-confirm
+//= require app
+
+
+
+
+
+

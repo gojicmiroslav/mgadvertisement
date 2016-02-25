@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.feature "Users Adding Advertisement", :feature do
 	
 	describe "Adding Advertisement Form", js: true do
+		fixtures :information_types
 		fixtures :categories	
 		fixtures :vehicle_brands
 		fixtures :vehicle_models
@@ -65,12 +66,12 @@ RSpec.feature "Users Adding Advertisement", :feature do
 
 			fill_in('advertisement_price', :with => '3000.00')
 			fill_in('advertisement_year', :with => '2003-01-01')
-			fill_in('advertisement_capacity', :with => '2000')
-			fill_in('advertisement_power', :with => '2500')
-			fill_in('advertisement_mileage', :with => '195000')		
+			#fill_in('advertisement_capacity', :with => '2000')
+			#fill_in('advertisement_power', :with => '2500')
+			#fill_in('advertisement_mileage', :with => '195000')		
 		end
 
-		scenario "test aditional information" do
+		xscenario "test aditional information" do
 			visit new_advertisement_path
 			select(categories(:cars).name, :from => 'categories')
 		end	
@@ -78,7 +79,7 @@ RSpec.feature "Users Adding Advertisement", :feature do
 	  scenario "test options" do
 			visit new_advertisement_path
 			select(categories(:cars).name, :from => 'categories')
-			save_screenshot('screenshot.png')
+			#save_screenshot('screenshot.png')
 
 			# test cars options
 			expect(page).to have_no_checked_field(options(:navigation).name)

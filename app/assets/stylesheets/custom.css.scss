@@ -183,3 +183,13 @@ aside {
     color: #777;
     text-align: center;
 }
+
+select.error, input.error{
+	border: 2px solid red;
+  background-color: #FFFFD5;
+}
+
+label.error{
+	font-style: italic;
+	color: red;
+}
