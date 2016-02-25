@@ -1,2 +1,240 @@
-<h1>Advertisements#edit</h1>
-<p>Find me in app/views/advertisements/edit.html.erb</p>
+<% provide(:title, "Edit advertisement") %>
+
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<h3 class="text-muted">Edit Advertisement</h3>	
+		
+		<%= form_for(@advertisement, html: { class: "advertisement", id: "advertisement_form"}) do |f| %>
+
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<div class="row">
+	  		<div class="col-sm-4">
+    			<h4>Category: <i><%= @advertisement.category.name %></i></h4>
+				</div>
+			</div>
+			<hr />
+
+			<div class="form-group">
+		    <%= f.label :title, "Title: *" %> <br />
+		    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+		  </div>
+
+		  <div class="form-group">
+		    <%= f.label :description, "Description:" %> <br />
+		    <%= f.text_area :description, class: 'form-control' %>
+		  </div>
+
+		  <div class="form-group">
+		  	<div class="row">
+		  		<div class="col-sm-4">
+		    		<%= f.label :price, "Price(€): *" %>    
+		    		<%= f.text_field :price,  size: 20, placeholder: "000.000" %> 
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :year, "Year: *" %>    
+		    		<%= f.text_field :year, placeholder: "Click here", id: "advertisement_year" %> 
+		    	</div>
+		    </div>
+		  </div>
+
+		  <hr />
+
+			<h4 class="text-info">Basic information</h4>
+			<br />
+
+			<div id="basic_informations">
+				<% index = 0 %>
+				<%= f.fields_for :advertisement_informations, @basic_informations do |advertisement_information| %>
+					<% if advertisement_information.object.items.empty? %>
+							<% if index % 3 === 0 %>
+								<div class='form-group'>
+									<div class='row'>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+	    								<%= text_field_tag :value, 
+	    										advertisement_information.object.find_advertisement_information_value,
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    								%>
+										</div>
+							<% elsif index % 3 == 2 %>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+	    								<%= text_field_tag :value, 
+	    										advertisement_information.object.find_advertisement_information_value,
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    								%>
+										</div>
+									</div>
+								</div>		
+							<% else %>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+	    								<%= text_field_tag :value, 
+	    										advertisement_information.object.find_advertisement_information_value,
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    								%>
+										</div>
+							<% end %>
+					<% else %>
+						<% if index % 3 === 0 %>
+								<div class='form-group'>
+									<div class='row'>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+										</div>
+							<% elsif index % 3 == 2 %>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+										</div>
+									</div>
+								</div>		
+							<% else %>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+										</div>
+							<% end %>
+					<% end %>
+					
+					<% index = index.to_i + 1 %>
+				<% end %>
+			</div><!-- basic_information -->
+
+			<hr />
+
+			<h4 class="text-info">Additional information</h4>
+			<br />
+
+			<div id="additional_informations">
+				<% index = 0 %>
+				<%= f.fields_for :advertisement_informations, @additional_informations do |advertisement_information| %>
+					<% if advertisement_information.object.items.empty? %>
+							<% if index % 3 === 0 %>
+								<div class='form-group'>
+									<div class='row'>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+	    								<%= text_field_tag :value, 
+	    										advertisement_information.object.find_advertisement_information_value,
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    								%>
+										</div>
+							<% elsif index % 3 == 2 %>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+	    								<%= text_field_tag :value, 
+	    										advertisement_information.object.find_advertisement_information_value,
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    								%>
+										</div>
+									</div>
+								</div>		
+							<% else %>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+	    								<%= text_field_tag :value, 
+	    										advertisement_information.object.find_advertisement_information_value,
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    								%>
+										</div>
+							<% end %>
+					<% else %>
+
+						<% if index % 3 === 0 %>
+								
+								<div class='form-group'>
+									<div class='row'>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+										</div>
+							<% elsif index % 3 == 2 %>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+										</div>
+									</div>
+								</div>		
+							<% else %>
+										<div class='col-sm-4'>
+											<%= advertisement_information.label advertisement_information.object.name %><br />
+											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+										</div>
+							<% end %>
+					<% end %>
+					
+					<% index = index.to_i + 1 %>
+				<% end %>
+			</div><!-- basic_information -->
+
+			<hr />
+
+			<h4 class="text-info">Options</h4>	
+	  	<br />	  	
+	  	<div id="options">
+	  	<% index = 0 %>
+	  	<%= f.fields_for :options, @all_options do |option| %>	
+					<% if index % 4 === 0 %>
+						<div class='form-group'>
+							<div class='row'>
+								<div class='col-sm-3'>
+									<div class='checkbox'>
+										<label>
+											<%= option.check_box :name, multiple: true, checked: option.object.advertisement_ids.include?(@advertisement.id) %>
+											<%= option.object.name %>
+										</label>
+									</div>
+								</div>
+					<% elsif index % 4 === 3 %>
+								<div class='col-sm-3'>
+									<div class='checkbox'>
+										<label>
+											<%= option.check_box :name, multiple: true, checked: option.object.advertisement_ids.include?(@advertisement.id) %>
+											<%= option.object.name %>
+										</label>	
+									</div>
+								</div>
+							</div>
+						</div>
+					<% else %>
+								<div class='col-sm-3'>
+									<div class='checkbox'>
+										<label>
+											<%= option.check_box :name, multiple: true, checked: option.object.advertisement_ids.include?(@advertisement.id) %>
+											<%= option.object.name %>
+										</label>
+									</div>
+								</div>
+					<% end %>						
+				<% index = index.to_i + 1 %>
+			<% end %>
+			</div>
+
+			<br /><br />
+			<%= f.submit "Edit advertisement", class: "btn btn-primary" %>
+			<br /><br />
+				
+			<hr />
+
+		<% end %>
+		
+	</div>
+</div>	
+
+<%= javascript_include_tag "advertisements" %>

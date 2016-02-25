@@ -1,126 +1,87 @@
 <% provide(:title, "Advertisement detail") %>
 
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-2">
-		<h3>Advertisement Detail</h3>
-		<hr />
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="page-header"><h1>Advertisement Detail</h1></div>
 
-		<div class="table-responsive">
-			<table class="table table-striped table-bordered">
-				<tbody>
-  				<tr>
-  					<td><b>Title:</b></td>
-  					<td><%= @advertisement.title %></td>
-  				</tr>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <tbody>
+          <tr>
+            <td><b>Title:</b></td>
+            <td><%= @advertisement.title %></td>
+          </tr>
 
-  				<tr>
-  					<td><b>Description:</b></td>
-  					<td><%= @advertisement.description %></td>
-  				</tr>
+          <tr>
+            <td><b>Description:</b></td>
+            <td><%= @advertisement.description %></td>
+          </tr>
 
-  				<tr>
-  					<td><b>Category:</b></td>
-  					<td><%= @advertisement.category.name %></td>
-  				</tr>
+          <tr>
+            <td><b>Category:</b></td>
+            <td><%= @advertisement.category.name %></td>
+          </tr>
 
-  				<tr>
-  					<td><b>Date:</b></td>
-  					<td><%= @advertisement.created_at %></td>
-  				</tr>
+          <tr>
+            <td><b>Date:</b></td>
+            <td><%= @advertisement.created_at %></td>
+          </tr>
 
-  				<tr>
-  					<td><b>Year:</b></td>
-  					<td><%= @advertisement.year %></td>
-  				</tr>
+          <tr>
+            <td><b>Year:</b></td>
+            <td><%= @advertisement.year %></td>
+          </tr>
 
-  				<tr>
-  					<td><b>Capacity:</b></td>
-  					<td><%= @advertisement.capacity %></td>
-  				</tr>
+          <tr rowspan="2" bgcolor="#aabbaa">
+            <td><h4><i>Basic Information</i></h4></td>
+            <td></td>
+          </tr>
+          
+          <% @basic_advertisement_informations.each do |key, value| %>
+            <tr>
+              <td><b><%= key %>:</b></td>
+              <td><%= value %></td>
+            </tr>
+          <% end %>
 
-  				<tr>
-  					<td><b>Power:</b></td>
-  					<td><%= @advertisement.power %></td>
-  				</tr>
+          <% if @additional_advertisement_informations.length > 0 %> 
+            <tr rowspan="2" bgcolor="#aabbaa">
+              <td><h4><i>Additional Information</i></h4></td>
+              <td></td>
+            </tr>
 
-  				<tr>
-  					<td><b>Mileage:</b></td>
-  					<td><%= @advertisement.mileage %></td>
-  				</tr>
+            <% @additional_advertisement_informations.each do |key, value| %>
+              <tr>
+                <td><b><%= key %>:</b></td>
+                <td><%= value %></td>
+              </tr>
+            <% end %>
+          <% end %>
+          
+        </tbody>
+      </table>
+    </div><!-- table-responsive -->
 
-  				<tr>
-  					<td><b>Fuel:</b></td>
-  					<td><%= @advertisement.fuel.name %></td>
-  				</tr>
-
-					<tr>
-  					<td><b>Style:</b></td>
-  					<td><%= @advertisement.style.name %></td>
-  				</tr>
-
-					<tr>
-  					<td><b>Air condition:</b></td>
-  					<td><%= @advertisement.air_condition.name %></td>
-  				</tr>  				
-
-					<tr>
-  					<td><b>Exterior color:</b></td>
-  					<td><%= @advertisement.exterior_color.name %></td>
-  				</tr>
-
-  				<tr>
-  					<td><b>Interior color:</b></td>
-  					<td><%= @advertisement.interior_color.name %></td>
-  				</tr>
-
-  				<tr>
-  					<td><b>Engine:</b></td>
-  					<td><%= @advertisement.engine.name %></td>
-  				</tr>
-
-  				<tr>
-  					<td><b>Drive:</b></td>
-  					<td><%= @advertisement.drive.name %></td>
-  				</tr>
-
-  				<tr>
-  					<td><b>Transmission:</b></td>
-  					<td><%= @advertisement.transmission.name %></td>
-  				</tr>
-
-  				<tr>
-  					<td><b>Vehicle model:</b></td>
-  					<td><%= @advertisement.vehicle_model.name %></td>
-  				</tr>
-
-  				<tr>
-  					<td><b>Vehicle brand:</b></td>
-  					<td><%= @advertisement.vehicle_model.vehicle_brand.name %></td>
-  				</tr>
-  			</tbody>
-			</table>
-		</div>
-
-		<div class="table-responsive">
-			<h4>Options:</h4>
+    <div class="table-responsive">
+      <h4>Options:</h4>
 
       <% if @advertisement.options.size > 0 %>
-  			<table class="table table-striped table-bordered">
-  				<tbody>
-  					<% @advertisement.options.each_with_index do |option, index| %>
-  						<tr>
-  							<td><%= index + 1 %></td>
-  							<td><b><%= option.name %></b></td>
-  							<td>Yes</td>
-  						</tr>
-  					<% end %>
-  				</tbody>
-  			</table>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <% @advertisement.options.each_with_index do |option, index| %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><b><%= option.name %></b></td>
+                <td>Yes</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       <% else %>
         <div class="alert alert-info" role="alert">There is no options!</div>
       <% end %>
-		</div>
+    </div>
 
-	</div>
-</div>
+  </div>
+</div><!-- row -->    
 

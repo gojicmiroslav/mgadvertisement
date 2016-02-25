@@ -6,22 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+AdvertisementInformation.destroy_all
 Advertisement.destroy_all
-Style.destroy_all
-Transmission.destroy_all
-Fuel.destroy_all
-Drive.destroy_all
-Style.destroy_all
-Color.destroy_all
-Engine.destroy_all
-AirCondition.destroy_all
+Item.destroy_all
+Information.destroy_all
+InformationType.destroy_all
 VehicleModel.destroy_all
 Category.destroy_all
 VehicleBrand.destroy_all
-Admin.destroy_all
-User.destroy_all
 AdvertisementType.destroy_all
-
+User.destroy_all
+Admin.destroy_all
 
 # Users
 User.create!(	firstname: "Miroslav",
@@ -300,27 +295,43 @@ vb.save
 
 
 #Bicycles
-vb = VehicleBrand.create!(name: "Access Motor")
+vb = VehicleBrand.create!(name: "Boardman")
 vb.categories << Category.find_by(name: "Bicycles")
 vb.save
 
-vb = VehicleBrand.create!(name: "Adly")
+vb = VehicleBrand.create!(name: "Carrera")
 vb.categories << Category.find_by(name: "Bicycles")
 vb.save
 
-vb = VehicleBrand.create!(name: "Aeon")
+vb = VehicleBrand.create!(name: "Apollo")
 vb.categories << Category.find_by(name: "Bicycles")
 vb.save
 
-vb = VehicleBrand.create!(name: "AJS")
+vb = VehicleBrand.create!(name: "Raleigh")
 vb.categories << Category.find_by(name: "Bicycles")
 vb.save
 
-vb = VehicleBrand.find_by(name: "BMW")
+vb = VehicleBrand.create(name: "VooDoo")
 vb.categories << Category.find_by(name: "Bicycles")
 vb.save
 
-vb = VehicleBrand.find_by(name: "Renault")
+vb = VehicleBrand.create(name: "Lan Rover")
+vb.categories << Category.find_by(name: "Bicycles")
+vb.save
+
+vb = VehicleBrand.create(name: "Coyote")
+vb.categories << Category.find_by(name: "Bicycles")
+vb.save
+
+vb = VehicleBrand.create(name: "Boss")
+vb.categories << Category.find_by(name: "Bicycles")
+vb.save
+
+vb = VehicleBrand.create(name: "Integra")
+vb.categories << Category.find_by(name: "Bicycles")
+vb.save
+
+vb = VehicleBrand.create(name: "Falcon")
 vb.categories << Category.find_by(name: "Bicycles")
 vb.save
 
@@ -595,132 +606,878 @@ vm.category = Category.find_by(name: "Trucks")
 vm.vehicle_brand = VehicleBrand.find_by(name: "FAP")
 vm.save
 
-vm = VehicleModel.new(name: "Byc 1")
+# Bicycles
+vm = VehicleModel.new(name: "Boardman Mountain Bike Team 29er")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand = VehicleBrand.find_by(name: "Access Motor")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Boardman")
 vm.save
 
-vm = VehicleModel.new(name: "Byc 2")
+vm = VehicleModel.new(name: "Boardman Mountain Bike Pro Full Suspension 27.5\"")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand = VehicleBrand.find_by(name: "Access Motor")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Boardman")
 vm.save
 
-vm = VehicleModel.new(name: "Byc 3")
+vm = VehicleModel.new(name: "Boardman Mountain Bike Comp 27.5\"")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand = VehicleBrand.find_by(name: "Access Motor")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Boardman")
 vm.save
 
-vm = VehicleModel.new(name: "Byc 4")
+vm = VehicleModel.new(name: "Carrera Vengeance Mens Mountain Bike ")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand = VehicleBrand.find_by(name: "Access Motor")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Carrera")
 vm.save
 
-vm = VehicleModel.new(name: "Byc 5")
+vm = VehicleModel.new(name: "Carrera Fury Mountain Bike")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand = VehicleBrand.find_by(name: "Access Motor")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Carrera")
 vm.save
 
-vm = VehicleModel.new(name: "Renault Byc 1")
+vm = VehicleModel.new(name: "Apollo Spiral Womens Mountain Bike")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand = VehicleBrand.find_by(name: "Renault")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Apollo")
 vm.save
 
-vm = VehicleModel.new(name: "Renault Byc 2")
+vm = VehicleModel.new(name: "Apollo Feud Mens Mountain Bike")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand = VehicleBrand.find_by(name: "Renault")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Apollo")
 vm.save
 
-vm = VehicleModel.new(name: "Renault Byc 3")
+vm = VehicleModel.new(name: "Coyote Psycho Frenzy 18 Speed Dirt Jump Suspension Mountain Bike Black")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand = VehicleBrand.find_by(name: "Renault")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Coyote")
 vm.save
 
-vm = VehicleModel.new(name: "Renault Byc 4")
+vm = VehicleModel.new(name: "Coyote Fatman Neon Orange/matt Black")
 vm.category = Category.find_by(name: "Bicycles")
-vm.vehicle_brand  VehicleBrand.find_by(name: "Renault")
+vm.vehicle_brand = VehicleBrand.find_by(name: "Coyote")
+vm.save
+
+vm = VehicleModel.new(name: "Coyote Fatman Neon Pink/matt Black")
+vm.category = Category.find_by(name: "Bicycles")
+vm.vehicle_brand  VehicleBrand.find_by(name: "Coyote")
 vm.save
 
 # ADVERTISEMENT TYPE
 AdvertisementType.create!(name: "New")
 AdvertisementType.create!(name: "Used")
 
-# OPTIONS
+InformationType.create!(name: "Basic")
+InformationType.create!(name: "Additional")
 
-# STYLES
-Style.create!(name: "AWD/4WD")
-Style.create!(name: "Commercial")
-Style.create!(name: "Convertible")
-Style.create!(name: "Coupe")
-Style.create!(name: "Hatchback")
-Style.create!(name: "Hybrid/Electric")
-Style.create!(name: "Luxury")
-Style.create!(name: "Sedan")
-Style.create!(name: "SUV/Crossover")
-Style.create!(name: "Truck")
-Style.create!(name: "Van/Minivan")
-Style.create!(name: "Wagon")
 
-Fuel.create!(name: "Gasoline")
-Fuel.create!(name: "Diesel")
-Fuel.create!(name: "Gasoline + Gas(TNG)")
-Fuel.create!(name: "Hybrid")
-Fuel.create!(name: "Electric")
-Fuel.create!(name: "Alternate")
+info = Information.new(name: "Capacity")
+info.information_type = InformationType.find_by(name: "Basic")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
 
-Transmission.create!(name: "Automatic")
-Transmission.create!(name: "Manual")
-Transmission.create!(name: "Semi-automatic")
-Transmission.create!(name: "CVT")
-Transmission.create!(name: "Other")
+info = Information.new(name: "Power")
+info.information_type = InformationType.find_by(name: "Basic")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
 
-Drive.create!(name: "FWD")
-Drive.create!(name: "RWD")
-Drive.create!(name: "AWD")
-Drive.create!(name: "4WD")
-Drive.create!(name: "4x4")
-Drive.create!(name: "4x2")
-Drive.create!(name: "Other")
+info = Information.new(name: "Mileage")
+info.information_type = InformationType.find_by(name: "Basic")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
 
-Engine.create!(name: "3 cylinder")
-Engine.create!(name: "4 cylinder")
-Engine.create!(name: "5 cylinder")
-Engine.create!(name: "6 cylinder")
-Engine.create!(name: "8 cylinder")
-Engine.create!(name: "10 cylinder")
-Engine.create!(name: "12 cylinder")
-Engine.create!(name: "Electric")
-Engine.create!(name: "Hybrid")
-Engine.create!(name: "Rotary Engine")
+info = Information.new(name: "Type")
+info.information_type = InformationType.find_by(name: "Basic")
+cat = Category.find_by(name: "Bicycles")
+info.categories << cat
+info.save
 
-Color.create!(name: "Beige")
-Color.create!(name: "Blue")
-Color.create!(name: "Black")
-Color.create!(name: "Burgundy")
-Color.create!(name: "Charcoal")
-Color.create!(name: "Gold")
-Color.create!(name: "Gray")
-Color.create!(name: "Green")
-Color.create!(name: "Off White")
-Color.create!(name: "Orange")
-Color.create!(name: "Pink")
-Color.create!(name: "Beige")
-Color.create!(name: "Purple")
-Color.create!(name: "Red")
-Color.create!(name: "Silver")
-Color.create!(name: "Tan")
-Color.create!(name: "Turquoise")
-Color.create!(name: "White")
-Color.create!(name: "Yellow")
+info = Information.new(name: "Fuel")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
 
-AirCondition.create!(name: "Automatic")
-AirCondition.create!(name: "Manual")
-AirCondition.create!(name: "None")
+info = Information.new(name: "Drive")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
 
-#Option.create!(name: "Price")
-#Option.create!(name: "Year")
-#Option.create!(name: "Mileage")
-#Option.create!(name: "Capacity(cm3)")
-#Option.create!(name: "Power(kW)")
+info = Information.new(name: "Air Condition")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Style")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Transmission")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Engine")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Color")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Bicycles")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Breaks")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Bicycles")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Material")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Bicycles")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Size")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Bicycles")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Exterior Color")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Interior Color")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Cars")
+info.categories << cat
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
+
+info = Information.new(name: "Carrying capacity")
+info.information_type = InformationType.find_by(name: "Additional")
+cat = Category.find_by(name: "Trucks")
+info.categories << cat
+info.save
+
+item = Item.new(name: "Commercial")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Convertible")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Coupe")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Hatchback")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Hybrid/Electric")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Luxury")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Sedan")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "SUV/Crossover")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "SUV/Crossover")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Van/Minivan")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Wagon")
+item.information << Information.find_by(name: "Style")
+item.categories << Category.find_by(name: "Cars")
+item.save
+
+item = Item.new(name: "Gasoline")
+item.information << Information.find_by(name: "Fuel")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Diesel")
+item.information << Information.find_by(name: "Fuel")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Gasoline + Gas(TNG)")
+item.information << Information.find_by(name: "Fuel")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Hybrid")
+item.information << Information.find_by(name: "Fuel")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Electric")
+item.information << Information.find_by(name: "Fuel")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Alternate")
+item.information << Information.find_by(name: "Fuel")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Automatic")
+item.information << Information.find_by(name: "Transmission")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Manual")
+item.information << Information.find_by(name: "Transmission")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Semi-automatic")
+item.information << Information.find_by(name: "Transmission")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "CVT")
+item.information << Information.find_by(name: "Transmission")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Other")
+item.information << Information.find_by(name: "Transmission")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "FWD")
+item.information << Information.find_by(name: "Drive")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "RWD")
+item.information << Information.find_by(name: "Drive")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "AWD")
+item.information << Information.find_by(name: "Drive")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "4WD")
+item.information << Information.find_by(name: "Drive")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "4x4")
+item.information << Information.find_by(name: "Drive")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "RWD")
+item.information << Information.find_by(name: "Drive")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Other")
+item.information << Information.find_by(name: "Drive")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "3 cylinder")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "4 cylinder")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "5 cylinder")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "6 cylinder")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "8 cylinder")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "10 cylinder")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "12 cylinder")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Electric")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Hybrid")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Rotary Engine")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+
+item = Item.new(name: "Rotary Engine")
+item.information << Information.find_by(name: "Engine")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+
+############Exterior/Interior Color#######################################
+item = Item.new(name: "Beige")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Blue")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Black")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Burgundy")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Charcoal")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Gold")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Gray")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Green")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Off White")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Orange")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Pink")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Red")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Silver")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Tan")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Turquoise")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "White")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Yellow")
+item.information << Information.find_by(name: "Exterior Color")
+item.information << Information.find_by(name: "Interior Color")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+############Color#######################################
+item = Item.new(name: "Beige")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Blue")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Black")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Burgundy")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Charcoal")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Gold")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Gray")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Green")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Off White")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Orange")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Pink")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Red")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Silver")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Tan")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Turquoise")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "White")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Yellow")
+item.information << Information.find_by(name: "Color")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Automatic")
+item.information << Information.find_by(name: "Air Condition")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "Manual")
+item.information << Information.find_by(name: "Air Condition")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "None")
+item.information << Information.find_by(name: "Air Condition")
+item.categories << Category.find_by(name: "Cars")
+item.categories << Category.find_by(name: "Trucks")
+item.save
+
+item = Item.new(name: "BMX")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Cruiser")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Kids")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Classic")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Mountain")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Road")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Hybrid")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Balance")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Electric")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Fixie")
+item.information << Information.find_by(name: "Type")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Standard")
+item.information << Information.find_by(name: "Breaks")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "V-brake")
+item.information << Information.find_by(name: "Breaks")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Hidraulic")
+item.information << Information.find_by(name: "Breaks")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Mechanic")
+item.information << Information.find_by(name: "Breaks")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Aluminium")
+item.information << Information.find_by(name: "Material")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Iron")
+item.information << Information.find_by(name: "Material")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Iron")
+item.information << Information.find_by(name: "Material")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Carbon")
+item.information << Information.find_by(name: "Material")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "Titanium")
+item.information << Information.find_by(name: "Material")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "13\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "14\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "15\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "16\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "16.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "17\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "17.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "18\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "18.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "19\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "19.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "20\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "20.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "21\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "21.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "22\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "22.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "23\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "23.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "24\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "24.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "25\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "25.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "26\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "26.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "27\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "27.5\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+item = Item.new(name: "28\"")
+item.information << Information.find_by(name: "Size")
+item.categories << Category.find_by(name: "Bicycles")
+item.save
+
+
 Option.create!(name: "3rd Row Seats")
 Option.create!(name: "Backup Camera")
 Option.create!(name: "Cruise Control")
@@ -854,13 +1611,84 @@ o = Option.find_by(name: "Hands Break")
 c.options <<  o
 c.save
 
-ad1 = Advertisement.create!(title: "2010 BMW 530 D GT", description: "", price: 25.999, year: DateTime.strptime("09/14/2009", "%m/%d/%Y"),
-											capacity: 2000, power: 2500, mileage: 192.333, created_at: Time.zone.now, updated_at: Time.zone.now,
-											fuel: Fuel.first, style: Style.first, air_condition: AirCondition.first, exterior_color: Color.first,
-											interior_color: Color.first, engine: Engine.first, drive: Drive.first, transmission: Transmission.first,
-											category: Category.first, vehicle_model: VehicleModel.first, user: User.first, advertisement_type: AdvertisementType.first)
+ad1 = Advertisement.create!(
+	title: "2010 BMW 530 D GT",
+	description: "",
+	price: 25.999, 
+	year: DateTime.strptime("09/14/2009", "%m/%d/%Y"),
+	active: true,
+	category: Category.first,
+	vehicle_model: VehicleModel.first,
+	user: User.first,
+	advertisement_type: AdvertisementType.first
+)
 
-# Options
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Capacity"),
+	value: "2000"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Power"),
+	value: "2500"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Mileage"),
+	value: "192.333"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Fuel"),
+	value: "Diesel"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Drive"),
+	value: "AWD"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Air Condition"),
+	value: "Manual"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Style"),
+	value: "Commercial"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Transmission"),
+	value: "Automatic"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Exterior Color"),
+	value: "Black"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Interior Color"),
+	value: "White"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad1,
+	information: Information.find_by(name: "Engine"),
+	value: "8 cylinder"
+)
+
 ad1.options << Option.find_by(name: "3rd Row Seats")
 ad1.options << Option.find_by(name: "Backup Camera")
 ad1.options << Option.find_by(name: "Power Locks")
@@ -873,32 +1701,52 @@ ad1.options << Option.find_by(name: "Security System")
 ad1.options << Option.find_by(name: "Trailer Hitch")
 ad1.save
 
+ad2 = Advertisement.create!(
+	title: "Mountain Bike Boardman",
+	description: "",
+	price: 500, 
+	year: DateTime.strptime("12/12/2014", "%m/%d/%Y"),
+	active: true,
+	category: Category.find_by(name: "Bicycles"),
+	vehicle_model: VehicleModel.find_by(name: "Boardman Mountain Bike Team 29er"),
+	user: User.first,
+	advertisement_type: AdvertisementType.first
+)
 
+AdvertisementInformation.create!(
+	advertisement: ad2,
+	information: Information.find_by(name: "Type"),
+	value: "Mountain"
+)
 
-ad2 = Advertisement.create!(title: "2010 BMW X1 2.0 Navi/xDrive", description: "Some description", price: 14.000, year: DateTime.strptime("01/01/2000", "%m/%d/%Y"),
-											capacity: 1800, power: 2000, mileage: 200.000, created_at: Time.zone.now, updated_at: Time.zone.now,
-											fuel: Fuel.first, style: Style.first, air_condition: AirCondition.first, exterior_color: Color.first,
-											interior_color: Color.first, engine: Engine.first, drive: Drive.first, transmission: Transmission.first,
-											category: Category.first, vehicle_model: VehicleModel.first, user: User.first, advertisement_type: AdvertisementType.first)
+AdvertisementInformation.create!(
+	advertisement: ad2,
+	information: Information.find_by(name: "Size"),
+	value: "28"
+)
 
-# Options
-ad2.options << Option.find_by(name: "3rd Row Seats")
-ad2.options << Option.find_by(name: "Backup Camera")
-ad2.options << Option.find_by(name: "Power Locks")
-ad2.options << Option.find_by(name: "Bluetooth(Hands-Free)")
-ad2.options << Option.find_by(name: "CD Player")
-ad2.options << Option.find_by(name: "DVD Player")
+AdvertisementInformation.create!(
+	advertisement: ad2,
+	information: Information.find_by(name: "Material"),
+	value: "Iron"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad2,
+	information: Information.find_by(name: "Breaks"),
+	value: "Standard"
+)
+
+AdvertisementInformation.create!(
+	advertisement: ad2,
+	information: Information.find_by(name: "Color"),
+	value: "Blue"
+)
+
+ad2.options << Option.find_by(name: "Back Break")
+ad2.options << Option.find_by(name: "Hands Break")
+ad2.options << Option.find_by(name: "Lights")
 ad2.options << Option.find_by(name: "Navigation")
-ad2.options << Option.find_by(name: "Premium Audio")
 ad2.options << Option.find_by(name: "Security System")
-ad2.options << Option.find_by(name: "Trailer Hitch")
-ad2.options << Option.find_by(name: "Power Windows")
-ad2.options << Option.find_by(name: "Lift Kit")
-ad2.options << Option.find_by(name: "Sunroof")
 ad2.options << Option.find_by(name: "Leather Seats")
-ad2.options << Option.find_by(name: "Heated Seats")
-ad2.options << Option.find_by(name: "Portable Audio Connection")
-ad2.options << Option.find_by(name: "Steering Wheel Controls")
 ad2.save
-
-

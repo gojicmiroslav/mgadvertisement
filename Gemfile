@@ -24,6 +24,12 @@ gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'cancancan', '~> 1.10'
 gem 'jquery-ui-rails'
 
+source "http://rails-assets.org" do
+  gem 'rails-assets-sweetalert'
+end
+
+gem 'sweet-alert-confirm'
+
 group :development, :test do
   gem 'byebug'
   gem 'mocha'

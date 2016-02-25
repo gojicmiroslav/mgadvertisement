@@ -1,0 +1,148 @@
+<%= form_for(@advertisement) do |f| %>
+
+<%= render 'shared/error_messages', object: f.object %>
+
+<div class="categories" id="select-categories">
+	<label for="categories">
+		<h4 class="categories-choice">Select category</h4>
+	</label>
+	<br />
+	<%= f.label :category, "Category: *" %><br />    
+	<%= f.select(:category_id, Category.all.collect { |c| [ c.name, c.id ] }, {prompt: 'Select...'}, {id: "categories", class: "categories-select"} ) %>
+</div>
+
+<div id="form-holder" class="form-holder first_time">
+	<div class="start-message" id="form-message">Please select category to continue. Thank you!</div>
+
+	<div id="show-form">
+		<hr />
+			<h4 class="text-info">Basic information</h4>
+
+			<div class="form-group">
+		  	<div class="row">
+		  		<div class="col-sm-4">
+		    		<%= label :vehicle_brands, "Brand: *" %><br />    
+		    		<%= select_tag :vehicle_brands, prompt: "" %>
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :vehicle_model, "Model: *" %><br />    
+		    		<%= f.select :vehicle_model_id, {}, {}, id: "vm_select", disabled: true %>
+		    	</div>
+		    </div>
+		  </div>
+
+			<div class="form-group">
+		    <%= f.label :title, "Title: *" %> <br />
+		    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+		  </div>
+
+		  <div class="form-group">
+		    <%= f.label :description, "Description:" %> <br />
+		    <%= f.text_area :description, class: 'form-control' %>
+		  </div>
+
+		  <div class="form-group">
+		  	<div class="row">
+		  		<div class="col-sm-4">
+		    		<%= f.label :price, "Price: *" %>    
+		    		<%= f.text_field :price,  size: 20, placeholder: "000.000" %> €
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :year, "Year: *" %>    
+		    		<%= f.text_field :year, placeholder: "Click here", id: "advertisement_year" %> 
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :capacity, "Capacity(cm3): *" %> <br />   
+		    		<%= f.text_field :capacity,  size: 5, placeholder: "0000" %> 
+		    	</div>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		  	<div class="row">
+		  		<div class="col-sm-4">
+						<%= f.label :power, "Power(kW): *" %><br />   
+						<%= f.text_field :power,  size: 6, placeholder: "00000" %> 
+					</div>
+
+					<div class="col-sm-4">
+						<%= f.label :mileage, "Mileage: *" %><br />   
+						<%= f.text_field :mileage,  size: 10, placeholder: "000000.000" %> 
+					</div>
+				</div>
+		  </div>
+
+		  <hr />
+
+		  <h4 class="text-info">Additional information</h4>
+
+		  <div class="form-group">
+		  	<div class="row">
+		  		<div class="col-sm-4">
+		    		<%= f.label :fuel, "Fuel: *" %><br />    
+		    		<%= f.collection_select :fuel_id, Fuel.all, :id, :name, prompt: "" %>
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :style, "Style: *" %><br />    
+		    		<%= f.collection_select :style_id, Style.all, :id, :name, prompt: "" %>
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :air_condition, "Air condition: *" %><br />    
+		    		<%= f.collection_select :air_condition_id, AirCondition.all, :id, :name, prompt: "" %>
+		    	</div>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		  	<div class="row">
+		  		<div class="col-sm-4">
+		    		<%= f.label :exterior_color, "Exteriror color: *" %><br />    
+		    		<%= f.collection_select :exterior_color_id, Color.all, :id, :name, prompt: "" %>
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :interior_color, "Interior color: *" %><br />    
+		    		<%= f.collection_select :interior_color_id, Color.all, :id, :name, prompt: "" %>
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :engine, "Engine: *" %><br />    
+		    		<%= f.collection_select :engine_id, Engine.all, :id, :name, prompt: "" %>
+		    	</div>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		  	<div class="row">
+		  		<div class="col-sm-4">
+		    		<%= f.label :drive, "Drive: *" %><br />    
+		    		<%= f.collection_select :drive_id, Drive.all, :id, :name, prompt: "" %>
+		    	</div>
+
+		    	<div class="col-sm-4">
+		    		<%= f.label :transmission, "Transmission: *" %><br />    
+		    		<%= f.collection_select :transmission_id, Transmission.all, :id, :name, prompt: "" %>
+		    	</div>
+		  </div>
+				
+			<hr />
+
+		  <h4 class="text-info">Options</h4>	
+
+			<div id="options">
+			  
+			</div>
+			
+			<br /><br />
+			<%= f.submit "Add advertisement", class: "btn btn-primary" %>
+			<br /><br />
+
+		<% end %>
+	</div><!-- show_form -->
+	
+</div><!-- form-holder -->		

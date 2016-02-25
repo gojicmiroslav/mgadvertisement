@@ -5,9 +5,7 @@ class CreateAdvertisements < ActiveRecord::Migration
     	t.text 		:description
     	t.decimal :price, null: false, precision: 7, scale: 3
     	t.date 		:year, null: false
-    	t.integer :capacity, null: false
-    	t.integer :power, null: false
-    	t.decimal :mileage, precision: 9, scale: 3
+      t.boolean :active, default: true
 
       t.timestamps null: false
     end

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AdvertisementsController, type: :controller do
 
   # test permit
-  it do   
+  xit do   
     params = {
       advertisement: {
         title: "2010 BMW X1 2.0 Navi/xDrive", 
