@@ -1,11 +1,12 @@
 class AdvertisementsController < ApplicationController
+
+  before_action :set_advedrtisement, only: [:show, :edit, :update, :destroy]
   
   def index
     @advertisements = Advertisement.all
   end
 
   def show
-    @advertisement = Advertisement.find(params[:id])
     @basic_advertisement_informations = {}
     @additional_advertisement_informations = {}
     basic_information_id = InformationType.find_by(name: "Basic").id
@@ -51,14 +52,12 @@ class AdvertisementsController < ApplicationController
   end
 
   def edit
-    @advertisement = Advertisement.find(params[:id])
     @basic_informations = Category.get_all_category_informations(@advertisement.category.id, "Basic")
     @additional_informations = Category.get_all_category_informations(@advertisement.category.id, "Additional")
     @all_options = @advertisement.category.options
   end
 
   def update
-    @advertisement = Advertisement.find(params[:id])
     informations = get_advertisement_informations params[:advertisement][:advertisement_informations]
     @advertisement.option_ids = Advertisement.get_options params[:advertisement][:options_attributes]
 
@@ -76,13 +75,16 @@ class AdvertisementsController < ApplicationController
   end
 
   def destroy
-    @advertisement = Advertisement.find(params[:id])
     @advertisement.destroy
 
     redirect_to advertisements_path
   end
 
   private 
+
+  def set_advedrtisement
+    @advertisement = Advertisement.find(params[:id])
+  end
 
   def advertisement_params
     params.require(:advertisement).permit(:title, :description, :price, :year, :active, :category_id, 

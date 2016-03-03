@@ -827,11 +827,6 @@ item.information << Information.find_by(name: "Style")
 item.categories << Category.find_by(name: "Cars")
 item.save
 
-item = Item.new(name: "SUV/Crossover")
-item.information << Information.find_by(name: "Style")
-item.categories << Category.find_by(name: "Cars")
-item.save
-
 item = Item.new(name: "Van/Minivan")
 item.information << Information.find_by(name: "Style")
 item.categories << Category.find_by(name: "Cars")
@@ -1009,14 +1004,6 @@ item.information << Information.find_by(name: "Engine")
 item.categories << Category.find_by(name: "Cars")
 item.categories << Category.find_by(name: "Trucks")
 item.save
-
-
-item = Item.new(name: "Rotary Engine")
-item.information << Information.find_by(name: "Engine")
-item.categories << Category.find_by(name: "Cars")
-item.categories << Category.find_by(name: "Trucks")
-item.save
-
 
 ############Exterior/Interior Color#######################################
 item = Item.new(name: "Beige")
@@ -1313,11 +1300,6 @@ item.categories << Category.find_by(name: "Bicycles")
 item.save
 
 item = Item.new(name: "Aluminium")
-item.information << Information.find_by(name: "Material")
-item.categories << Category.find_by(name: "Bicycles")
-item.save
-
-item = Item.new(name: "Iron")
 item.information << Information.find_by(name: "Material")
 item.categories << Category.find_by(name: "Bicycles")
 item.save

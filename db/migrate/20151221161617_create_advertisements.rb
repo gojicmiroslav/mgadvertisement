@@ -3,7 +3,7 @@ class CreateAdvertisements < ActiveRecord::Migration
     create_table :advertisements do |t|
     	t.string 	:title, null: false, default: ""
     	t.text 		:description
-    	t.decimal :price, null: false, precision: 7, scale: 3
+    	t.decimal :price, null: false, precision: 10, scale: 2
     	t.date 		:year, null: false
       t.boolean :active, default: true
 

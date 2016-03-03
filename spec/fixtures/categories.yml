@@ -15,6 +15,6 @@ trucks:
 bicycles:
  name: Bicycles
  description: Bicycles category description
- vehicle_brands: renault
+ vehicle_brands: renault,boardman
  options: back_break, lights
  information: type, breaks, color, material, size

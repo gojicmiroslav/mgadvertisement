@@ -18,6 +18,7 @@ require 'capybara-screenshot/rspec'
 require "rack_session_access/capybara"
 require "email_spec"
 require 'capybara/poltergeist'
+require 'phantomjs'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

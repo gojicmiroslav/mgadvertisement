@@ -1,7 +1,4 @@
 console.log("COUNT");
-jQuery("#btn-delete").on("click", function(data){
-  alert("Hi");
-});
 
 jQuery( "#advertisement_year" ).datepicker({
   showOn: "button",
@@ -175,7 +172,7 @@ jQuery("#categories").on('change', function(){
   		if(data.length > 0){
   			vb_select.append("<option value>Select...</option>");
   			data.forEach(function(obj, index, array){
-  				var option = '<option value="'+obj.id+'">'+obj.name+'</option>';
+  				var option = '<option value="' + obj.id + '">' + obj.name + '</option>';
         	vb_select.append(option);
   			});
   		}
@@ -261,13 +258,13 @@ jQuery("#categories").on('change', function(){
 								html += "<div class='form-group'><div class='row'>";
 								html += "<div class='col-sm-4'>";
 								html += "<label>" + information.name +":</label><br />"
-								html += "<input type='text' id='advertisement_advertisement_informations_" + information_name_underscore + "' name='advertisement[advertisement_informations][" + information.id + "]' placeholder: 'Enter...' />"
+								html += "<input type='text' id='advertisement_advertisement_informations_" + information_name_underscore + "' name='advertisement[advertisement_informations][" + information.id + "]' placeholder='Enter...' />"
 								html += "</div>";
 
 							} else if(infoIndex % 3 === 2) {
 								html += "<div class='col-sm-4'>";
 								html += "<label>" + information.name +":</label><br />";
-								html += "<input type='text' id='advertisement_advertisement_informations_" + information_name_underscore + "' name='advertisement[advertisement_informations][" + information.id + "]' placeholder: 'Enter...' />"
+								html += "<input type='text' id='advertisement_advertisement_informations_" + information_name_underscore + "' name='advertisement[advertisement_informations][" + information.id + "]' placeholder='Enter...' />"
 								html += "</div>";						
 								html += "</div></div>";
 
@@ -332,7 +329,7 @@ jQuery("#categories").on('change', function(){
 									html += "<div class='form-group' ><div class='row' >";
 									html += "<div class='col-sm-4'>";
 									html += "<label>" + information.name +":</label><br />";
-									html += "<select name='advertisement[" + information.name.toLowerCase() +"]' id='" + information.name.toLowerCase() +"_id'>";
+									html += "<select name='advertisement[" + information.name.toLowerCase().replace(' ', '_') +"]' id='" + information.name.toLowerCase().replace(' ', '_') +"_id'>";
 									html += "<option value=\"\">Select...</option>"
 									data.forEach(function(obj, index, array){		
 										html += "<option value=\"" + obj.id +"\">" + obj.name +"</option>"
@@ -342,7 +339,7 @@ jQuery("#categories").on('change', function(){
 							} else if(infoIndex % 3 == 2) {
 									html += "<div class='col-sm-4'>";
 									html += "<label>" + information.name +":</label><br />";
-									html += "<select name='advertisement[" + information.name.toLowerCase() +"]' id='" + information.name.toLowerCase() +"_id'>";
+									html += "<select name='advertisement[" + information.name.toLowerCase().replace(' ', '_') +"]' id='" + information.name.toLowerCase().replace(' ', '_') +"_id'>";
 									html += "<option value=\"\">Select...</option>"
 									data.forEach(function(obj, index, array){		
 										html += "<option value=\"" + obj.id +"\">" + obj.name +"</option>"
@@ -353,7 +350,7 @@ jQuery("#categories").on('change', function(){
 							} else {
 									html += "<div class='col-sm-4'>";
 									html += "<label>" + information.name +":</label><br />";
-									html += "<select name='advertisement[" + information.name.toLowerCase() +"]' id='" + information.name.toLowerCase() +"_id'>";
+									html += "<select name='advertisement[" + information.name.toLowerCase().replace(' ', '_') + "]' id='" + information.name.toLowerCase().replace(' ', '_') + "_id'>";
 									html += "<option value=\"\">Select...</option>"
 									data.forEach(function(obj, index, array){		
 										html += "<option value=\"" + obj.id +"\">" + obj.name +"</option>"
@@ -368,20 +365,20 @@ jQuery("#categories").on('change', function(){
 								html += "<div class='form-group' ><div class='row' >";
 								html += "<div class='col-sm-4'>";
 								html += "<label>" + information.name +":</label><br />"
-								html += "<input type='text' id='advertisement_" + information.name.toLowerCase() + "' name='advertisement[" + information.name.toLowerCase() + "]' placeholder: 'Enter...' />"
+								html += "<input type='text' id='advertisement_" + information.name.toLowerCase().replace(' ', '_') + "' name='advertisement[" + information.name.toLowerCase().replace(' ', '_') + "]' placeholder: 'Enter...' />"
 								html += "</div>";
 
 							} else if(infoIndex % 3 === 2) {
 								html += "<div class='col-sm-4'>";
 								html += "<label>" + information.name +":</label><br />";
-								html += "<input type='text' id='advertisement_" + information.name.toLowerCase() + "' name='advertisement[" + information.name.toLowerCase() + "]' placeholder: 'Enter...' />"
+								html += "<input type='text' id='advertisement_" + information.name.toLowerCase().replace(' ', '_') + "' name='advertisement[" + information.name.toLowerCase().replace(' ', '_') + "]' placeholder: 'Enter...' />"
 								html += "</div>";						
 								html += "</div></div>";
 
 							} else {
 								html += "<div class='col-sm-4'>";
 								html += "<label>" + information.name +":</label><br />";
-								html += "<input type='text' id='advertisement_" + information.name.toLowerCase() + "' name='advertisement[" + information.name.toLowerCase() + "]' placeholder: 'Enter...' />"
+								html += "<input type='text' id='advertisement_" + information.name.toLowerCase() + "' name='advertisement[" + information.name.toLowerCase().replace(' ', '_') + "]' placeholder: 'Enter...' />"
 								html += "</div>";
 							}
 						}

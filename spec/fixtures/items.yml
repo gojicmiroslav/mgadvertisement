@@ -41,3 +41,496 @@ electric:
 alternate:
  name: Alternate
  information: fuel      
+
+commercial:
+ name: Commercial
+ information: style
+
+convertible:
+ name: Convertible
+ information: style
+
+coupe:
+ name: Coupe 
+ information: style
+
+hatchback:
+ name: Hatchback
+ information: style
+
+hybrid_electric:
+ name: Hybrid/Electric
+ information: style
+
+luxury:
+ name: Luxury
+ information: style
+
+sedan:
+ name: Sedan
+ information: style
+
+suv_crossover:
+ name: SUV/Crossover
+ information: style
+
+van_minivan:
+ name: Van/Minivan
+ information: style
+
+wagon:
+ name: Wagon
+ information: style
+
+awd:
+ name: AWD
+ information: drive
+
+fwd:
+ name: FWD
+ information: drive
+
+rwd:
+ name: RWD
+ information: drive
+
+4wd:
+ name: 4WD
+ information: drive
+
+4_x_4:
+ name: 4x4
+ information: drive
+
+other_drive:
+ name: Other
+ information: drive
+
+automatic:
+ name: Automatic
+ information: transmission
+
+manual:
+ name: Manual
+ information: transmission
+
+semi_automatic:
+ name: Semi-automatic
+ information: transmission
+
+cvt:
+ name: CVT
+ information: transmission
+
+other_transmission:
+ name: Other
+ information: transmission
+
+automatic_air_condition:
+ name: Automatic
+ information: air_condition 
+
+manual_air_condition:
+ name: Manual
+ information: air_condition  
+
+none_air_condition:
+ name: None
+ information: air_condition  
+
+3_cylinder:
+ name: 3 cylinder
+ information: engine
+
+4_cylinder:
+ name: 4 cylinder
+ information: engine
+
+5_cylinder:
+ name: 5 cylinder
+ information: engine
+
+6_cylinder:
+ name: 6 cylinder
+ information: engine
+
+cylinder_8:
+ name: 8 cylinder
+ information: engine 
+
+cylinder_10:
+ name: 10 cylinder
+ information: engine 
+
+cylinder_12:
+ name: 12 cylinder
+ information: engine 
+
+electric:
+ name: Electric
+ information: engine
+
+hybrid:
+ name: Hybrid
+ information: engine
+
+rotary_Engine:
+ name: Rotary Engine
+ information: engine   
+
+beige_exterior_color:
+ name: Beige
+ information: exterior_color
+
+blue_exterior_color:
+ name: Blue
+ information: exterior_color
+
+beige_exterior_color:
+ name: Beige
+ information: exterior_color
+
+black_exterior_color:
+ name: Black
+ information: exterior_color
+
+burgundy_exterior_color:
+ name: Burgundy
+ information: exterior_color
+
+charcoal_exterior_color:
+ name: Charcoal
+ information: exterior_color    
+
+gold_exterior_color:
+ name: Gold
+ information: exterior_color       
+
+gray_exterior_color:
+ name: Gray
+ information: exterior_color        
+
+green_exterior_color:
+ name: Green
+ information: exterior_color         
+
+off_white_exterior_color:
+ name: Off White
+ information: exterior_color         
+
+orange_exterior_color:
+ name: Orange
+ information: exterior_color                     
+
+pink_exterior_color:
+ name: Pink
+ information: exterior_color                     
+
+red_exterior_color:
+ name: Red
+ information: exterior_color                     
+
+silver_exterior_color:
+ name: Silver
+ information: exterior_color                     
+
+tan_exterior_color:
+ name: Tan
+ information: exterior_color                         
+
+turquoise_exterior_color:
+ name: Turquoise
+ information: exterior_color                         
+
+white_exterior_color:
+ name: White
+ information: exterior_color                         
+
+yellow_exterior_color:
+ name: Yellow
+ information: exterior_color
+
+beige_interior_color:
+ name: Beige
+ information: interior_color
+
+blue_interior_color:
+ name: Blue
+ information: interior_color
+
+black_interior_color:
+ name: Black
+ information: interior_color
+
+burgundy_interior_color:
+ name: Burgundy
+ information: interior_color
+
+charcoal_interior_color:
+ name: Charcoal
+ information: interior_color    
+
+gold_interior_color:
+ name: Gold
+ information: interior_color     
+
+gray_interior_color:
+ name: Gray
+ information: interior_color        
+
+green_interior_color:
+ name: Green
+ information: interior_color         
+
+off_white_interior_color:
+ name: Off White
+ information: interior_color         
+
+orange_interior_color:
+ name: Orange
+ information: interior_color                     
+
+pink_interior_color:
+ name: Pink
+ information: interior_color                     
+
+red_interior_color:
+ name: Red
+ information: interior_color                     
+
+silver_interior_color:
+ name: Silver
+ information: interior_color                     
+
+tan_interior_color:
+ name: Tan
+ information: interior_color                         
+
+turquoise_interior_color:
+ name: Turquoise
+ information: interior_color                         
+
+white_interior_color:
+ name: White
+ information: interior_color                         
+
+yellow_interior_color:
+ name: Yellow
+ information: interior_color 
+
+beige_color:
+ name: Beige
+ information: color
+
+blue_color:
+ name: Blue
+ information: color
+
+black_color:
+ name: Black
+ information: color
+
+burgundy_color:
+ name: Burgundy
+ information: color
+
+charcoal_color:
+ name: Charcoal
+ information: color    
+
+gold_color:
+ name: Gold
+ information: color     
+
+gray_color:
+ name: Gray
+ information: color        
+
+green_color:
+ name: Green
+ information: color         
+
+off_white_color:
+ name: Off White
+ information: color         
+
+orange_color:
+ name: Orange
+ information: color                     
+
+pink_color:
+ name: Pink
+ information: color                     
+
+red_color:
+ name: Red
+ information: color                     
+
+silver_color:
+ name: Silver
+ information: color                     
+
+tan_color:
+ name: Tan
+ information: color                         
+
+turquoise_color:
+ name: Turquoise
+ information: color                         
+
+white_color:
+ name: White
+ information: color                         
+
+yellow_color:
+ name: Yellow
+ information: color 
+
+standard_breaks:
+ name: Standard
+ information: breaks 
+
+v_break:
+ name: V-brake
+ information: breaks 
+
+hidraulic_breaks:
+ name: Hidraulic
+ information: breaks 
+
+mechanic_breaks:
+ name: Mechanic
+ information: breaks
+
+aluminium:
+ name: Aluminium
+ information: material
+
+iron:
+ name: Iron
+ information: material
+
+carbon:
+ name: Carbon
+ information: material
+
+titanium:
+ name: Titanium
+ information: material   
+
+inch_13:
+ name: 13"
+ information: size 
+
+inch_14:
+ name: 14"
+ information: size 
+
+inch_15:
+ name: 15"
+ information: size 
+
+inch_16:
+ name: 16"
+ information: size
+
+inch_16_5:
+ name: 16.5"
+ information: size      
+
+inch_17:
+ name: 17"
+ information: size      
+
+inch_17_5:
+ name: 17.5"
+ information: size      
+
+inch_18:
+ name: 18"
+ information: size      
+
+inch_18_5:
+ name: 18.5"
+ information: size      
+
+inch_19:
+ name: 19"
+ information: size      
+
+inch_19_5:
+ name: 19.5"
+ information: size      
+
+inch_20:
+ name: 20"
+ information: size      
+
+inch_20_5:
+ name: 20.5"
+ information: size  
+
+inch_21:
+ name: 21"
+ information: size      
+
+inch_21_5:
+ name: 21.5"
+ information: size      
+
+inch_22:
+ name: 22"
+ information: size      
+
+inch_22_5:
+ name: 22.5"
+ information: size     
+
+inch_23:
+ name: 23"
+ information: size      
+
+inch_23_5:
+ name: 23.5"
+ information: size      
+
+inch_24:
+ name: 24"
+ information: size      
+
+inch_24_5:
+ name: 24.5"
+ information: size
+
+inch_25:
+ name: 25"
+ information: size
+
+inch_25_5:
+ name: 25.5"
+ information: size  
+
+inch_26:
+ name: 26"
+ information: size
+
+inch_26_5:
+ name: 26.5"
+ information: size
+
+inch_27:
+ name: 27"
+ information: size
+
+inch_27_5:
+ name: 27.5"
+ information: size   
+
+inch_28:
+ name: 28"
+ information: size        
+
+
+
+
+

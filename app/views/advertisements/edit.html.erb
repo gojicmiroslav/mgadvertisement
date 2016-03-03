@@ -55,7 +55,7 @@
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 	    								<%= text_field_tag :value, 
 	    										advertisement_information.object.find_advertisement_information_value,
-	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true
 	    								%>
 										</div>
 							<% elsif index % 3 == 2 %>
@@ -63,7 +63,7 @@
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 	    								<%= text_field_tag :value, 
 	    										advertisement_information.object.find_advertisement_information_value,
-	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true 
 	    								%>
 										</div>
 									</div>
@@ -73,7 +73,7 @@
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 	    								<%= text_field_tag :value, 
 	    										advertisement_information.object.find_advertisement_information_value,
-	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}" 
+	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true 
 	    								%>
 										</div>
 							<% end %>
@@ -85,14 +85,14 @@
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
 	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
-	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true   %>
 										</div>
 							<% elsif index % 3 == 2 %>
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
 	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
-	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true   %>
 										</div>
 									</div>
 								</div>		
@@ -101,7 +101,7 @@
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
 	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
-	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
+	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true   %>
 										</div>
 							<% end %>
 					<% end %>

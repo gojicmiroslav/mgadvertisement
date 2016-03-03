@@ -8,6 +8,9 @@ class Information < ActiveRecord::Base
 
 	accepts_nested_attributes_for :categories 
 
+	scope :basic_information, -> { where(information_type: InformationType.find_by(name: "Basic")) }  
+	scope :additional_information, -> { where(information_type: InformationType.find_by(name: "Additional")) }  
+
 	def is_basic
 		return information_type.name.eql?("Basic")
 	end

@@ -65,3 +65,19 @@ interior_color:
 carrying_capacity:
  name: Carrying Capacity
  information_type: additional   
+
+color:
+ name: Color
+ information_type: additional 
+
+breaks:
+ name: Breaks
+ information_type: additional  
+
+material:
+ name: Material
+ information_type: additional   
+
+size:
+ name: Size
+ information_type: additional    

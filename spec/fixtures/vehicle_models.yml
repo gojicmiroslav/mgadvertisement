@@ -3,7 +3,17 @@ astra_g:
  category: cars
  vehicle_brand: opel
 
-astra_g:
- name: Astra G
+astra_f:
+ name: Astra F
  category: cars
- vehicle_brand: opel  
+ vehicle_brand: opel 
+
+mountain_one:
+ name: Boardman Mountain Bike Team 29er
+ category: bicycles
+ vehicle_brand: boardman  
+
+mountain_two:
+ name: Boardman Mountain Bike Pro Full Suspension 27.5"
+ category: bicycles
+ vehicle_brand: boardman   

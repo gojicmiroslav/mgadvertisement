@@ -1,0 +1,79 @@
+capacity_advertisement_information:
+ value: 2000
+ advertisement: first_advertisement
+ information: capacity
+
+power_advertisement_information:
+ value: 2500
+ advertisement: first_advertisement
+ information: power
+
+mileage_advertisement_information:
+ value: 2000
+ advertisement: first_advertisement
+ information: mileage  
+
+type_advertisement_information:
+ value: BMX
+ advertisement: second_advertisement
+ information: type  
+
+fuel_advertisement_information:
+ value: Diesel
+ advertisement: first_advertisement
+ information: fuel  
+
+style_advertisement_information:
+ value: Commercial
+ advertisement: first_advertisement
+ information: style
+
+drive_advertisement_information:
+ value: AWD
+ advertisement: first_advertisement
+ information: drive 
+
+transmission_advertisement_information:
+ value: Manual
+ advertisement: first_advertisement
+ information: transmission  
+
+air_condition_advertisement_information:
+ value: Automatic
+ advertisement: first_advertisement
+ information: air_condition
+
+engine_advertisement_information:
+ value: 8 cylinder
+ advertisement: first_advertisement
+ information: engine
+
+exterior_color_advertisement_information:
+ value: White
+ advertisement: first_advertisement
+ information: exterior_color   
+
+interior_color_advertisement_information:
+ value: Silver
+ advertisement: first_advertisement
+ information: interior_color 
+
+color_advertisement_information:
+ value: Blue
+ advertisement: second_advertisement
+ information: color   
+
+break_advertisement_information:
+ value: Standard
+ advertisement: second_advertisement
+ information: breaks   
+
+material_advertisement_information:
+ value: Iron
+ advertisement: second_advertisement
+ information: material   
+
+size_advertisement_information:
+ value: 25"
+ advertisement: second_advertisement
+ information: size

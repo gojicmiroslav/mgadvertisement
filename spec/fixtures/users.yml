@@ -1,0 +1,41 @@
+miroslav:
+ firstname: Miroslav 
+ lastname: Gojic
+ email: miroslavtest@example.org
+ encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+ confirmed_at: <%= Time.now %>
+
+pera:
+ firstname: Pera 
+ lastname: Peric
+ email: pera23@gmail.com
+ encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+ confirmed_at: <%= Time.now - 2.days %>
+
+michael:
+ firstname: Michael 
+ lastname: Example
+ email: michael332@example.com
+ encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+ confirmed_at: <%= Time.now - 5.days %>
+
+archer:
+ firstname: Sterling 
+ lastname: Archer
+ email: duchess3322@example.gov
+ encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+ confirmed_at: <%= Time.now - 10.days %>
+
+lana:
+ firstname: Lana 
+ lastname: Kane
+ email: hands32323@example.gov
+ encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+ confirmed_at: <%= Time.now - 15.days %>
+
+mallory:
+ firstname: Mallory 
+ lastname: Archer
+ email: boss222@example.gov
+ encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+ confirmed_at: <%= Time.now - 14.days %>

@@ -13,3 +13,7 @@ mercedes:
 renault:
  name: Renault
  categories: cars, bicycles
+
+boardman:
+ name: Boardman
+ categories: bicycles 

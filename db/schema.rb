@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(version: 20160130175551) do
   end
 
   create_table "advertisements", force: :cascade do |t|
-    t.string   "title",                 limit: 255,                           default: "",   null: false
+    t.string   "title",                 limit: 255,                            default: "",   null: false
     t.text     "description",           limit: 65535
-    t.decimal  "price",                               precision: 7, scale: 3,                null: false
-    t.date     "year",                                                                       null: false
-    t.boolean  "active",                                                      default: true
-    t.datetime "created_at",                                                                 null: false
-    t.datetime "updated_at",                                                                 null: false
+    t.decimal  "price",                               precision: 10, scale: 2,                null: false
+    t.date     "year",                                                                        null: false
+    t.boolean  "active",                                                       default: true
+    t.datetime "created_at",                                                                  null: false
+    t.datetime "updated_at",                                                                  null: false
     t.integer  "category_id",           limit: 4
     t.integer  "vehicle_model_id",      limit: 4
     t.integer  "user_id",               limit: 4

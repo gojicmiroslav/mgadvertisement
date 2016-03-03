@@ -1,0 +1,23 @@
+first_advertisement:
+ title: 2010 BMW 530 D GT
+ description: Some description
+ price: 25999
+ year: 2009-08-08
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: new
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation
+
+second_advertisement:
+ title: Mountain Bike Boardman
+ description: Some description
+ price: 3000
+ year: 2010-08-08
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: new 
+ options: heated_seats, steering_wheel_system, hands_break, lights, back_break

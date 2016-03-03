@@ -1,26 +1,86 @@
-navigation:
- name: Navigation
- categories: cars, trucks
-
-cd_player:
- name: CD Player
- categories: cars, trucks
-
-dvd_player:
- name: DVD Player  
- categories: cars, trucks
-
-sunroof:
- name: Sunroof
+3_rd_row_seats:
+ name: 3rd Row Seats
  categories: cars
 
 power_locks:
  name: Power Locks
  categories: cars, trucks
 
+cd_player:
+ name: CD Player
+ categories: cars, trucks
+
+premium_audio:
+ name: Premium Audio
+ categories: cars, trucks, bicycles
+
+sunroof:
+ name: Sunroof
+ categories: cars, trucks
+
+trailer_hitch:
+ name: Trailer Hitch
+ categories: cars, trucks
+
+backup_camera:
+ name: Backup Camera
+ categories: cars, trucks
+
+power_windows:
+ name: Power Windows
+ categories: cars, trucks
+
+dvd_player:
+ name: DVD Player  
+ categories: cars, trucks
+
+security_system:
+ name: Security System
+ categories: cars, trucks, bicycles
+
+premium_wheels:
+ name: Premium Wheels
+ categories: cars, trucks
+
+cruise_control:
+ name: Cruise Control
+ categories: cars, trucks
+
+steering_wheel_system:
+ name: Steering Wheel System
+ categories: cars, trucks, bicycles
+
+navigation:
+ name: Navigation
+ categories: cars, trucks
+
 heated_seats:
  name: Heated Seats
- categories: trucks
+ categories: cars, trucks, bicycles
+
+disability_equipped:
+ name: Disability Equipped
+ categories: cars, trucks
+
+keyless_entry:
+ name: Keyless Entry
+ categories: cars, trucks
+
+bluetooth:
+ name: Bluetooth(Hands-Free)
+ categories: cars, trucks
+
+portable_audio_connection:
+ name: Portable Audio Connection
+ categories: cars, trucks
+
+leather_seats:
+ name: Leather Seats 
+ categories: cars, trucks
+
+lift_kit:
+ name: Lift Kit
+ categories: cars, trucks, bicycles
 
 back_break:
  name: Back Break
@@ -29,3 +89,7 @@ back_break:
 lights:
  name: Lights   
  categories: bicycles
+
+hands_break:
+ name: Hands Break
+ categories: bicycles  
