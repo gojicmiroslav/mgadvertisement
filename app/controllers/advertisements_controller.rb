@@ -1,6 +1,7 @@
 class AdvertisementsController < ApplicationController
 
   before_action :set_advedrtisement, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   
   def index
     @advertisements = Advertisement.all

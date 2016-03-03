@@ -25,7 +25,12 @@ RSpec.feature "Adding Advertisement", :feature do
 		end
 
 		context "testing page layout" do
+			# before(:context) do
+			# 	signin(users(:miroslav).email, "password", false)
+			# end
+
 			scenario "showing and hidding form when categories select changes" do
+				signin_login_page(users(:miroslav).email, 'password')
 				visit new_advertisement_path	
 				expect(page).to have_select('categories', selected: "Select...")
 				expect(page).to have_content('Please select category to continue. Thank you!')
@@ -53,6 +58,7 @@ RSpec.feature "Adding Advertisement", :feature do
 			end
 
 			scenario "testing select vehicle brands and vehicle models" do
+				signin_login_page(users(:miroslav).email, 'password')
 				visit new_advertisement_path
 				select(categories(:cars).name, :from => 'categories')
 				expect(page).to have_select('vehicle_brands')
@@ -69,6 +75,7 @@ RSpec.feature "Adding Advertisement", :feature do
 		end # page layout
 
 		scenario "testing cars basic information,additional information and options" do
+			signin_login_page(users(:miroslav).email, 'password')
 			visit new_advertisement_path
 			select(categories(:cars).name, :from => 'categories')
 
@@ -97,6 +104,7 @@ RSpec.feature "Adding Advertisement", :feature do
 		end
 
 		scenario "testing bicycles basic information,additional information and options" do
+			signin_login_page(users(:miroslav).email, 'password')
 			visit new_advertisement_path
 			select(categories(:bicycles).name, :from => 'categories')
 
@@ -125,9 +133,17 @@ RSpec.feature "Adding Advertisement", :feature do
 			end			
 		end
 
+		context "testing authenticate user" do
+			scenario "user not logged in" do
+				visit advertisements_path
+				expect(current_path).to eq(new_user_session_path)
+				expect(page).to have_content I18n.translate 'devise.failure.unauthenticated'
+			end
+		end
+
 		context "VALIDA DATA" do
 			scenario "user successfully adds cars advertisement" do
-				signin_front_page(users(:miroslav).email, 'password')
+				signin_login_page(users(:miroslav).email, 'password')
 
 				visit new_advertisement_path
 				select(categories(:cars).name, :from => 'categories')
@@ -206,8 +222,9 @@ RSpec.feature "Adding Advertisement", :feature do
 		end
 
 		context "INVALID DATA" do
+		
 			scenario "unsuccessful adds car advertisement" do
-				signin_front_page(users(:miroslav).email, 'password')
+				signin_login_page(users(:miroslav).email, 'password')
 
 				visit new_advertisement_path
 				select(categories(:cars).name, :from => 'categories')
@@ -233,7 +250,7 @@ RSpec.feature "Adding Advertisement", :feature do
 			end
 
 			scenario "unsuccessful adds bicycle advertisement" do
-				signin_front_page(users(:miroslav).email, 'password')
+				signin_login_page(users(:miroslav).email, 'password')
 
 				visit new_advertisement_path
 				select(categories(:bicycles).name, :from => 'categories')
