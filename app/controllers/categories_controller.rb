@@ -4,6 +4,11 @@ class CategoriesController < ApplicationController
   	@categories = Category.all
   end
 
+  def show
+    @category = Category.find(params[:id])
+    @category_advertisements = @category.advertisements
+  end
+
   def basic
   	basic_id = InformationType.find_by(name: "Basic").id
   	category = Category.find(params[:id])

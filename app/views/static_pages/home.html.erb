@@ -1,2 +1,37 @@
-<h1>Home</h1>
-<p>This is home page.</p>
+
+<div class="row">
+	<div class="col-lg-8">
+		<div class="row">
+			<h3>Search</h3>
+			<h3>All categories</h3>
+				<% @categories.each do |category| %>
+					<p><%= link_to category.name, category %></p>
+				<% end %>
+		</div>
+
+		<div class="row">
+			<h3>Advertisements</h3>
+			<h3>All advertisements</h3>
+			<% @advertisements.each do |advertisement| %>
+				<p><%= link_to advertisement.title, advertisement %></p>
+			<% end %>
+		</div>		
+	</div>
+
+	<div class="col-lg-4">
+		<div class="row">
+			<h3>Sidebar</h3>
+		</div>
+	</div>	
+</div>
+
+
+
+
+
+
+
+
+
+
+

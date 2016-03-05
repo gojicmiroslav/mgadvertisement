@@ -1,5 +1,6 @@
 class Advertisement < ActiveRecord::Base
 
+
 	belongs_to :advertisement_type
 	belongs_to :user, validate: true
 	belongs_to :category, validate: true

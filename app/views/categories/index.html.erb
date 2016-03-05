@@ -1,2 +1,9 @@
 <h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+
+<ul>
+<% @categories.each do |category| %>
+	<% category.advertisements.each do |advertisement| %>
+		<li><%= link_to advertisement.title %></li>
+	<% end %>
+<% end %>
+</ul>

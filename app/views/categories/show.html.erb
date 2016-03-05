@@ -1,0 +1,9 @@
+<% provide(:title, "Edit advertisement") %>
+
+<h1>Category: <%= @category.name %></h1>
+
+<ul>
+	<% @category_advertisements.each do |advertisement| %>
+		<li><%= link_to advertisement.title, advertisement %></li>
+	<% end %>
+</ul>
