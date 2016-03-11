@@ -18,12 +18,12 @@ class Category < ActiveRecord::Base
       return nil
     end
 
-    basic_id = InformationType.find_by(name: type).id
+    id = InformationType.find_by(name: type).id
     category = Category.find(category_id)
     informations = []
 
     category.information.each do |info|
-      if info.information_type_id == basic_id
+      if info.information_type_id == id
         informations << info
       end
     end

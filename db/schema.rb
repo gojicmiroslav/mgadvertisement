@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130175551) do
+ActiveRecord::Schema.define(version: 20160307203404) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160130175551) do
     t.integer  "vehicle_model_id",      limit: 4
     t.integer  "user_id",               limit: 4
     t.integer  "advertisement_type_id", limit: 4
+    t.text     "images",                limit: 65535
   end
 
   add_index "advertisements", ["advertisement_type_id"], name: "index_advertisements_on_advertisement_type_id", using: :btree

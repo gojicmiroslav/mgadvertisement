@@ -329,7 +329,7 @@ jQuery("#categories").on('change', function(){
 									html += "<div class='form-group' ><div class='row' >";
 									html += "<div class='col-sm-4'>";
 									html += "<label>" + information.name +":</label><br />";
-									html += "<select name='advertisement[" + information.name.toLowerCase().replace(' ', '_') +"]' id='" + information.name.toLowerCase().replace(' ', '_') +"_id'>";
+									html += "<select name='advertisement[advertisement_informations][" + information.id +"]' id='" + information.name.toLowerCase().replace(' ', '_') +"_id'>";
 									html += "<option value=\"\">Select...</option>"
 									data.forEach(function(obj, index, array){		
 										html += "<option value=\"" + obj.id +"\">" + obj.name +"</option>"
@@ -339,7 +339,7 @@ jQuery("#categories").on('change', function(){
 							} else if(infoIndex % 3 == 2) {
 									html += "<div class='col-sm-4'>";
 									html += "<label>" + information.name +":</label><br />";
-									html += "<select name='advertisement[" + information.name.toLowerCase().replace(' ', '_') +"]' id='" + information.name.toLowerCase().replace(' ', '_') +"_id'>";
+									html += "<select name='advertisement[advertisement_informations][" + information.id +"]' id='" + information.name.toLowerCase().replace(' ', '_') +"_id'>";
 									html += "<option value=\"\">Select...</option>"
 									data.forEach(function(obj, index, array){		
 										html += "<option value=\"" + obj.id +"\">" + obj.name +"</option>"
@@ -350,7 +350,7 @@ jQuery("#categories").on('change', function(){
 							} else {
 									html += "<div class='col-sm-4'>";
 									html += "<label>" + information.name +":</label><br />";
-									html += "<select name='advertisement[" + information.name.toLowerCase().replace(' ', '_') + "]' id='" + information.name.toLowerCase().replace(' ', '_') + "_id'>";
+									html += "<select name='advertisement[advertisement_informations][" + information.id +"]' id='" + information.name.toLowerCase().replace(' ', '_') + "_id'>";
 									html += "<option value=\"\">Select...</option>"
 									data.forEach(function(obj, index, array){		
 										html += "<option value=\"" + obj.id +"\">" + obj.name +"</option>"
@@ -365,20 +365,20 @@ jQuery("#categories").on('change', function(){
 								html += "<div class='form-group' ><div class='row' >";
 								html += "<div class='col-sm-4'>";
 								html += "<label>" + information.name +":</label><br />"
-								html += "<input type='text' id='advertisement_" + information.name.toLowerCase().replace(' ', '_') + "' name='advertisement[" + information.name.toLowerCase().replace(' ', '_') + "]' placeholder: 'Enter...' />"
+								html += "<input type='text' id='advertisement_" + information.name.toLowerCase().replace(' ', '_') + "' name='advertisement[advertisement_informations][" + information.id +"]' placeholder: 'Enter...' />"
 								html += "</div>";
 
 							} else if(infoIndex % 3 === 2) {
 								html += "<div class='col-sm-4'>";
 								html += "<label>" + information.name +":</label><br />";
-								html += "<input type='text' id='advertisement_" + information.name.toLowerCase().replace(' ', '_') + "' name='advertisement[" + information.name.toLowerCase().replace(' ', '_') + "]' placeholder: 'Enter...' />"
+								html += "<input type='text' id='advertisement_" + information.name.toLowerCase().replace(' ', '_') + "' name='advertisement[advertisement_informations][" + information.id +"]' placeholder: 'Enter...' />"
 								html += "</div>";						
 								html += "</div></div>";
 
 							} else {
 								html += "<div class='col-sm-4'>";
 								html += "<label>" + information.name +":</label><br />";
-								html += "<input type='text' id='advertisement_" + information.name.toLowerCase() + "' name='advertisement[" + information.name.toLowerCase().replace(' ', '_') + "]' placeholder: 'Enter...' />"
+								html += "<input type='text' id='advertisement_" + information.name.toLowerCase() + "' name='advertisement[advertisement_informations][" + information.id +"]' placeholder: 'Enter...' />"
 								html += "</div>";
 							}
 						}

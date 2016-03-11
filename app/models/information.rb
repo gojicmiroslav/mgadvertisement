@@ -19,8 +19,8 @@ class Information < ActiveRecord::Base
 		return information_type.name.eql?("Additional")
 	end
 
-	def find_advertisement_information_value
-		advertisement_information = advertisement_informations.find_by(information_id: id)
+	def find_advertisement_information_value(advertisement)
+    advertisement_information = AdvertisementInformation.get_advertisement_information(advertisement, self)
 
 		if advertisement_information.nil?
 			return nil
@@ -29,17 +29,17 @@ class Information < ActiveRecord::Base
 		return advertisement_information.value
 	end
 
-	def get_advertisement_information_item 
-		advertisement = advertisement_informations.find_by(information_id: id)
+	def get_advertisement_information_item(advertisement) 
+		advertisement_information = AdvertisementInformation.get_advertisement_information(advertisement, self)
 
-		if advertisement.nil? 
+		if advertisement_information.nil? 
 			return nil; 
 		end
 
 		ret_val = 0
 		items.ids.each do |id|
 			item = Item.find(id)
-			if item.name == advertisement.value
+			if item.name == advertisement_information.value
 				ret_val =  id
 				break
 			end

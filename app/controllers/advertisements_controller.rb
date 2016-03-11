@@ -1,6 +1,6 @@
 class AdvertisementsController < ApplicationController
 
-  before_action :set_advedrtisement, only: [:show, :edit, :update, :destroy]
+  before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   
   def index
@@ -8,6 +8,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def show
+    
     @basic_advertisement_informations = {}
     @additional_advertisement_informations = {}
     basic_information_id = InformationType.find_by(name: "Basic").id
@@ -42,7 +43,9 @@ class AdvertisementsController < ApplicationController
     @advertisement.user = current_user
     @advertisement.option_ids = params[:advertisement][:options_attributes]
 
-    advertisement_informations = params[:advertisement][:advertisement_informations]
+    #advertisement_informations = params[:advertisement][:advertisement_informations]
+    advertisement_informations = get_advertisement_informations params[:advertisement][:advertisement_informations]
+
 
     if @advertisement.save_all(advertisement_informations)
       flash[:success] = "Advertisement successfully created."
@@ -83,14 +86,14 @@ class AdvertisementsController < ApplicationController
 
   private 
 
-  def set_advedrtisement
+  def set_advertisement
     @advertisement = Advertisement.find(params[:id])
   end
 
   def advertisement_params
     params.require(:advertisement).permit(:title, :description, :price, :year, :active, :category_id, 
                                           :vehicle_model_id, :user_id, :advertisement_type_id,
-                                          :option_ids, :advertisement_informations)
+                                          :option_ids, :advertisement_informations, images: [])
   end
 
   # we have to check is Item with given id exists or is it a value

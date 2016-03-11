@@ -15,4 +15,8 @@ class AdvertisementInformation < ActiveRecord::Base
 		return advertisement_information.first
 	end
 
+	def self.get_informations_for_show
+		
+	end
+
 end

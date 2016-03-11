@@ -91,10 +91,10 @@ RSpec.feature "Adding Advertisement", :feature do
 			categories(:cars).information.additional_information.each do |info|
 				name = info.name.downcase.gsub(' ', '_')
 				if !info.items.empty?
-					expect(page).to have_select("advertisement[#{name}]", 
+					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]", 
 																			selected: "Select..." )		
 				else
-					expect(page).to have_field("advertisement[#{info.name.downcase}]")
+					expect(page).to have_field("advertisement[advertisement_informations][#{info.id}]")
 				end
 			end
 
@@ -120,10 +120,10 @@ RSpec.feature "Adding Advertisement", :feature do
 			categories(:bicycles).information.additional_information.each do |info|
 				name = info.name.downcase.gsub(' ', '_')
 				if !info.items.empty?
-					expect(page).to have_select("advertisement[#{name}]", 
+					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]", 
 																			selected: "Select..." )		
 				else
-					expect(page).to have_field("advertisement[#{name}]")
+					expect(page).to have_field("advertisement[advertisement_informations][#{info.id}]")
 				end
 			end
 
@@ -160,14 +160,14 @@ RSpec.feature "Adding Advertisement", :feature do
 				end
 
 				# additional advertisement informations	
-				select(items(:gasoline).name, from: "advertisement[fuel]")
-				select(items(:coupe).name, from: "advertisement[style]") 
-				select(items(:fwd).name, from: "advertisement[drive]")
-				select(items(:semi_automatic).name, from: "advertisement[transmission]")
-				select(items(:manual_air_condition).name, from: "advertisement[air_condition]")
-				select(items(:cylinder_10).name, from: "advertisement[engine]")
-				select(items(:blue_exterior_color).name, from: "advertisement[exterior_color]")
-				select(items(:gold_exterior_color).name, from: "advertisement[interior_color]")
+				select(items(:gasoline).name, from: "advertisement[advertisement_informations][#{information(:fuel).id}]")
+				select(items(:coupe).name, from: "advertisement[advertisement_informations][#{information(:style).id}]") 
+				select(items(:fwd).name, from: "advertisement[advertisement_informations][#{information(:drive).id}]")
+				select(items(:semi_automatic).name, from: "advertisement[advertisement_informations][#{information(:transmission).id}]")
+				select(items(:manual_air_condition).name, from: "advertisement[advertisement_informations][#{information(:air_condition).id}]")
+				select(items(:cylinder_10).name, from: "advertisement[advertisement_informations][#{information(:engine).id}]")
+				select(items(:blue_exterior_color).name, from: "advertisement[advertisement_informations][#{information(:exterior_color).id}]")
+				select(items(:gold_exterior_color).name, from: "advertisement[advertisement_informations][#{information(:interior_color).id}]")
 
 				categories(:cars).options.each do |info|
 					name = info.name.downcase.gsub(' ', '_')
@@ -203,10 +203,10 @@ RSpec.feature "Adding Advertisement", :feature do
 				end
 
 				# additional advertisement informations	
-				select(items(:blue_color).name, from: "advertisement[color]")
-				select(items(:v_break).name, from: "advertisement[breaks]") 
-				select(items(:carbon).name, from: "advertisement[material]")
-				select(items(:inch_17).name, from: "advertisement[size]")
+				select(items(:blue_color).name, from: "advertisement[advertisement_informations][#{information(:color).id}]")
+				select(items(:v_break).name, from: "advertisement[advertisement_informations][#{information(:breaks).id}]") 
+				select(items(:carbon).name, from: "advertisement[advertisement_informations][#{information(:material).id}]")
+				select(items(:inch_17).name, from: "advertisement[advertisement_informations][#{information(:size).id}]")
 
 				categories(:bicycles).options.each do |info|
 					name = info.name.downcase.gsub(' ', '_')

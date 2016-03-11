@@ -1,15 +1,15 @@
 capacity_advertisement_information:
- value: 2000
+ value: 3000
  advertisement: first_advertisement
  information: capacity
 
 power_advertisement_information:
- value: 2500
+ value: 4500
  advertisement: first_advertisement
  information: power
 
 mileage_advertisement_information:
- value: 2000
+ value: 45000
  advertisement: first_advertisement
  information: mileage  
 

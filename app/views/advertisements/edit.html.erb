@@ -29,7 +29,7 @@
 		  	<div class="row">
 		  		<div class="col-sm-4">
 		    		<%= f.label :price, "Price(€): *" %>    
-		    		<%= f.text_field :price,  size: 20, placeholder: "000.000" %> 
+		    		<%= f.text_field :price, size: 20, placeholder: "000.000" %> 
 		    	</div>
 
 		    	<div class="col-sm-4">
@@ -54,7 +54,7 @@
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 	    								<%= text_field_tag :value, 
-	    										advertisement_information.object.find_advertisement_information_value,
+	    										advertisement_information.object.find_advertisement_information_value(@advertisement),
 	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true
 	    								%>
 										</div>
@@ -62,7 +62,7 @@
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 	    								<%= text_field_tag :value, 
-	    										advertisement_information.object.find_advertisement_information_value,
+	    										advertisement_information.object.find_advertisement_information_value(@advertisement),
 	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true 
 	    								%>
 										</div>
@@ -72,7 +72,7 @@
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 	    								<%= text_field_tag :value, 
-	    										advertisement_information.object.find_advertisement_information_value,
+	    										advertisement_information.object.find_advertisement_information_value(@advertisement),
 	    										name:"advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true 
 	    								%>
 										</div>
@@ -84,14 +84,14 @@
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
-	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item(@advertisement)), 
 	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true   %>
 										</div>
 							<% elsif index % 3 == 2 %>
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
-	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item(@advertisement)), 
 	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}", required: true   %>
 										</div>
 									</div>
@@ -157,14 +157,15 @@
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
-	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item(@advertisement)), 
 	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
 										</div>
 							<% elsif index % 3 == 2 %>
+										
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
-	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item(@advertisement)), 
 	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
 										</div>
 									</div>
@@ -173,7 +174,7 @@
 										<div class='col-sm-4'>
 											<%= advertisement_information.label advertisement_information.object.name %><br />
 											<%= select_tag "advertisement[advertisement_informations][#{advertisement_information.object.id.to_s}]", options_from_collection_for_select(advertisement_information.object.items, 
-	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item), 
+	    									"id", "name", selected: advertisement_information.object.get_advertisement_information_item(@advertisement)), 
 	    										name: "advertisement[advertisement_informations][#{advertisement_information.object.id}]", id: "advertisement_advertisement_informations_#{advertisement_information.object.name}"   %>
 										</div>
 							<% end %>
@@ -224,6 +225,16 @@
 					<% end %>						
 				<% index = index.to_i + 1 %>
 			<% end %>
+			</div>
+
+			<hr />
+			<div class="picture">
+				<h3>
+				<span class="label label-info">For multiple image selection use SHIFT+SELECT or CTRL+SELECT
+				</span>
+				</h3>
+				<br/>
+				<%= f.file_field :images, multiple: true, accept: 'image/jpeg,image/gif,image/png' %>
 			</div>
 
 			<br /><br />

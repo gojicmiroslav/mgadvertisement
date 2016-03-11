@@ -14,7 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
 gem 'cancan'
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 #gem 'rmagick'
 gem 'will_paginate'
@@ -31,7 +31,7 @@ end
 gem 'sweet-alert-confirm'
 
 group :development, :test do
-  gem 'byebug'
+  #gem 'byebug'
   gem 'mocha'
   gem "show_me_the_cookies"
   gem 'rack_session_access'

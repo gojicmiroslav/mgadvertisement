@@ -23,8 +23,8 @@
           </tr>
 
           <tr>
-            <td><b>Date:</b></td>
-            <td><%= @advertisement.created_at %></td>
+            <td><b>Price:</b></td>
+            <td><%= number_with_precision @advertisement.price, precision: 2 %></td>
           </tr>
 
           <tr>
@@ -79,7 +79,37 @@
         </table>
       <% else %>
         <div class="alert alert-info" role="alert">There is no options!</div>
-      <% end %>
+      <% end %> <!-- table-responsive -->
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Images</h3>
+      </div>
+
+      <div class="panel-body">
+        <% if @advertisement.images.size > 0 %>
+          <% @advertisement.images.each_with_index do |image, index| %>
+            <% if(index % 3 == 0) %>
+              <div class="row">
+                <div class="col-md-4">
+                  <%= image_tag(image.url, class: "img-responsive img-rounded img-pad") %>
+                </div>
+            <% elsif(index % 3 == 2) %>
+                <div class="col-md-4">
+                  <%= image_tag(image.url, class: "img-responsive img-rounded img-pad") %>
+                </div>
+              </div><!-- row -->
+            <% else %>
+                <div class="col-md-4">
+                  <%= image_tag(image.url, class: "img-responsive img-rounded img-pad") %>
+                </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <h4>No images!</h4>
+        <% end %>
+      </div>
     </div>
 
   </div>

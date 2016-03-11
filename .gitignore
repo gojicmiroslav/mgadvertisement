@@ -13,3 +13,6 @@
 /tmp
 
 /beleske.doc
+
+# Ignore uploaded test images.
+/public/uploads
