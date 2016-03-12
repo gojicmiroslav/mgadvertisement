@@ -30,6 +30,7 @@ end
 
 gem 'sweet-alert-confirm'
 gem 'dropzonejs-rails'
+gem 'blueimp-gallery'
 
 group :development, :test do
   #gem 'byebug'

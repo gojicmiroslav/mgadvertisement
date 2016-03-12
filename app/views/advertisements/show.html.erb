@@ -1,117 +1,121 @@
 <% provide(:title, "Advertisement detail") %>
 
+<h3><td><%= @advertisement.title %></td></h3>
+<hr />
+
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <div class="page-header"><h1>Advertisement Detail</h1></div>
+  <div class="col-sm-8">
+    <% if !@advertisement.images.empty? %>
+      <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+      </div>
+
+      <div id="links" class="">
+        <% @advertisement.images.each_with_index do |image, index| %>
+          <%= link_to image.url do %>
+            <%= image_tag image.thumb_middle.url, class: "img-thumbnail" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+        <%= image_tag "placeholder.png", class: "img-responsive no-image-placeholder" %>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="infos">
+      <p><b>Model:</b> <%= @advertisement.vehicle_model.name %></p>
+      <p><b>Brand:</b> <%= @advertisement.vehicle_model.vehicle_brand.name %></p>
+      <p><b>Category:</b> <%= @advertisement.category.name %></p>
+      <p><b>Price:</b> <%= number_with_precision @advertisement.price, precision: 2 %> €</p>
+      <p><b>Year:</b> <%= @advertisement.year %></p>
+      <p><b>Added:</b> <%= time_ago_in_words @advertisement.created_at %> ago.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <h3>Basic information</h3>
 
     <div class="table-responsive">
       <table class="table table-striped table-bordered">
         <tbody>
-          <tr>
-            <td><b>Title:</b></td>
-            <td><%= @advertisement.title %></td>
-          </tr>
-
-          <tr>
-            <td><b>Description:</b></td>
-            <td><%= @advertisement.description %></td>
-          </tr>
-
-          <tr>
-            <td><b>Category:</b></td>
-            <td><%= @advertisement.category.name %></td>
-          </tr>
-
-          <tr>
-            <td><b>Price:</b></td>
-            <td><%= number_with_precision @advertisement.price, precision: 2 %></td>
-          </tr>
-
-          <tr>
-            <td><b>Year:</b></td>
-            <td><%= @advertisement.year %></td>
-          </tr>
-
-          <tr rowspan="2" bgcolor="#aabbaa">
-            <td><h4><i>Basic Information</i></h4></td>
-            <td></td>
-          </tr>
-          
           <% @basic_advertisement_informations.each do |key, value| %>
             <tr>
               <td><b><%= key %>:</b></td>
               <td><%= value %></td>
             </tr>
           <% end %>
+        </tbody>
+      </table>
+    </div>  
+  </div>
+</div>
 
-          <% if @additional_advertisement_informations.length > 0 %> 
-            <tr rowspan="2" bgcolor="#aabbaa">
-              <td><h4><i>Additional Information</i></h4></td>
-              <td></td>
-            </tr>
+<div class="row">
+  <div class="col-md-8">
+    <h3>Additional information</h3>
 
+    <% if @additional_advertisement_informations.length > 0 %> 
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <tbody>
             <% @additional_advertisement_informations.each do |key, value| %>
               <tr>
                 <td><b><%= key %>:</b></td>
                 <td><%= value %></td>
               </tr>
             <% end %>
-          <% end %>
-          
-        </tbody>
-      </table>
-    </div><!-- table-responsive -->
-
-    <div class="table-responsive">
-      <h4>Options:</h4>
-
-      <% if @advertisement.options.size > 0 %>
-        <table class="table table-striped table-bordered">
-          <tbody>
-            <% @advertisement.options.each_with_index do |option, index| %>
-              <tr>
-                <td><%= index + 1 %></td>
-                <td><b><%= option.name %></b></td>
-                <td>Yes</td>
-              </tr>
-            <% end %>
           </tbody>
         </table>
-      <% else %>
-        <div class="alert alert-info" role="alert">There is no options!</div>
-      <% end %> <!-- table-responsive -->
-    </div>
+      </div> 
+    <% else %>
+      <h4>No additional information!</h4>
+    <% end %>
+  </div>
+</div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Images</h3>
-      </div>
+<div class="row">
+  <div class="col-md-8">
+    <h3>Options</h3>
 
-      <div class="panel-body">
-        <% if @advertisement.images.size > 0 %>
-          <% @advertisement.images.each_with_index do |image, index| %>
-            <% if(index % 3 == 0) %>
-              <div class="row">
-                <div class="col-md-4">
-                  <%= image_tag(image.url, class: "img-responsive img-rounded img-pad") %>
-                </div>
-            <% elsif(index % 3 == 2) %>
-                <div class="col-md-4">
-                  <%= image_tag(image.url, class: "img-responsive img-rounded img-pad") %>
-                </div>
-              </div><!-- row -->
-            <% else %>
-                <div class="col-md-4">
-                  <%= image_tag(image.url, class: "img-responsive img-rounded img-pad") %>
-                </div>
-            <% end %>
-          <% end %>
-        <% else %>
-          <h4>No images!</h4>
+    <% if @advertisement.options.size > 0 %>
+      <ul>
+        <% @advertisement.options.each do |option| %>
+          <li><%= option.name %></li>
         <% end %>
-      </div>
-    </div>
+      </ul> 
+    <% else %>
+      <div class="alert alert-info" role="alert">There is no options!</div>
+    <% end %> 
 
   </div>
-</div><!-- row -->    
+</div>
 
+
+<script>
+var links = document.getElementById('links');
+if(links) {
+  links.onclick = function (event) {
+      event = event || window.event;
+      var target = event.target || event.srcElement,
+          link = target.src ? target.parentNode : target,
+          options = {index: link, event: event},
+          links = this.getElementsByTagName('a');
+      blueimp.Gallery(links, options);
+  };
+}  
+
+var fullscreenOptions = {
+    // Defines if the gallery should open in fullscreen mode:
+    fullScreen: false
+};
+</script>

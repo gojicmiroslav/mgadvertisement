@@ -19,6 +19,7 @@
 //= require additional-methods
 //= require sweetalert
 //= require sweet-alert-confirm
+//= require blueimp-gallery-all
 //= require app
 
 
