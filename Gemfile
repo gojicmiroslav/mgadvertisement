@@ -29,6 +29,7 @@ source "http://rails-assets.org" do
 end
 
 gem 'sweet-alert-confirm'
+gem 'dropzonejs-rails'
 
 group :development, :test do
   #gem 'byebug'

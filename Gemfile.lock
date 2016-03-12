@@ -113,6 +113,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dropzonejs-rails (0.7.3)
+      rails (> 3.1)
     email_spec (2.0.0)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
@@ -326,6 +328,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner (~> 1.5.0)
   devise
+  dropzonejs-rails
   email_spec
   factory_girl
   factory_girl_rails

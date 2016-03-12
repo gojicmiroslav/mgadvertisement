@@ -1,37 +1,42 @@
-
 <div class="row">
-	<div class="col-lg-8">
-		<div class="row">
-			<h3>Search</h3>
-			<h3>All categories</h3>
+	<div class="col-md-8">
+		<h3>Categories</h3>
+
+		<div class="btn-group btn-group-justified" role="group">
 				<% @categories.each do |category| %>
-					<p><%= link_to category.name, category %></p>
-				<% end %>
+				  <div class="btn-group" role="group">
+				    <button type="button" class="btn btn-default"><%= category.name %></button>
+				  </div>
+			  <% end %>
 		</div>
 
+		<hr />
+
 		<div class="row">
-			<h3>Advertisements</h3>
-			<h3>All advertisements</h3>
 			<% @advertisements.each do |advertisement| %>
-				<p><%= link_to advertisement.title, advertisement %></p>
+				<div class="col-md-4">
+				
+					<%= link_to advertisement do %>
+						<div class="thumbnail">
+							<% image = advertisement.images? ? advertisement.images[0].thumb_middle.url : "placeholder.png" %>
+							<%= image_tag(image, class: "img-responsive") %>
+
+							<div class="caption">
+								<h3><%= advertisement.title %></h3>
+								<p><b>Price:</b> <%= number_with_precision advertisement.price, precision: 2 %></p>
+								<p><b>Category:</b> <%= advertisement.category.name %></p>
+							</div>
+						</div>
+					<% end %>
+
+					
+				</div>
 			<% end %>
-		</div>		
+		</div>
 	</div>
 
-	<div class="col-lg-4">
-		<div class="row">
-			<h3>Sidebar</h3>
-		</div>
-	</div>	
+	<div class="col-md-4">
+
+	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
