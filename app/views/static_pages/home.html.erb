@@ -5,17 +5,19 @@
 		<div class="btn-group btn-group-justified" role="group">
 				<% @categories.each do |category| %>
 				  <div class="btn-group" role="group">
-				    <button type="button" class="btn btn-default"><%= category.name %></button>
+				    <button type="button" class="btn btn-primary"><%= category.name %></button>
 				  </div>
 			  <% end %>
 		</div>
 
 		<hr />
 
-		<div class="row">
-			<% @advertisements.each do |advertisement| %>
+			<% @advertisements.each_with_index do |advertisement, index| %>
+				<% if index % 3 == 0 %>
+					<div class="row">
+				<% end %>		
+						
 				<div class="col-md-4">
-				
 					<%= link_to advertisement do %>
 						<div class="thumbnail">
 							<% image = advertisement.images? ? advertisement.images[0].thumb_middle.url : "placeholder.png" %>
@@ -23,20 +25,81 @@
 
 							<div class="caption">
 								<h3><%= advertisement.title %></h3>
-								<p><b>Price:</b> <%= number_with_precision advertisement.price, precision: 2 %></p>
+								<p><b>Price:</b> <%= number_with_precision advertisement.price, precision: 2 %> €</p>
 								<p><b>Category:</b> <%= advertisement.category.name %></p>
 							</div>
 						</div>
-					<% end %>
-
-					
+					<% end %>					
 				</div>
+				
+				<% if index % 3 == 2 %>
+					</div><!-- row -->
+				<% end %>	
 			<% end %>
-		</div>
 	</div>
 
 	<div class="col-md-4">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<h3>Advanced Search</h3>
 
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Vehicle Brands and Models</h3>
+				  </div>
+				  <div class="panel-body">
+				    <%= label_tag :vehicle_brand, "Vehicle brand: *" %><br />    
+						<%= select_tag "vehicle_brand", options_from_collection_for_select(VehicleBrand.all, "id", "name") , prompt: "Select...", class: "form-control" %>
+				  	
+				  	<br />
+
+				    <%= label_tag :vehicle_model, "Vehicle model: *" %><br />    
+						<%= select_tag "vehicle_model", options_from_collection_for_select(VehicleModel.all, "id", "name"),
+						 prompt: "Select...", class: "form-control" %>
+				  </div>
+				</div>
+
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Price</h3>
+				  </div>
+				  <div class="panel-body">
+				  	<div class="row">
+					    <div class="col-md-5">
+					    	<%= raw generate_price_select %>
+					    </div>	
+
+							<div class="col-md-2">to</div>							
+
+							<div class="col-md-5">
+					    	<%= raw generate_price_select %>
+					    </div>
+				    </div>
+				  </div>
+				</div>
+
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Year</h3>
+				  </div>
+				  <div class="panel-body">
+				  	<div class="row">
+					    <div class="col-md-5">
+					    	<%= select_tag "year", options_for_select((1980..Date.today.year).to_a), class: "form-control", prompt: "Any" %>
+					    </div>	
+
+							<div class="col-md-2">to</div>							
+
+							<div class="col-md-5">
+					    	<%= select_tag "year", options_for_select((1980..Date.today.year).to_a), class: "form-control", prompt: "Any" %>
+					    </div>
+				    </div>
+				  </div>
+				</div>
+
+			</div>
+		</div>
 	</div>
+
 </div>
 

@@ -1,12 +1,19 @@
 class CategoriesController < ApplicationController
   
+  
+
   def index
+    @category = Category.find_by(name: "Cars")
   	@categories = Category.all
+    @advertisements = Advertisement.where("category_id = ?", @category)
+    @vehicle_brands = @category.vehicle_brands
   end
 
   def show
     @category = Category.find(params[:id])
+    @categories = Category.all
     @category_advertisements = @category.advertisements
+    @vehicle_brands = @category.vehicle_brands
   end
 
   def basic

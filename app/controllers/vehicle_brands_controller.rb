@@ -13,4 +13,9 @@ class VehicleBrandsController < ApplicationController
 		render json: vehicle_brands, status: 200	
 	end
 
+	def show
+		@vehicle_brand = VehicleBrand.find(params[:id])
+		render json: @vehicle_brand.vehicle_models, status: 200
+	end
+
 end

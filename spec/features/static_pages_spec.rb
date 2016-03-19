@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Static pages", :type => :feature do 
 
-	describe "Home page" do		
-		it "should have title Home" do
-			visit root_path
-			expect(page).to have_selector("title", :text => full_title, :visible => false)
-		end		
+	describe "Home page" do	
+		fixtures :advertisement_types	
+		fixtures :categories	
+		fixtures :vehicle_brands
+		fixtures :advertisements
 
 		context "User Logged In" do
 			let(:valid_user){ FactoryGirl.create(:user) }
@@ -19,7 +19,6 @@ RSpec.describe "Static pages", :type => :feature do
 		end
 
 		context "User NOT Logged In" do
-
 			it "should not have advertisements link" do
 				visit root_path
 				expect(page).not_to have_link("Advertisements", href: advertisements_path)		

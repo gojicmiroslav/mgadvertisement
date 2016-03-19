@@ -612,7 +612,7 @@ vm.category = Category.find_by(name: "Bicycles")
 vm.vehicle_brand = VehicleBrand.find_by(name: "Boardman")
 vm.save
 
-vm = VehicleModel.new(name: "Boardman Mountain Bike Pro Full Suspension 27.5\"")
+vm = VehicleModel.new(name: "Boardman Mountain Pro 27.5\"")
 vm.category = Category.find_by(name: "Bicycles")
 vm.vehicle_brand = VehicleBrand.find_by(name: "Boardman")
 vm.save
@@ -642,7 +642,7 @@ vm.category = Category.find_by(name: "Bicycles")
 vm.vehicle_brand = VehicleBrand.find_by(name: "Apollo")
 vm.save
 
-vm = VehicleModel.new(name: "Coyote Psycho Frenzy 18 Speed Dirt Jump Suspension Mountain Bike Black")
+vm = VehicleModel.new(name: "Coyote Psycho Frenzy 18 Speed")
 vm.category = Category.find_by(name: "Bicycles")
 vm.vehicle_brand = VehicleBrand.find_by(name: "Coyote")
 vm.save

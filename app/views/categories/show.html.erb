@@ -1,9 +1,15 @@
-<% provide(:title, "Edit advertisement") %>
+<% provide(:title, @category.name) %>
 
-<h1>Category: <%= @category.name %></h1>
+<div class="row">
+	<div class="col-md-8">
+		<h3>Category <i><%= @category.name %></i></h3>
 
-<ul>
-	<% @category_advertisements.each do |advertisement| %>
-		<li><%= link_to advertisement.title, advertisement %></li>
-	<% end %>
-</ul>
+		<%= render 'shared/category_buttons' %>
+
+	</div>
+
+	<%= render 'shared/sidebar' %>
+
+</div><!-- row -->		
+
+<%= javascript_include_tag "categories" %>

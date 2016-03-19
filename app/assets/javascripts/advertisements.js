@@ -1,4 +1,3 @@
-console.log("COUNT");
 
 jQuery( "#advertisement_year" ).datepicker({
   showOn: "button",

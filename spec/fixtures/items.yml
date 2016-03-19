@@ -1,534 +1,559 @@
 bmx:
  name: BMX
  information: type
+ categories: bicycles
 
 cruiser:
  name: Cruiser
  information: type
+ categories: bicycles
 
 kids:
  name: Kids
  information: type
+ categories: bicycles
 
 classic:
  name: Classic
  information: type
+ categories: bicycles
 
 mountain:
  name: Mountain
  information: type
+ categories: bicycles
 
 road:
  name: Road 
  information: type
+ categories: bicycles
 
 gasoline:
  name: Gasoline
  information: fuel
+ categories: cars, trucks
 
 diesel:
  name: Diesel
  information: fuel
+ categories: cars, trucks
 
 gasoline_and_gas:
  name: Gasoline + Gas(TNG)
  information: fuel
-
-electric:
- name: Electric
- information: fuel
+ categories: cars, trucks
 
 alternate:
  name: Alternate
  information: fuel      
+ categories: cars, trucks
 
 commercial:
  name: Commercial
  information: style
+ categories: cars, trucks
 
 convertible:
  name: Convertible
  information: style
+ categories: cars, trucks
 
 coupe:
  name: Coupe 
  information: style
+ categories: cars, trucks
 
 hatchback:
  name: Hatchback
  information: style
+ categories: cars, trucks
 
 hybrid_electric:
  name: Hybrid/Electric
  information: style
+ categories: cars, trucks
 
 luxury:
  name: Luxury
  information: style
+ categories: cars, trucks
 
 sedan:
  name: Sedan
  information: style
+ categories: cars, trucks
 
 suv_crossover:
  name: SUV/Crossover
  information: style
+ categories: cars, trucks
 
 van_minivan:
  name: Van/Minivan
  information: style
+ categories: cars, trucks
 
 wagon:
  name: Wagon
  information: style
+ categories: cars, trucks
 
 awd:
  name: AWD
  information: drive
+ categories: cars, trucks
 
 fwd:
  name: FWD
  information: drive
+ categories: cars, trucks
 
 rwd:
  name: RWD
  information: drive
+ categories: cars, trucks
 
-4wd:
+wd_4:
  name: 4WD
  information: drive
-
-4_x_4:
- name: 4x4
- information: drive
+ categories: cars, trucks
 
 other_drive:
  name: Other
  information: drive
+ categories: cars, trucks
 
 automatic:
  name: Automatic
  information: transmission
+ categories: cars, trucks
 
 manual:
  name: Manual
  information: transmission
+ categories: cars, trucks
 
 semi_automatic:
  name: Semi-automatic
  information: transmission
+ categories: cars, trucks
 
 cvt:
  name: CVT
  information: transmission
+ categories: cars, trucks
 
 other_transmission:
  name: Other
  information: transmission
+ categories: cars, trucks
 
 automatic_air_condition:
  name: Automatic
  information: air_condition 
+ categories: cars, trucks
 
 manual_air_condition:
  name: Manual
  information: air_condition  
+ categories: cars, trucks
 
 none_air_condition:
  name: None
  information: air_condition  
+ categories: cars, trucks
 
-3_cylinder:
+cylinder_3:
  name: 3 cylinder
  information: engine
+ categories: cars, trucks
 
-4_cylinder:
+cylinder_4:
  name: 4 cylinder
  information: engine
+ categories: cars, trucks
 
-5_cylinder:
+cylinder_5:
  name: 5 cylinder
  information: engine
+ categories: cars, trucks
 
-6_cylinder:
+cylinder_6:
  name: 6 cylinder
  information: engine
+ categories: cars, trucks
 
 cylinder_8:
  name: 8 cylinder
  information: engine 
+ categories: cars, trucks
 
 cylinder_10:
  name: 10 cylinder
  information: engine 
+ categories: cars, trucks
 
 cylinder_12:
  name: 12 cylinder
  information: engine 
+ categories: cars, trucks
 
 electric:
  name: Electric
  information: engine
+ categories: cars, trucks
 
 hybrid:
  name: Hybrid
  information: engine
+ categories: cars, trucks
 
-rotary_Engine:
+rotary_engine:
  name: Rotary Engine
  information: engine   
+ categories: cars, trucks
 
 beige_exterior_color:
  name: Beige
  information: exterior_color
+ categories: cars, trucks
 
 blue_exterior_color:
  name: Blue
  information: exterior_color
-
-beige_exterior_color:
- name: Beige
- information: exterior_color
+ categories: cars, trucks
 
 black_exterior_color:
  name: Black
  information: exterior_color
+ categories: cars, trucks
 
 burgundy_exterior_color:
  name: Burgundy
  information: exterior_color
+ categories: cars, trucks
 
 charcoal_exterior_color:
  name: Charcoal
  information: exterior_color    
+ categories: cars, trucks
 
 gold_exterior_color:
  name: Gold
- information: exterior_color       
+ information: exterior_color
+ categories: cars, trucks
 
 gray_exterior_color:
  name: Gray
  information: exterior_color        
+ categories: cars, trucks
 
 green_exterior_color:
  name: Green
- information: exterior_color         
+ information: exterior_color
+ categories: cars, trucks
 
 off_white_exterior_color:
  name: Off White
- information: exterior_color         
+ information: exterior_color
+ categories: cars, trucks
 
 orange_exterior_color:
  name: Orange
- information: exterior_color                     
+ information: exterior_color
+ categories: cars, trucks
 
 pink_exterior_color:
  name: Pink
- information: exterior_color                     
+ information: exterior_color
+ categories: cars, trucks
 
 red_exterior_color:
  name: Red
- information: exterior_color                     
+ information: exterior_color
+ categories: cars, trucks
 
 silver_exterior_color:
  name: Silver
- information: exterior_color                     
+ information: exterior_color
+ categories: cars, trucks
 
 tan_exterior_color:
  name: Tan
- information: exterior_color                         
+ information: exterior_color
+ categories: cars, trucks
 
 turquoise_exterior_color:
  name: Turquoise
- information: exterior_color                         
+ information: exterior_color
+ categories: cars, trucks
 
 white_exterior_color:
  name: White
- information: exterior_color                         
+ information: exterior_color
+ categories: cars, trucks
 
 yellow_exterior_color:
  name: Yellow
  information: exterior_color
+ categories: cars, trucks
 
 beige_interior_color:
  name: Beige
  information: interior_color
+ categories: cars, trucks
 
 blue_interior_color:
  name: Blue
  information: interior_color
+ categories: cars, trucks
 
 black_interior_color:
  name: Black
  information: interior_color
+ categories: cars, trucks
 
 burgundy_interior_color:
  name: Burgundy
  information: interior_color
+ categories: cars, trucks
 
 charcoal_interior_color:
  name: Charcoal
- information: interior_color    
+ information: interior_color
+ categories: cars, trucks    
 
 gold_interior_color:
  name: Gold
- information: interior_color     
+ information: interior_color
+ categories: cars, trucks     
 
 gray_interior_color:
  name: Gray
- information: interior_color        
+ information: interior_color
+ categories: cars, trucks        
 
 green_interior_color:
  name: Green
- information: interior_color         
+ information: interior_color
+ categories: cars, trucks         
 
 off_white_interior_color:
  name: Off White
- information: interior_color         
+ information: interior_color
+ categories: cars, trucks         
 
 orange_interior_color:
  name: Orange
- information: interior_color                     
+ information: interior_color
+ categories: cars, trucks                     
 
 pink_interior_color:
  name: Pink
- information: interior_color                     
+ information: interior_color
+ categories: cars, trucks                     
 
 red_interior_color:
  name: Red
- information: interior_color                     
+ information: interior_color
+ categories: cars, trucks                     
 
 silver_interior_color:
  name: Silver
- information: interior_color                     
+ information: interior_color
+ categories: cars, trucks                     
 
 tan_interior_color:
  name: Tan
- information: interior_color                         
+ information: interior_color
+ categories: cars, trucks                         
 
 turquoise_interior_color:
  name: Turquoise
- information: interior_color                         
+ information: interior_color
+ categories: cars, trucks                         
 
 white_interior_color:
  name: White
- information: interior_color                         
+ information: interior_color
+ categories: cars, trucks
 
 yellow_interior_color:
  name: Yellow
- information: interior_color 
+ information: interior_color
+ categories: cars, trucks
 
 beige_color:
  name: Beige
  information: color
+ categories: bicycles
 
 blue_color:
  name: Blue
  information: color
+ categories: bicycles
 
 black_color:
  name: Black
  information: color
+ categories: bicycles
 
 burgundy_color:
  name: Burgundy
  information: color
+ categories: bicycles
 
 charcoal_color:
  name: Charcoal
- information: color    
+ information: color
+ categories: bicycles    
 
 gold_color:
  name: Gold
- information: color     
+ information: color
+ categories: bicycles     
 
 gray_color:
  name: Gray
- information: color        
+ information: color
+ categories: bicycles        
 
 green_color:
  name: Green
- information: color         
+ information: color
+ categories: bicycles         
 
 off_white_color:
  name: Off White
- information: color         
+ information: color
+ categories: bicycles         
 
 orange_color:
  name: Orange
- information: color                     
+ information: color
+ categories: bicycles                     
 
 pink_color:
  name: Pink
- information: color                     
+ information: color
+ categories: bicycles                     
 
 red_color:
  name: Red
- information: color                     
+ information: color
+ categories: bicycles                     
 
 silver_color:
  name: Silver
- information: color                     
+ information: color
+ categories: bicycles                     
 
 tan_color:
  name: Tan
- information: color                         
+ information: color
+ categories: bicycles                         
 
 turquoise_color:
  name: Turquoise
- information: color                         
+ information: color
+ categories: bicycles                         
 
 white_color:
  name: White
- information: color                         
+ information: color
+ categories: bicycles                         
 
 yellow_color:
  name: Yellow
- information: color 
+ information: color
+ categories: bicycles 
 
 standard_breaks:
  name: Standard
- information: breaks 
+ information: breaks
+ categories: bicycles 
 
 v_break:
  name: V-brake
- information: breaks 
+ information: breaks
+ categories: bicycles 
 
 hidraulic_breaks:
  name: Hidraulic
- information: breaks 
+ information: breaks
+ categories: bicycles 
 
 mechanic_breaks:
  name: Mechanic
  information: breaks
+ categories: bicycles
 
 aluminium:
  name: Aluminium
  information: material
+ categories: bicycles
 
 iron:
  name: Iron
  information: material
+ categories: bicycles
 
 carbon:
  name: Carbon
  information: material
+ categories: bicycles
 
 titanium:
  name: Titanium
- information: material   
+ information: material
+ categories: bicycles   
 
 inch_13:
  name: 13"
- information: size 
+ information: size
+ categories: bicycles 
 
 inch_14:
  name: 14"
- information: size 
+ information: size
+ categories: bicycles 
 
 inch_15:
  name: 15"
- information: size 
+ information: size
+ categories: bicycles 
 
 inch_16:
  name: 16"
  information: size
-
-inch_16_5:
- name: 16.5"
- information: size      
+ categories: bicycles   
 
 inch_17:
  name: 17"
- information: size      
-
-inch_17_5:
- name: 17.5"
- information: size      
+ information: size   
+ categories: bicycles   
 
 inch_18:
  name: 18"
- information: size      
-
-inch_18_5:
- name: 18.5"
- information: size      
+ information: size   
+ categories: bicycles   
 
 inch_19:
  name: 19"
- information: size      
+ information: size   
+ categories: bicycles   
 
 inch_19_5:
  name: 19.5"
  information: size      
+ categories: bicycles
 
 inch_20:
  name: 20"
- information: size      
-
-inch_20_5:
- name: 20.5"
- information: size  
-
-inch_21:
- name: 21"
- information: size      
-
-inch_21_5:
- name: 21.5"
- information: size      
-
-inch_22:
- name: 22"
- information: size      
-
-inch_22_5:
- name: 22.5"
- information: size     
-
-inch_23:
- name: 23"
- information: size      
-
-inch_23_5:
- name: 23.5"
- information: size      
-
-inch_24:
- name: 24"
- information: size      
-
-inch_24_5:
- name: 24.5"
- information: size
-
-inch_25:
- name: 25"
- information: size
-
-inch_25_5:
- name: 25.5"
- information: size  
-
-inch_26:
- name: 26"
- information: size
-
-inch_26_5:
- name: 26.5"
- information: size
-
-inch_27:
- name: 27"
- information: size
-
-inch_27_5:
- name: 27.5"
  information: size   
+ categories: bicycles 
 
-inch_28:
- name: 28"
- information: size        
+
 
 
 

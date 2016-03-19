@@ -12,8 +12,20 @@ mercedes:
 
 renault:
  name: Renault
- categories: cars, bicycles
+ categories: cars
 
 boardman:
  name: Boardman
  categories: bicycles 
+
+carrera:
+ name: Carrera
+ categories: bicycles 
+
+apollo:
+ name: Apollo
+ categories: bicycles 
+
+raleigh:
+ name: Raleigh
+ categories: bicycles  

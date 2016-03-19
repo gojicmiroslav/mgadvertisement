@@ -37,6 +37,8 @@ group :development, :test do
   gem 'mocha'
   gem "show_me_the_cookies"
   gem 'rack_session_access'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development do

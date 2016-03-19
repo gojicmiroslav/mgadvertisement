@@ -21,7 +21,6 @@ RSpec.feature "Show Advertisement", :feature do
 		visit advertisement_path(car_advertisement)
 
 		expect(page).to have_content car_advertisement.title
-		expect(page).to have_content car_advertisement.description
 		expect(page).to have_content car_advertisement.price
 		expect(page).to have_content car_advertisement.year
 		expect(page).to have_content car_advertisement.category.name
@@ -40,7 +39,6 @@ RSpec.feature "Show Advertisement", :feature do
 		visit advertisement_path(bicycle_advertisement)
 
 		expect(page).to have_content bicycle_advertisement.title
-		expect(page).to have_content bicycle_advertisement.description
 		expect(page).to have_content bicycle_advertisement.price
 		expect(page).to have_content bicycle_advertisement.year
 		expect(page).to have_content bicycle_advertisement.category.name

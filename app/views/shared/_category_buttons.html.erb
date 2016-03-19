@@ -1,0 +1,11 @@
+<div class="btn-group btn-group-justified" role="group">
+	<% @categories.each do |category| %>
+	  <div class="btn-group" role="group">
+	  	<% if category.name.eql?("Cars") %>
+				<%= link_to category.name, root_path, class: "btn btn-primary", type: "button" %>			
+	  	<% else %>
+	  		<%= link_to category.name, category, class: "btn btn-primary", type: "button" %>
+  		<% end %>
+	  </div>
+  <% end %>
+</div>

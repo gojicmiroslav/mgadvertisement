@@ -6,4 +6,5 @@ class VehicleBrand < ActiveRecord::Base
 	accepts_nested_attributes_for :vehicle_models
 
 	validates :name, presence: true
+
 end

@@ -31,4 +31,34 @@ class Category < ActiveRecord::Base
     return informations
   end
 
+  def search_options
+    if name.eql?("Cars")
+      search_options = [
+        { title: "Fuel", select_name: "fuel", items_name: "Fuel"},
+        { title: "Engine", select_name: "engine", items_name: "Engine" },
+        { title: "Drive",  select_name: "drive", items_name: "Drive" },
+        { title: "Air Condition", select_name: "air_condition", items_name: "Air Condition" },
+        { title: "Transmission", select_name: "transmission", items_name: "Transmission" },
+        { title: "Exterior Color", select_name: "exterior_color", items_name: "Exterior Color" }
+      ]
+    elsif name.eql?("Bicycles")
+      search_options = [
+        { title: "Type", select_name: "type", items_name: "Type"},
+        { title: "Color", select_name: "color", items_name: "Color" },
+        { title: "Material",  select_name: "material", items_name: "Material" },
+        { title: "Size", select_name: "size", items_name: "Size" },
+        { title: "Breaks", select_name: "breaks", items_name: "Breaks" }
+      ]
+    elsif name.eql?("Trucks")
+      search_options = [
+        { title: "Fuel", select_name: "fuel", items_name: "Fuel"},
+        { title: "Engine", select_name: "engine", items_name: "Engine" },
+        { title: "Drive",  select_name: "drive", items_name: "Drive" },
+        { title: "Air Condition", select_name: "air_condition", items_name: "Air Condition" },
+        { title: "Transmission", select_name: "transmission", items_name: "Transmission" },
+        { title: "Exterior Color", select_name: "exterior_color", items_name: "Exterior Color" }
+      ]
+    end
+  end
+
 end

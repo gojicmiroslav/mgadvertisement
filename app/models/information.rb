@@ -48,4 +48,14 @@ class Information < ActiveRecord::Base
 		return ret_val
 	end
 
+	def self.get_all_information_items information_name
+    information = Information.find_by(name: information_name)
+
+    if !information.nil?
+    	return information.items
+    else
+    	return []
+    end
+  end
+
 end
