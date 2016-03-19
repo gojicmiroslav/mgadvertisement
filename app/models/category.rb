@@ -58,6 +58,8 @@ class Category < ActiveRecord::Base
         { title: "Transmission", select_name: "transmission", items_name: "Transmission" },
         { title: "Exterior Color", select_name: "exterior_color", items_name: "Exterior Color" }
       ]
+    else
+      search_options = []  
     end
   end
 

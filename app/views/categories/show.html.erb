@@ -5,7 +5,12 @@
 		<h3>Category <i><%= @category.name %></i></h3>
 
 		<%= render 'shared/category_buttons' %>
+		
+		<hr />
 
+		<% @advertisements.each_with_index do |advertisement, index| %>
+			<%= render partial: 'shared/advertisement_front', locals: { advertisement: advertisement, index: index} %>	
+		<% end %>
 	</div>
 
 	<%= render 'shared/sidebar' %>

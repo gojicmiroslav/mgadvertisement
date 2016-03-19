@@ -21,3 +21,135 @@ second_advertisement:
  user: miroslav
  advertisement_type: used 
  options: heated_seats, steering_wheel_system, hands_break, lights, back_break
+
+third_advertisement:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 42.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation 
+
+advertisement_4:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 2.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation
+
+advertisement_5:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 42.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation
+
+advertisement_6:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 4.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation 
+
+advertisement_7:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 41.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation 
+
+advertisement_8:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 41.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation 
+
+advertisement_9:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 41.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break
+
+advertisement_10:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 11.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break
+
+advertisement_11:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 13.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break
+
+advertisement_12:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 22.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break
+
+advertisement_13:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 31.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break

@@ -1,5 +1,6 @@
 $(function(){
 
+
 	$("#search_vehicle_brand").on('change', function(){
 		var vehicle_brand_id = $('#search_vehicle_brand option:selected').val();
 		var $search_vehicle_model = $('#search_vehicle_model');

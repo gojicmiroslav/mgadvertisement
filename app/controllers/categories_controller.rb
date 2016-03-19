@@ -1,7 +1,5 @@
 class CategoriesController < ApplicationController
   
-  
-
   def index
     @category = Category.find_by(name: "Cars")
   	@categories = Category.all
@@ -12,7 +10,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @categories = Category.all
-    @category_advertisements = @category.advertisements
+    @advertisements = @category.advertisements
     @vehicle_brands = @category.vehicle_brands
   end
 
