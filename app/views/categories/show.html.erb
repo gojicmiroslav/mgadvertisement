@@ -5,16 +5,41 @@
 		<h3>Category <i><%= @category.name %></i></h3>
 
 		<%= render 'shared/category_buttons' %>
-		
+
 		<hr />
 
 		<% @advertisements.each_with_index do |advertisement, index| %>
 			<%= render partial: 'shared/advertisement_front', locals: { advertisement: advertisement, index: index} %>	
 		<% end %>
+
+		<% if @advertisements.length < 9 %> 
+			<% if @advertisements.length == 1 || @advertisements.length == 2 || @advertisements.length == 4 ||
+						@advertisements.length == 5 || @advertisements.length == 7 || @advertisements.length == 8 %>
+
+				</div>
+			<% end %>
+		<% else %>
+			<% if @advertisements.length % 9 == 1 || @advertisements.length % 9 == 2 || 
+						@advertisements.length % 9 == 4 || @advertisements.length % 9 == 5 || 
+						@advertisements.length % 9 == 7 || @advertisements.length % 9 == 8 		%>
+				</div>
+			<% end %>
+		<% end %>	
+		
 	</div>
 
-	<%= render 'shared/sidebar' %>
+	<div class="col-md-4">
+		<%= render 'shared/sidebar' %>
+	</div>
+</div>
 
-</div><!-- row -->		
+<div class="row">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+		<%= will_paginate @advertisements %>
+	</div>
+	<div class="col-sm-3"></div>
+</div>
 
 <%= javascript_include_tag "categories" %>
+

@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   def index
     @category = Category.find_by(name: "Cars")
   	@categories = Category.all
-    @advertisements = Advertisement.where("category_id = ?", @category)
+    @advertisements = @category.advertisements
     @vehicle_brands = @category.vehicle_brands
   end
 
@@ -11,6 +11,8 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @categories = Category.all
     @advertisements = @category.advertisements
+                                .paginate(page: params[:page], per_page: 9)
+                                .order('created_at DESC')
     @vehicle_brands = @category.vehicle_brands
   end
 

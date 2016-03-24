@@ -2,7 +2,7 @@ first_advertisement:
  title: 2010 BMW 530 D GT
  description: Some description
  price: 25999
- year: 2009-08-08
+ year: <%= Time.now - 1.days  %>
  active: 1
  category: cars
  vehicle_model: astra_g
@@ -14,7 +14,7 @@ second_advertisement:
  title: Mountain Bike Boardman
  description: Some description
  price: 3000
- year: 2010-08-08
+ year: <%= Time.now - 1.days %>
  active: 1
  category: bicycles
  vehicle_model: mountain_one
@@ -26,7 +26,7 @@ third_advertisement:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 42.days  %>
+ year: <%= Time.now - 2.days  %>
  active: 1
  category: cars
  vehicle_model: astra_g
@@ -38,7 +38,7 @@ advertisement_4:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 2.days  %>
+ year: <%= Time.now - 3.days  %>
  active: 1
  category: cars
  vehicle_model: astra_g
@@ -50,7 +50,7 @@ advertisement_5:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 42.days  %>
+ year: <%= Time.now - 4.days  %>
  active: 1
  category: cars
  vehicle_model: astra_g
@@ -62,7 +62,7 @@ advertisement_6:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 4.days  %>
+ year: <%= Time.now - 5.days  %>
  active: 1
  category: cars
  vehicle_model: astra_g
@@ -74,7 +74,7 @@ advertisement_7:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 41.days  %>
+ year: <%= Time.now - 6.days  %>
  active: 1
  category: cars
  vehicle_model: astra_g
@@ -86,7 +86,7 @@ advertisement_8:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 41.days  %>
+ year: <%= Time.now - 7.days  %>
  active: 1
  category: cars
  vehicle_model: astra_g
@@ -98,7 +98,7 @@ advertisement_9:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 41.days  %>
+ year: <%= Time.now - 2.days  %>
  active: 1
  category: bicycles
  vehicle_model: mountain_one
@@ -110,7 +110,7 @@ advertisement_10:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 11.days  %>
+ year: <%= Time.now - 3.days  %>
  active: 1
  category: bicycles
  vehicle_model: mountain_one
@@ -122,7 +122,7 @@ advertisement_11:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 13.days  %>
+ year: <%= Time.now - 4.days  %>
  active: 1
  category: bicycles
  vehicle_model: mountain_one
@@ -134,7 +134,7 @@ advertisement_12:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 22.days  %>
+ year: <%= Time.now - 5.days  %>
  active: 1
  category: bicycles
  vehicle_model: mountain_one
@@ -146,10 +146,118 @@ advertisement_13:
  title: <%= Faker::Lorem.sentence(3, true) %>
  description: <%= Faker::Lorem.sentence %>
  price: <%= Faker::Number.decimal(2) %>
- year: <%= Time.now - 31.days  %>
+ year: <%= Time.now - 6.days  %>
  active: 1
  category: bicycles
  vehicle_model: mountain_one
  user: miroslav
  advertisement_type: used
  options: back_break, lights, hands_break
+
+advertisement_14:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 8.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation 
+
+advertisement_15:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 9.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation
+
+advertisement_16:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 10.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation
+
+advertisement_17:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 11.days  %>
+ active: 1
+ category: cars
+ vehicle_model: astra_g
+ user: miroslav
+ advertisement_type: used
+ options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation          
+
+advertisement_18:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 7.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break 
+
+advertisement_19:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 8.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break  
+
+advertisement_20:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 9.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break 
+
+advertisement_21:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 10.days  %>
+ active: 1
+ category: bicycles
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break
+
+advertisement_22:
+ title: <%= Faker::Lorem.sentence(3, true) %>
+ description: <%= Faker::Lorem.sentence %>
+ price: <%= Faker::Number.decimal(2) %>
+ year: <%= Time.now - 1.days  %>
+ active: 1
+ category: trucks
+ vehicle_model: mountain_one
+ user: miroslav
+ advertisement_type: used
+ options: back_break, lights, hands_break 
