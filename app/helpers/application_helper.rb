@@ -88,4 +88,19 @@ module ApplicationHelper
     raw panel
   end
 
+  def generate_closing_div(advertisement_length)
+    if advertisement_length < 9 
+      if (advertisement_length == 1) || (advertisement_length == 2) || (advertisement_length == 4) ||
+         (advertisement_length == 5) || (advertisement_length == 7) || (advertisement_length == 8) 
+        return raw("</div>")
+      end
+    else 
+      if ((advertisement_length % 9) == 1) || ((advertisement_length % 9) == 2) || 
+         ((advertisement_length % 9) == 4) || ((advertisement_length % 9) == 5) || 
+         ((advertisement_length % 9) == 7) || ((advertisement_length % 9) == 8)    
+        return raw("</div>")
+      end 
+    end
+  end
+
 end

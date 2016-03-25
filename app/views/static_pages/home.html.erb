@@ -12,18 +12,7 @@
 			<%= render partial: 'shared/advertisement_front', locals: { advertisement: advertisement, index: index} %>	
 		<% end %>
 
-		<% if @advertisements.length < 9 %> 
-			<% if @advertisements.length == 1 || @advertisements.length == 2 || @advertisements.length == 4 ||
-						@advertisements.length == 5 || @advertisements.length == 7 || @advertisements.length == 8 %>
-				</div>
-			<% end %>
-		<% else %>
-			<% if @advertisements.length % 9 == 1 || @advertisements.length % 9 == 2 || 
-						@advertisements.length % 9 == 4 || @advertisements.length % 9 == 5 || 
-						@advertisements.length % 9 == 7 || @advertisements.length % 9 == 8 		%>
-				</div>
-			<% end %>
-		<% end %>
+		<%= generate_closing_div(@advertisements.length) %> 		
 
 	</div>
 

@@ -1,4 +1,6 @@
 class Category < ActiveRecord::Base
+  extend FriendlyId
+
 	has_and_belongs_to_many :vehicle_brands
 	has_and_belongs_to_many :options
   has_and_belongs_to_many :items
@@ -12,6 +14,8 @@ class Category < ActiveRecord::Base
 	accepts_nested_attributes_for :information
 
 	validates :name, presence: true
+
+  friendly_id :name, use: [:slugged, :finders]
 
   def self.get_all_category_informations(category_id, type)
     if category_id == nil or type == nil
@@ -61,6 +65,13 @@ class Category < ActiveRecord::Base
     else
       search_options = []  
     end
+  end
+
+  def slug_candidates
+    [
+      :name,
+      [:id, :name]
+    ]
   end
 
 end

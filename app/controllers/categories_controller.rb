@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
     @categories = Category.all
     @advertisements = @category.advertisements
                                 .paginate(page: params[:page], per_page: 9)

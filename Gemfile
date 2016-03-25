@@ -23,6 +23,7 @@ gem 'bootstrap-will_paginate'
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'cancancan', '~> 1.10'
 gem 'jquery-ui-rails'
+gem 'friendly_id', '~> 5.1.0'
 
 source "http://rails-assets.org" do
   gem 'rails-assets-sweetalert'

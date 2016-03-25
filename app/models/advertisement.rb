@@ -1,4 +1,6 @@
 class Advertisement < ActiveRecord::Base
+	extend FriendlyId
+
 	belongs_to :advertisement_type
 	belongs_to :user, validate: true
 	belongs_to :category, validate: true
@@ -22,6 +24,8 @@ class Advertisement < ActiveRecord::Base
 	validates :active, presence: true
 	validates :vehicle_model, presence: true
 	validates :user, presence: true
+
+	friendly_id :title, use: [:slugged, :finders]
 
 	# TODO - ovo refaktorisati
 	def save_all advertisement_informations
@@ -75,5 +79,13 @@ class Advertisement < ActiveRecord::Base
 
 		return ret_val
 	end
+
+	def slug_candidates
+    [
+      :title,
+      [:title, :year],
+      [:title, :year, :price]
+    ]
+  end
 
 end

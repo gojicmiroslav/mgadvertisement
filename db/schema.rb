@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307203404) do
+ActiveRecord::Schema.define(version: 20160325215357) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -77,10 +77,12 @@ ActiveRecord::Schema.define(version: 20160307203404) do
     t.integer  "user_id",               limit: 4
     t.integer  "advertisement_type_id", limit: 4
     t.text     "images",                limit: 65535
+    t.string   "slug",                  limit: 255
   end
 
   add_index "advertisements", ["advertisement_type_id"], name: "index_advertisements_on_advertisement_type_id", using: :btree
   add_index "advertisements", ["category_id"], name: "index_advertisements_on_category_id", using: :btree
+  add_index "advertisements", ["slug"], name: "index_advertisements_on_slug", unique: true, using: :btree
   add_index "advertisements", ["user_id"], name: "index_advertisements_on_user_id", using: :btree
   add_index "advertisements", ["vehicle_model_id"], name: "index_advertisements_on_vehicle_model_id", using: :btree
 
@@ -97,7 +99,10 @@ ActiveRecord::Schema.define(version: 20160307203404) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "slug",        limit: 255
   end
+
+  add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
 
   create_table "categories_information", id: false, force: :cascade do |t|
     t.integer "category_id",    limit: 4, null: false

@@ -8,7 +8,6 @@ class AdvertisementsController < ApplicationController
   end
 
   def show
-    
     @basic_advertisement_informations = {}
     @additional_advertisement_informations = {}
     basic_information_id = InformationType.find_by(name: "Basic").id
@@ -87,7 +86,8 @@ class AdvertisementsController < ApplicationController
   private 
 
   def set_advertisement
-    @advertisement = Advertisement.find(params[:id])
+    #@advertisement = Advertisement.find(params[:id])
+    @advertisement = Advertisement.friendly.find(params[:id])
   end
 
   def advertisement_params
