@@ -2,7 +2,7 @@ class AdvertisementsController < ApplicationController
 
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: :show
-  
+
   def index
     @advertisements = Advertisement.all
   end
@@ -26,7 +26,7 @@ class AdvertisementsController < ApplicationController
         @basic_advertisement_informations[adv_info.information.name] = adv_info.value
       elsif @additional_advertisement_informations.has_key?(adv_info.information.name)
         @additional_advertisement_informations[adv_info.information.name] = adv_info.value
-      end     
+      end
     end
 
     @options = @advertisement.options
@@ -41,12 +41,12 @@ class AdvertisementsController < ApplicationController
     @advertisement = Advertisement.new(advertisement_params)
     @advertisement.user = current_user
     @advertisement.option_ids = params[:advertisement][:options_attributes]
-
     #advertisement_informations = params[:advertisement][:advertisement_informations]
     advertisement_informations = get_advertisement_informations params[:advertisement][:advertisement_informations]
 
 
     if @advertisement.save_all(advertisement_informations)
+      UserMailer.advertisement_created(current_user.email, @advertisement.id).deliver_now
       flash[:success] = "Advertisement successfully created."
       redirect_to @advertisement
     else
@@ -83,7 +83,7 @@ class AdvertisementsController < ApplicationController
     redirect_to advertisements_path
   end
 
-  private 
+  private
 
   def set_advertisement
     #@advertisement = Advertisement.find(params[:id])
@@ -91,13 +91,13 @@ class AdvertisementsController < ApplicationController
   end
 
   def advertisement_params
-    params.require(:advertisement).permit(:title, :description, :price, :year, :active, :category_id, 
+    params.require(:advertisement).permit(:title, :description, :price, :year, :active, :category_id,
                                           :vehicle_model_id, :user_id, :advertisement_type_id,
                                           :option_ids, :advertisement_informations, images: [])
   end
 
   # we have to check is Item with given id exists or is it a value
-  def get_advertisement_informations(in_params)    
+  def get_advertisement_informations(in_params)
     ret_arr = {}
     in_params.each do |key, value|
       value = (Item.exists?(value) ? value = Item.find(value).name : value)

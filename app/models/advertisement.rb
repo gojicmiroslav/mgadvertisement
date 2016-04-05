@@ -13,7 +13,7 @@ class Advertisement < ActiveRecord::Base
 	# create, update and delete destroy advertisement_informations
 	accepts_nested_attributes_for :advertisement_informations
 	accepts_nested_attributes_for :options
-	
+
 	serialize :images, Array
 	# picture - name of the attribute
 	mount_uploaders :images, ImageUploader
@@ -21,11 +21,12 @@ class Advertisement < ActiveRecord::Base
 	validates :title, presence: true
 	validates :price, presence: true
 	validates :year, presence: true
-	validates :active, presence: true
 	validates :vehicle_model, presence: true
 	validates :user, presence: true
 
 	friendly_id :title, use: [:slugged, :finders]
+
+	enum status: [:active, :inactive, :pending, :rejected]
 
 	# TODO - ovo refaktorisati
 	def save_all advertisement_informations
@@ -38,7 +39,13 @@ class Advertisement < ActiveRecord::Base
   		self.advertisement_informations << a
   	end
 
-  	self.save
+		saved = self.save
+  	if saved
+			# set to default
+			self.pending!
+		end
+
+		return saved
 	end
 
 	def update_all(advertisement_params, informations)

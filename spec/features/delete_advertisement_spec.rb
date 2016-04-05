@@ -1,14 +1,14 @@
 require "rails_helper"
 
 RSpec.feature "Delete Advertisement", :feature do
-	
+
 	describe "Deleting Advertisement feature" do
 		fixtures :advertisement_types
 		fixtures :users
 		fixtures :information_types
 		fixtures :information
 		fixtures :items
-		fixtures :categories	
+		fixtures :categories
 		fixtures :vehicle_brands
 		fixtures :vehicle_models
 		fixtures :options
@@ -20,7 +20,7 @@ RSpec.feature "Delete Advertisement", :feature do
 
 			expect do
 				first(:link, "Delete").click
-			end.to change {Advertisement.count}.from(Advertisement.count).to(Advertisement.count - 1)		
+			end.to change {Advertisement.count}.by(-1)
 		end
 	end
 end

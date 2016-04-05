@@ -1,14 +1,14 @@
 require "rails_helper"
 
 RSpec.feature "Adding Advertisement", :feature do
-	
+
 	describe "Adding Advertisement feature", js: true do
 		fixtures :advertisement_types
 		fixtures :users
 		fixtures :information_types
 		fixtures :information
 		fixtures :items
-		fixtures :categories	
+		fixtures :categories
 		fixtures :vehicle_brands
 		fixtures :vehicle_models
 		fixtures :options
@@ -31,30 +31,30 @@ RSpec.feature "Adding Advertisement", :feature do
 
 			scenario "showing and hidding form when categories select changes" do
 				signin_login_page(users(:miroslav).email, 'password')
-				visit new_advertisement_path	
+				visit new_advertisement_path
 				expect(page).to have_select('categories', selected: "Select...")
 				expect(page).to have_content('Please select category to continue. Thank you!')
 				expect(page).not_to have_css('#show-form')
 
 				select(categories(:cars).name, :from => 'categories')
 				expect(page).not_to have_content('Please select category to continue. Thank you!')
-				expect(page).to have_css('#show-form')	
+				expect(page).to have_css('#show-form')
 
 				select("Select...", :from => 'categories')
 				expect(page).to have_content('Please select category to continue. Thank you!')
-				expect(page).not_to have_css('#show-form')	
+				expect(page).not_to have_css('#show-form')
 
 				select(categories(:trucks).name, :from => 'categories')
 				expect(page).not_to have_content('Please select category to continue. Thank you!')
-				expect(page).to have_css('#show-form')	
+				expect(page).to have_css('#show-form')
 
 				select("Select...", :from => 'categories')
 				expect(page).to have_content('Please select category to continue. Thank you!')
-				expect(page).not_to have_css('#show-form')	
+				expect(page).not_to have_css('#show-form')
 
 				select(categories(:bicycles).name, :from => 'categories')
 				expect(page).not_to have_content('Please select category to continue. Thank you!')
-				expect(page).to have_css('#show-form')	
+				expect(page).to have_css('#show-form')
 			end
 
 			scenario "testing select vehicle brands and vehicle models" do
@@ -70,7 +70,7 @@ RSpec.feature "Adding Advertisement", :feature do
 				end
 				select(vehicle_brands(:opel).name, from: 'vehicle_brands')
 				expect(page).to have_select('vm_select',selected: "Select...")
-				select(vehicle_models(:astra_g).name, from: 'vm_select')	
+				select(vehicle_models(:astra_g).name, from: 'vm_select')
 			end
 		end # page layout
 
@@ -81,8 +81,8 @@ RSpec.feature "Adding Advertisement", :feature do
 
 			categories(:cars).information.basic_information.each do |info|
 				if !info.items.empty?
-					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]", 
-																			selected: "Select..." )		
+					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]",
+																			selected: "Select..." )
 				else
 					expect(page).to have_field("advertisement[advertisement_informations][#{info.id}]")
 				end
@@ -91,8 +91,8 @@ RSpec.feature "Adding Advertisement", :feature do
 			categories(:cars).information.additional_information.each do |info|
 				name = info.name.downcase.gsub(' ', '_')
 				if !info.items.empty?
-					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]", 
-																			selected: "Select..." )		
+					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]",
+																			selected: "Select..." )
 				else
 					expect(page).to have_field("advertisement[advertisement_informations][#{info.id}]")
 				end
@@ -100,7 +100,7 @@ RSpec.feature "Adding Advertisement", :feature do
 
 			categories(:cars).options.each do |info|
 				expect(page).to have_no_checked_field "advertisement_options_#{info.name.downcase}"
-			end			
+			end
 		end
 
 		scenario "testing bicycles basic information,additional information and options" do
@@ -110,8 +110,8 @@ RSpec.feature "Adding Advertisement", :feature do
 
 			categories(:bicycles).information.basic_information.each do |info|
 				if !info.items.empty?
-					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]", 
-																			selected: "Select..." )		
+					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]",
+																			selected: "Select..." )
 				else
 					expect(page).to have_field("advertisement[advertisement_informations][#{info.id}]")
 				end
@@ -120,8 +120,8 @@ RSpec.feature "Adding Advertisement", :feature do
 			categories(:bicycles).information.additional_information.each do |info|
 				name = info.name.downcase.gsub(' ', '_')
 				if !info.items.empty?
-					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]", 
-																			selected: "Select..." )		
+					expect(page).to have_select("advertisement[advertisement_informations][#{info.id}]",
+																			selected: "Select..." )
 				else
 					expect(page).to have_field("advertisement[advertisement_informations][#{info.id}]")
 				end
@@ -130,7 +130,7 @@ RSpec.feature "Adding Advertisement", :feature do
 			categories(:bicycles).options.each do |info|
 				name = info.name.downcase.gsub(' ', '_')
 				expect(page).to have_no_checked_field "advertisement_options_#{name}"
-			end			
+			end
 		end
 
 		context "testing authenticate user" do
@@ -148,7 +148,7 @@ RSpec.feature "Adding Advertisement", :feature do
 				visit new_advertisement_path
 				select(categories(:cars).name, :from => 'categories')
 				select(vehicle_brands(:opel).name, from: 'vehicle_brands')
-				select(vehicle_models(:astra_g).name, from: 'vm_select')	
+				select(vehicle_models(:astra_g).name, from: 'vm_select')
 
 				fill_in("advertisement[title]", with: "New Advertisement")
 				fill_in("advertisement[price]", with: 50000)
@@ -159,9 +159,9 @@ RSpec.feature "Adding Advertisement", :feature do
 					fill_in("advertisement[advertisement_informations][#{info.id}]", with: rand(1000...5000))
 				end
 
-				# additional advertisement informations	
+				# additional advertisement informations
 				select(items(:gasoline).name, from: "advertisement[advertisement_informations][#{information(:fuel).id}]")
-				select(items(:coupe).name, from: "advertisement[advertisement_informations][#{information(:style).id}]") 
+				select(items(:coupe).name, from: "advertisement[advertisement_informations][#{information(:style).id}]")
 				select(items(:fwd).name, from: "advertisement[advertisement_informations][#{information(:drive).id}]")
 				select(items(:semi_automatic).name, from: "advertisement[advertisement_informations][#{information(:transmission).id}]")
 				select(items(:manual_air_condition).name, from: "advertisement[advertisement_informations][#{information(:air_condition).id}]")
@@ -172,13 +172,18 @@ RSpec.feature "Adding Advertisement", :feature do
 				categories(:cars).options.each do |info|
 					name = info.name.downcase.gsub(' ', '_')
 					check "advertisement_options_#{name}"
-				end	
+				end
 
 				expect do
 					click_button "Add advertisement"
 				end.to change {Advertisement.count}.from(Advertisement.count).to(Advertisement.count + 1)
 
+				expect(Advertisement.pending).to include(Advertisement.last)
 				expect(page).to have_content "Advertisement successfully created."
+
+				# expect that email has been sent
+				expect(ActionMailer::Base.deliveries.count).to eq(1)
+				expect(ActionMailer::Base.deliveries.last.to).to include(users(:miroslav).email)
 			end
 
 			scenario "user successfully adds bicycle advertisement" do
@@ -187,7 +192,7 @@ RSpec.feature "Adding Advertisement", :feature do
 				visit new_advertisement_path
 				select(categories(:bicycles).name, :from => 'categories')
 				select(vehicle_brands(:boardman).name, from: 'vehicle_brands')
-				select(vehicle_models(:mountain_one).name, from: 'vm_select')	
+				select(vehicle_models(:mountain_one).name, from: 'vm_select')
 
 				fill_in("advertisement[title]", with: "New Bicycle Advertisement")
 				fill_in("advertisement[price]", with: 1000)
@@ -202,16 +207,16 @@ RSpec.feature "Adding Advertisement", :feature do
 					end
 				end
 
-				# additional advertisement informations	
+				# additional advertisement informations
 				select(items(:blue_color).name, from: "advertisement[advertisement_informations][#{information(:color).id}]")
-				select(items(:v_break).name, from: "advertisement[advertisement_informations][#{information(:breaks).id}]") 
+				select(items(:v_break).name, from: "advertisement[advertisement_informations][#{information(:breaks).id}]")
 				select(items(:carbon).name, from: "advertisement[advertisement_informations][#{information(:material).id}]")
 				select(items(:inch_17).name, from: "advertisement[advertisement_informations][#{information(:size).id}]")
 
 				categories(:bicycles).options.each do |info|
 					name = info.name.downcase.gsub(' ', '_')
 					check "advertisement_options_#{name}"
-				end	
+				end
 
 				expect do
 					click_button "Add advertisement"
@@ -222,7 +227,7 @@ RSpec.feature "Adding Advertisement", :feature do
 		end
 
 		context "INVALID DATA" do
-		
+
 			scenario "unsuccessful adds car advertisement" do
 				signin_login_page(users(:miroslav).email, 'password')
 
@@ -236,7 +241,7 @@ RSpec.feature "Adding Advertisement", :feature do
 				# basic advertisement informations
 				# ...nothing
 
-				# additional advertisement informations	
+				# additional advertisement informations
 				# ...nothing
 
 				# options
@@ -262,7 +267,7 @@ RSpec.feature "Adding Advertisement", :feature do
 				# basic advertisement informations
 				# ...nothing
 
-				# additional advertisement informations	
+				# additional advertisement informations
 				# ...nothing
 
 				# options
@@ -273,7 +278,7 @@ RSpec.feature "Adding Advertisement", :feature do
 				end.to change {Advertisement.count}.by(0)
 
 				expect(page).not_to have_content "Advertisement successfully created."
-			end	
+			end
 		end
-	end	
+	end
 end

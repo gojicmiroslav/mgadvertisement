@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325215357) do
+ActiveRecord::Schema.define(version: 20160329184209) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -65,19 +65,19 @@ ActiveRecord::Schema.define(version: 20160325215357) do
   end
 
   create_table "advertisements", force: :cascade do |t|
-    t.string   "title",                 limit: 255,                            default: "",   null: false
+    t.string   "title",                 limit: 255,                            default: "", null: false
     t.text     "description",           limit: 65535
-    t.decimal  "price",                               precision: 10, scale: 2,                null: false
-    t.date     "year",                                                                        null: false
-    t.boolean  "active",                                                       default: true
-    t.datetime "created_at",                                                                  null: false
-    t.datetime "updated_at",                                                                  null: false
+    t.decimal  "price",                               precision: 10, scale: 2,              null: false
+    t.date     "year",                                                                      null: false
+    t.datetime "created_at",                                                                null: false
+    t.datetime "updated_at",                                                                null: false
     t.integer  "category_id",           limit: 4
     t.integer  "vehicle_model_id",      limit: 4
     t.integer  "user_id",               limit: 4
     t.integer  "advertisement_type_id", limit: 4
     t.text     "images",                limit: 65535
     t.string   "slug",                  limit: 255
+    t.integer  "status",                limit: 4
   end
 
   add_index "advertisements", ["advertisement_type_id"], name: "index_advertisements_on_advertisement_type_id", using: :btree

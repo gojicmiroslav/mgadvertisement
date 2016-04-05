@@ -1,0 +1,8 @@
+<% if @advertisement.status.eql?("rejected") %>
+Sorry, your advertisement has been rejected!
+Please contact us for further information.
+<% else %>
+Your advertisement status has been changed to <%= @advertisement.status %>.
+<% end %>
+
+Thank you!
