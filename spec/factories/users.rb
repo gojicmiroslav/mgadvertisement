@@ -7,7 +7,7 @@ FactoryGirl.define do
 
     firstname "Miroslav"
     lastname "Gojic"
-    email    Faker::Internet.email
+    sequence(:email){ |n| "email#{n}@email.com"} 
     password "please123"
     
     before(:create) do |user, evaluator|
@@ -15,18 +15,5 @@ FactoryGirl.define do
     end
   end
 
-  factory :other_user, :parent => :user do
-    transient do
-      skip_confirmation true
-    end
-
-    firstname "Pera"
-    lastname "Peric"
-    email Faker::Internet.email
-    password "please123"
-    
-    before(:create) do |user, evaluator|
-      user.skip_confirmation! if evaluator.skip_confirmation
-    end
-  end
+  
 end

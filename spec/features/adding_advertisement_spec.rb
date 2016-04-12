@@ -133,14 +133,6 @@ RSpec.feature "Adding Advertisement", :feature do
 			end
 		end
 
-		context "testing authenticate user" do
-			scenario "user not logged in" do
-				visit advertisements_path
-				expect(current_path).to eq(new_user_session_path)
-				expect(page).to have_content I18n.translate 'devise.failure.unauthenticated'
-			end
-		end
-
 		context "VALIDA DATA" do
 			scenario "user successfully adds cars advertisement" do
 				signin_login_page(users(:miroslav).email, 'password')

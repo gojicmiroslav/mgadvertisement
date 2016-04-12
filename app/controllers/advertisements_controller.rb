@@ -1,10 +1,11 @@
 class AdvertisementsController < ApplicationController
-
   before_action :set_advertisement, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: :show
 
+  load_and_authorize_resource only: [:edit, :update, :destroy]
+
   def index
-    @advertisements = Advertisement.all
+    @advertisements = Advertisement.where('user_id = ?', current_user.id)
   end
 
   def show
@@ -43,7 +44,6 @@ class AdvertisementsController < ApplicationController
     @advertisement.option_ids = params[:advertisement][:options_attributes]
     #advertisement_informations = params[:advertisement][:advertisement_informations]
     advertisement_informations = get_advertisement_informations params[:advertisement][:advertisement_informations]
-
 
     if @advertisement.save_all(advertisement_informations)
       UserMailer.advertisement_created(current_user.email, @advertisement.id).deliver_now
@@ -91,13 +91,14 @@ class AdvertisementsController < ApplicationController
   end
 
   def advertisement_params
-    params.require(:advertisement).permit(:title, :description, :price, :year, :active, :category_id,
+    params.require(:advertisement).permit(:title, :description, :price, :year, :category_id,
                                           :vehicle_model_id, :user_id, :advertisement_type_id,
                                           :option_ids, :advertisement_informations, images: [])
   end
 
   # we have to check is Item with given id exists or is it a value
   def get_advertisement_informations(in_params)
+    in_params ||= []
     ret_arr = {}
     in_params.each do |key, value|
       value = (Item.exists?(value) ? value = Item.find(value).name : value)

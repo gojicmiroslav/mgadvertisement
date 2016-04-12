@@ -13,7 +13,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
-gem 'cancan'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 #gem 'rmagick'
@@ -25,7 +24,7 @@ gem 'cancancan', '~> 1.10'
 gem 'jquery-ui-rails'
 gem 'friendly_id', '~> 5.1.0'
 
-source "http://rails-assets.org" do
+source "https://rails-assets.org" do
   gem 'rails-assets-sweetalert'
 end
 

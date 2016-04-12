@@ -1,9 +1,22 @@
 require 'rails_helper'
 
 RSpec.feature "Users Update", :feature do
+	fixtures :advertisement_types
+	fixtures :users
+	fixtures :information_types
+	fixtures :information
+	fixtures :items
+	fixtures :categories
+	fixtures :vehicle_brands
+	fixtures :vehicle_models
+	fixtures :options
 
-	let(:user){ FactoryGirl.create(:user) }
-	let(:other_user){ FactoryGirl.create(:other_user) }
+	let(:user){ users(:miroslav) }
+	let(:other_user){ users(:pera) }
+
+	before do 
+		user.password = 'password'
+	end
 
 	scenario "should redirect edit when not logged in" do
 		visit edit_user_registration_path(user)

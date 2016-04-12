@@ -4,11 +4,11 @@ FactoryGirl.define do
 		name "Information Type"
 	end
 
-	factory :basic, parent: :information_type do
+	factory :basic_information_type, parent: :information_type do
 		name "Basic"
 	end
 
-	factory :additional, parent: :information_type do
+	factory :additional_information_type, parent: :information_type do
 		name "Additional"
 	end
 
