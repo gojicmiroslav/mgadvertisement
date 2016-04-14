@@ -21,6 +21,9 @@
 //= require sweet-alert-confirm
 //= require blueimp-gallery-all
 //= require spin
+//= require react
+//= require react_ujs
+//= require components
 //= require app
 
 

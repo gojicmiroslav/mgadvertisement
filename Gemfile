@@ -23,6 +23,8 @@ gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'cancancan', '~> 1.10'
 gem 'jquery-ui-rails'
 gem 'friendly_id', '~> 5.1.0'
+gem 'ancestry'
+gem 'react-rails'
 
 source "https://rails-assets.org" do
   gem 'rails-assets-sweetalert'
