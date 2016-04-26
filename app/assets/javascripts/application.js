@@ -21,10 +21,13 @@
 //= require sweet-alert-confirm
 //= require blueimp-gallery-all
 //= require spin
+//= require lodash
 //= require react
 //= require react_ujs
+//= require flux
+//= require eventemitter 
 //= require components
-//= require app
+//= require flux_app
 
 
 

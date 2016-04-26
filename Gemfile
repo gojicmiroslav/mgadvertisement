@@ -25,6 +25,9 @@ gem 'jquery-ui-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem 'ancestry'
 gem 'react-rails'
+gem 'flux-rails-assets'
+gem 'lodash-rails'
+#gem 'sprockets-es6', '0.6.1' 
 
 source "https://rails-assets.org" do
   gem 'rails-assets-sweetalert'
