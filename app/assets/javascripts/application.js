@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require es6/system
+//= require es6/es6-module-loader
 //= require bootstrap
 //= require turbolinks
 //= require jquery.validate
@@ -28,6 +30,9 @@
 //= require eventemitter 
 //= require components
 //= require flux_app
+
+// bridge from js to es6
+System.import('/components/comment_section');
 
 
 

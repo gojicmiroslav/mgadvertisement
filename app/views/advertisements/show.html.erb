@@ -104,7 +104,7 @@
   <div class="col-md-8 comments-page">    
     <h3>Comments</h3><br/>
 
-    <%= react_component('CommentList') %>
+    <%= react_component('CommentSection', comments: raw(render(template: 'comments/index.json.jbuilder')) ) %>
 
   </div>
 </div>
