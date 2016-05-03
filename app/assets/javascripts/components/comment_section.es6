@@ -33,6 +33,7 @@ class CommentSection extends React.Component{
 		return (
 			<div>
 				<CommentForm />
+				<hr />
 				<CommentList />
 			</div>
 		);

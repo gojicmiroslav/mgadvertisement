@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   resources :vehicle_models
   resources :vehicle_brands, only: [:index, :show]
   resources :options
-  resources :advertisements
+  resources :advertisements do
+    resources :comments
+  end
 
 
   resources :categories, only: [:index, :show] do
