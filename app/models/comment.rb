@@ -6,4 +6,9 @@ class Comment < ActiveRecord::Base
 	validates :advertisement, presence: true
 
 	has_ancestry
+
+	def self.upvote(id)
+		comment = find(id)
+		comment.update_attributes(rank: comment.rank.to_i + 1)
+	end
 end

@@ -16,12 +16,22 @@ class Comment extends React.Component {
     this.state = { isReplying: false };
   }
 
+  static get contextTypes(){
+    return {
+      actions: React.PropTypes.func.isRequired
+    }
+  }
+
   onToggleReply(){
     this.setState({ isReplying: !this.state.isReplying });
   }
 
   onCommentSubmitted(event){
     this.setState({ isReplying: false });
+  }
+
+  onUpvote(event){
+    this.context.actions.upvoteComment(this.props);
   }
 
   render(){
@@ -35,9 +45,11 @@ class Comment extends React.Component {
           </div>
           <div className="panel-body">
             {this.props.body} <hr />
+            <span className="label label-default">{this.props.rank || 0}</span><br /><br />
             <button className="btn btn-info btn-sm" onClick={this.onToggleReply.bind(this)}>
               {replyText}
             </button>
+            <button className="btn btn-primary btn-sm" onClick={this.onUpvote.bind(this)}>+1</button>
             <CommentForm 
               parent_id={this.props.id} 
               isReplying={this.state.isReplying} 

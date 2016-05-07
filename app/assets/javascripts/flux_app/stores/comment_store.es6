@@ -5,6 +5,7 @@ class CommentStore extends EventEmitter {
 	constructor(){
 		super();
 		this._comments = [];
+		this.setMaxListeners(100);
 
 		AppDispatcher.register((payload) => {
 			switch(payload.actionType){
@@ -14,6 +15,10 @@ class CommentStore extends EventEmitter {
 					break;
 				case Constants.SET_COMMENTS:
 					this.setComments(payload.comments);
+					this.emitChange();
+					break;
+				case Constants.UPVOTE_COMMENT:
+					this.upvote(payload.comment);
 					this.emitChange();
 					break;
 				default:
@@ -30,6 +35,10 @@ class CommentStore extends EventEmitter {
 
 	addComment(comment){
 		this._comments[comment.id || this._comments.length] = comment;
+	}
+
+	upvote(comment){
+		this._comments[comment.id].rank++;
 	}
 
 	comments(parentId){

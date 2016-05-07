@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :vehicle_brands, only: [:index, :show]
   resources :options
   resources :advertisements do
-    resources :comments
+    resources :comments do
+      put 'upvote', to: 'comments#upvote'
+    end
   end
 
 

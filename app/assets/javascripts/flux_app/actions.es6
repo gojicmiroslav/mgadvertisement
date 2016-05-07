@@ -22,6 +22,17 @@ class Actions {
 			comments: params
 		});
 	}
+
+	static upvoteComment(comment){
+		Api.put(`/advertisements/1/comments/${comment.id}/upvote`).then(function(resp){
+			return resp.json();
+		}).then(function(comment){
+			AppDispatcher.dispatch({
+				actionType: Constants.UPVOTE_COMMENT,
+				comment: comment
+			});
+		});
+	}
 }
 
 export default Actions;

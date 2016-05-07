@@ -15,12 +15,20 @@ class Api {
   }
 
 	static post(route, params){
-		return fetch(`${route}.json`, _.merge({
+		return fetch(`${route}.json`, {
 			method: 'post',
 			credentials: 'include',
 			headers: this.headers()
-		}, { body: JSON.stringify(params) }));
+		});
 	}
+
+  static put(route, params){
+    return fetch(`${route}.json`, _.merge({
+      method: 'put',
+      credentials: 'include',
+      headers: this.headers()
+    }, { body: JSON.stringify(params) }));
+  }
 
 }
 
