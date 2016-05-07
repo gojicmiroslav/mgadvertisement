@@ -1,8 +1,16 @@
 class CommentForm extends React.Component {
-	constructor(){
+	constructor(props){
 		super();
 		this.defaultState = { body: '', author: ''};
 		this.state = this.defaultState;
+	}
+
+	static get PropTypes(){
+		return {
+			isReplying: React.PropTypes.bool,
+			onCommentSubmitted: React.PropTypes.func,
+			parent_id: React.PropTypes.number,
+		};
 	}
 
 	static get contextTypes(){
@@ -19,14 +27,17 @@ class CommentForm extends React.Component {
 
 	submitComment(event){
 		event.preventDefault();
-		this.context.actions.addComment(this.state);
+		this.context.actions.addComment(_.merge(this.state, { parent_id: this.props.parent_id }));
 		this.setState(this.defaultState);
+		if(this.props.onCommentSubmitted){ // if the functions is declared
+			this.props.onCommentSubmitted(); // then called it
+		}
 	}
 
 	render(){
 		return(
 			<div>
-				<form>
+				<form className={this.props.isReplying ? '' : 'hidden'}>
 					<div className="form-group">
 						<label>Author: </label>
 						<input type="text" name="author" value={this.state.author} onChange={this.onFieldChange.bind(this)} className="form-control"/>
