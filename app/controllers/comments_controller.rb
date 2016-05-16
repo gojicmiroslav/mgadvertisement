@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
 
+	def index
+		#advertisement = Advertisement.friendly.find(params[:advertisement_id])
+		@comments = Comment.where(advertisement_id: params[:advertisement_id])
+	end
+
 	def create
 		# { body: '', author: '', parent_id: id, advertisement_id: id }
 		@comment = Comment.create(comment_params.merge(advertisement_id: params[:advertisement_id]))

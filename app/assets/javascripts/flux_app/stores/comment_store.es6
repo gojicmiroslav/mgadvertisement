@@ -28,9 +28,14 @@ class CommentStore extends EventEmitter {
 	}
 
 	setComments(comments){
-		comments.forEach(comment => {
-			this.addComment(comment);
-		});
+		console.log('CommentStore: ' + comments);
+		// comments.forEach(comment => {
+		// 	this.addComment(comment);
+		// });
+
+		for(var i = 0; i < comments.length; i++){
+    	this.addComment(comments[i]);
+    }
 	}
 
 	addComment(comment){

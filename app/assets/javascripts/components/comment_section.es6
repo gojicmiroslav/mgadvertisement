@@ -8,7 +8,7 @@ class CommentSection extends React.Component{
 	constructor(props){
 		super();
 		this.store = new CommentStore();
-		this.actions = Actions;
+		this.actions = new Actions(props.advertisementId);
 		this.actions.setComments(JSON.parse(props.comments));
 	}
 
@@ -16,7 +16,7 @@ class CommentSection extends React.Component{
 		//tell the children that there is a object named store at there disposal
 		return {
 			store: React.PropTypes.object.isRequired,
-			actions: React.PropTypes.func.isRequired
+			actions: React.PropTypes.object.isRequired
 		}
 	}
 

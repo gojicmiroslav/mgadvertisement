@@ -3,8 +3,13 @@ import AppDispatcher from '/flux_app/app_dispatcher'
 import Api from "/flux_app/api";
 
 class Actions {
-	static addComment(params){
-		Api.post('/advertisements/1/comments', {
+	constructor(advertisementId){
+		this.advertisementId = advertisementId;
+		this.watchInterval = setInterval(this.watch.bind(this), 1000);
+	}
+
+	addComment(params){
+		Api.post(`/advertisements/${this.advertisementId}/comments`, {
 			comment: params
 		}).then(resp => {
 			return resp.json();
@@ -16,15 +21,15 @@ class Actions {
 		});
 	}
 
-	static setComments(params){
+	setComments(params){
 		AppDispatcher.dispatch({
 			actionType: Constants.SET_COMMENTS,
 			comments: params
 		});
 	}
 
-	static upvoteComment(comment){
-		Api.put(`/advertisements/1/comments/${comment.id}/upvote`).then(function(resp){
+	upvoteComment(comment){
+		Api.put(`/advertisements/${this.advertisementId}/comments/${comment.id}/upvote`).then(function(resp){
 			return resp.json();
 		}).then(function(comment){
 			AppDispatcher.dispatch({
@@ -33,6 +38,12 @@ class Actions {
 			});
 		});
 	}
+
+	watch() {
+    Api.get(`/advertisements/${this.advertisementId}/comments`).then( comments => {
+      this.setComments(comments);
+    });
+  }
 }
 
 export default Actions;
