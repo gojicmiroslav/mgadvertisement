@@ -33,21 +33,18 @@ class Advertisement < ActiveRecord::Base
 	def save_all advertisement_informations
 		advertisement_informations ||= {}
 		
-  	advertisement_informations.each do |info_id, value|
-  		a = AdvertisementInformation.create(
-        			advertisement: self,
-        			information: Information.find(info_id),
-        			value: value
-      			)
-  		self.advertisement_informations << a
-  	end
+	  	advertisement_informations.each do |info_id, value|
+	  		a = AdvertisementInformation.create(
+	        			advertisement: self,
+	        			information: Information.find(info_id),
+	        			value: value
+	      			)
+	  		self.advertisement_informations << a
+	  	end
 
+	  	self.pending!
 		saved = self.save
-  	if saved
-			# set to default
-			self.pending!
-		end
-
+  		
 		return saved
 	end
 

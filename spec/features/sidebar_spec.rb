@@ -34,52 +34,52 @@ RSpec.feature "Sidebar", :feature do
 			expect(page).to have_content "Vehicle Brands and Models"
 
 			expect(page).to have_select('search_vehicle_brand', options: ['Select...',
-																																		vehicle_brands(:opel).name,
-																																		vehicle_brands(:volkswagen).name,
-																																		vehicle_brands(:mercedes).name,
-																																		vehicle_brands(:renault).name])
+			vehicle_brands(:opel).name,
+			vehicle_brands(:volkswagen).name,
+			vehicle_brands(:mercedes).name,
+			vehicle_brands(:renault).name])
 
 			select(vehicle_brands(:opel).name, :from => 'search_vehicle_brand')
 			expect(page).to have_select('search_vehicle_model', options: [vehicle_models(:astra_g).name,
-																																		vehicle_models(:astra_f).name,
-																																		vehicle_models(:insignia).name])
+			vehicle_models(:astra_f).name,
+			vehicle_models(:insignia).name])
 
 			expect(page).to have_select('fuel', options: ['Select...',
-																										items(:gasoline).name,
-																										items(:diesel).name,
-																										items(:gasoline_and_gas).name,
-																										items(:alternate).name])
+													items(:gasoline).name,
+													items(:diesel).name,
+													items(:gasoline_and_gas).name,
+													items(:alternate).name])
 
 			expect(page).to have_select('engine', options: [ 'Select...',
-																											 items(:cylinder_3).name,
-																											 items(:cylinder_4).name,
-																											 items(:cylinder_5).name,
-																											 items(:cylinder_6).name,
-																											 items(:cylinder_8).name,
-																											 items(:cylinder_10).name,
-																											 items(:cylinder_12).name,
-																											 items(:electric).name,
-																											 items(:hybrid).name,
-																											 items(:rotary_engine).name])
+													items(:cylinder_3).name,
+												    items(:cylinder_4).name,
+													items(:cylinder_5).name,
+													items(:cylinder_6).name,
+													items(:cylinder_8).name,
+													items(:cylinder_10).name,
+													items(:cylinder_12).name,
+													items(:electric).name,
+										  		    items(:hybrid).name,
+  												    items(:rotary_engine).name])
 
 			expect(page).to have_select('drive', options: [ 'Select...',
-																											items(:awd).name,
-																											items(:fwd).name,
-																											items(:rwd).name,
-																											items(:wd_4).name,
-																											items(:other_drive).name])
+													items(:awd).name,
+													items(:fwd).name,
+													items(:rwd).name,
+													items(:wd_4).name,
+													items(:other_drive).name])
 
 			expect(page).to have_select('air_condition', options: [ 'Select...',
-																															items(:automatic_air_condition).name,
-																															items(:manual_air_condition).name,
-																															items(:none_air_condition).name])
+															items(:automatic_air_condition).name,
+															items(:manual_air_condition).name,
+															items(:none_air_condition).name])
 
 			expect(page).to have_select('transmission', options: ['Select...',
-																														 items(:automatic).name,
-																														 items(:manual).name,
-																														 items(:semi_automatic).name,
-																														 items(:cvt).name,
-																														 items(:other_transmission).name])
+															items(:automatic).name,
+														    items(:manual).name,
+														    items(:semi_automatic).name,
+														    items(:cvt).name,
+														    items(:other_transmission).name])
 
 			expect(page).to have_select('exterior_color', options: ['Select...',
 																															items(:beige_exterior_color).name,

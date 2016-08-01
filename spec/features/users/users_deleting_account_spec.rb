@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 RSpec.feature "Users Deleting Account", :feature do
-
 	let(:user){ FactoryGirl.create(:user) }
+	fixtures :categories
+
+	before do
+		login_as(user, :scope => :user)
+	end
 	
 	scenario "user soft deleting account" do
-		login_as(user, :scope => :user)
 		visit edit_user_registration_path(user)
 		expect do
 			click_button 'Cancel my account'

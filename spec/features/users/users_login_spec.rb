@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Users Login", :feature do
+	fixtures :categories
 
 	#======INVALID LOGIN=========================================
 	context "INVALID DATA" do

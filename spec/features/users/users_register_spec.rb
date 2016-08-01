@@ -2,21 +2,22 @@ require 'rails_helper'
 
 RSpec.feature "User Register", :feature do
 
-	let(:invalid_user) do
-		User.create(firstname: "",
-								lastname: "", 
-								email: Faker::Internet.email, 
-								password: 'foo',
-								password_confirmation: "bar") 
+	let(:invalid_user) do 
+		User.create(firstname: "", lastname: "", 
+			email: Faker::Internet.email, 
+			password: 'foo',
+			password_confirmation: "bar") 
 	end
 
 	let(:valid_user) do
 		User.create(firstname: "Test",
-								lastname: "User",
-								email: Faker::Internet.email,
-								password: "password",
-								password_confirmation: "password")
+			lastname: "User",
+			email: Faker::Internet.email,
+			password: "password",
+			password_confirmation: "password")
 	end
+
+	fixtures :categories
 
 	#======INVALID REGISTRATION=========================================
 	context "INVALID DATA" do

@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe StaticPagesController, type: :controller do
+
+	fixtures :advertisement_types
+  	fixtures :users
+  	fixtures :information_types
+  	fixtures :information
+  	fixtures :items
+  	fixtures :categories
+  	fixtures :vehicle_brands
+  	fixtures :vehicle_models
+  	fixtures :options
+  	fixtures :advertisements
 	
 	describe "GET #index" do
 
