@@ -311,6 +311,20 @@ car_inactive_advertisement:
   options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation
   status: <%= Advertisement.statuses['inactive'] %>
 
+car_rejected_advertisement:
+  title: Title for Some Rejected advertisements
+  description: Some description New
+  price: 5000
+  year: <%= Time.now - 2.hour %>
+  created_at: <%= Time.now %>
+  category: cars
+  vehicle_model: astra_f
+  user: miroslav
+  advertisement_type: used
+  options: 3_rd_row_seats, power_locks, cd_player, sunroof, dvd_player, security_system, navigation
+  status: <%= Advertisement.statuses['rejected'] %>
+ 
+
 bicycle_pending_advertisement:
   title: New Title for Pending Bicycle advertisement  
   description: Some description New

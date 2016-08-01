@@ -27,6 +27,8 @@ class Advertisement < ActiveRecord::Base
 
 	friendly_id :title, use: [:slugged, :finders]
 
+	scope :active, -> { where('status =', self.active) }
+
 	enum status: [:active, :inactive, :pending, :rejected]
 
 	# TODO - ovo refaktorisati
