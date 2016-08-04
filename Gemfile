@@ -18,6 +18,7 @@ gem 'mini_magick'
 #gem 'rmagick'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'fog'
 
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'cancancan', '~> 1.10'
